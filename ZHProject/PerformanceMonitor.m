@@ -28,6 +28,7 @@
 @property(nonatomic, strong) UILabel *fpsL;
 @property(nonatomic, strong) UILabel *cpuL;
 @property(nonatomic, strong) UIView *monitorView;
+@property(nonatomic, strong) UILabel *memoryL;
 @property(nonatomic, assign) CGPoint originalPoint;
 
 @end
@@ -54,8 +55,14 @@
     return self;
 }
 
+- (void)setLableProperty:(UILabel *)label {
+    label.font = [UIFont systemFontOfSize:12];
+    label.textColor = [UIColor greenColor];
+}
+
 - (void)setupMonitoerView {
-    UIView *monitorView = [[UIView alloc] initWithFrame:CGRectMake(0, 100, 60, 40)];
+    CGFloat labelH = 15;
+    UIView *monitorView = [[UIView alloc] initWithFrame:CGRectMake(5, 100, 60, labelH*3)];
     self.originalPoint = monitorView.frame.origin;
     monitorView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.7];
     UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panMonitorView:)];
@@ -63,21 +70,23 @@
     [pan addObserver:self forKeyPath:@"state" options:NSKeyValueObservingOptionNew context:nil];
     [monitorView addGestureRecognizer:pan];
     
-    UILabel *fpsL = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, monitorView.frame.size.width, monitorView.frame.size.height*0.5)];
-    fpsL.textColor = [UIColor greenColor];
-    fpsL.font = [UIFont systemFontOfSize:12];
-    
-    UILabel *cpuL = [[UILabel alloc] initWithFrame:CGRectMake(0, monitorView.frame.size.height*0.5, monitorView.frame.size.width, monitorView.frame.size.height*0.5)];
-    cpuL.textColor = [UIColor greenColor];
-    cpuL.font = [UIFont systemFontOfSize:12];
+    UILabel *fpsL = [[UILabel alloc] initWithFrame:CGRectMake(5, 0, monitorView.frame.size.width, labelH)];
+    UILabel *cpuL = [[UILabel alloc] initWithFrame:CGRectMake(5, 15, monitorView.frame.size.width, labelH)];
+    UILabel *memoryL = [[UILabel alloc] initWithFrame:CGRectMake(5, 30, monitorView.bounds.size.width, labelH)];
+
     self.monitorView = monitorView;
     self.fpsL = fpsL;
     self.cpuL = cpuL;
-    self.cpuL.textAlignment = NSTextAlignmentCenter;
-    self.fpsL.textAlignment = NSTextAlignmentCenter;
+    self.memoryL = memoryL;
+
     [monitorView addSubview:fpsL];
     [monitorView addSubview:cpuL];
+    [monitorView addSubview:memoryL];
     
+    [self setLableProperty:fpsL];
+    [self setLableProperty:cpuL];
+    [self setLableProperty:memoryL];
+
     [[UIApplication sharedApplication].keyWindow addSubview:monitorView];
 }
 
@@ -139,6 +148,7 @@
     dispatch_source_set_timer(timer, DISPATCH_TIME_NOW, 1000*NSEC_PER_MSEC, 0);
     dispatch_source_set_event_handler(timer, ^{
         CGFloat cpuUsage = [self cpu_usage];
+        CGFloat memoryUsage = [self memoryUsage];
         dispatch_async(dispatch_get_main_queue(), ^{
             self.cpuL.text = [NSString stringWithFormat:@"cpu:%d%%",(int)(cpuUsage*100)];
             if (cpuUsage>0&&cpuUsage<0.3) {
@@ -147,6 +157,14 @@
                 self.cpuL.textColor = [UIColor yellowColor];
             } else {
                 self.cpuL.textColor = [UIColor redColor];
+            }
+            self.memoryL.text = [NSString stringWithFormat:@"m:%.2f",memoryUsage];
+            if (memoryUsage<100) {
+                self.memoryL.textColor = [UIColor greenColor];
+            } else if (memoryUsage>=100&&memoryUsage<150) {
+                self.memoryL.textColor = [UIColor yellowColor];
+            } else {
+                self.memoryL.textColor = [UIColor redColor];
             }
         });
     });
@@ -196,6 +214,17 @@ static void runloopObserver(CFRunLoopObserverRef observer, CFRunLoopActivity act
 }
 
 
+- (unsigned long)memoryUsage {
+    struct task_basic_info info;
+    mach_msg_type_number_t size = sizeof(info);
+    kern_return_t kr = task_info(mach_task_self(), TASK_BASIC_INFO, (task_info_t)&info, &size);
+    if (kr != KERN_SUCCESS) {
+        return -1;
+    }
+    unsigned long memorySize = info.resident_size >> 10;
+    return memorySize/1024.0;
+}
+
 - (float)cpu_usage {
     kern_return_t			kr = { 0 };
     task_info_data_t		tinfo = { 0 };
@@ -243,7 +272,6 @@ static void runloopObserver(CFRunLoopObserverRef observer, CFRunLoopActivity act
     kr = vm_deallocate( mach_task_self(), (vm_offset_t)thread_list, thread_count * sizeof(thread_t) );
     if ( KERN_SUCCESS != kr )
         return 0.0f;
-    
     return tot_cpu;
 }
 
