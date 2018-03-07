@@ -13,6 +13,8 @@
 		86E945BA204FDB8D0033BB7E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 86E945B9204FDB8D0033BB7E /* Assets.xcassets */; };
 		86E945BD204FDB8D0033BB7E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 86E945BB204FDB8D0033BB7E /* LaunchScreen.storyboard */; };
 		86E945C0204FDB8D0033BB7E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 86E945BF204FDB8D0033BB7E /* main.m */; };
+		86E945CA204FDF300033BB7E /* PerformanceMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = 86E945C7204FDF300033BB7E /* PerformanceMonitor.m */; };
+		86E945CB204FDF300033BB7E /* UIView+mainThread.m in Sources */ = {isa = PBXBuildFile; fileRef = 86E945C9204FDF300033BB7E /* UIView+mainThread.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,10 @@
 		86E945BC204FDB8D0033BB7E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		86E945BE204FDB8D0033BB7E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		86E945BF204FDB8D0033BB7E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		86E945C6204FDF300033BB7E /* PerformanceMonitor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PerformanceMonitor.h; sourceTree = "<group>"; };
+		86E945C7204FDF300033BB7E /* PerformanceMonitor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PerformanceMonitor.m; sourceTree = "<group>"; };
+		86E945C8204FDF300033BB7E /* UIView+mainThread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+mainThread.h"; sourceTree = "<group>"; };
+		86E945C9204FDF300033BB7E /* UIView+mainThread.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+mainThread.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +64,10 @@
 		86E945AF204FDB8D0033BB7E /* ZHProject */ = {
 			isa = PBXGroup;
 			children = (
+				86E945C6204FDF300033BB7E /* PerformanceMonitor.h */,
+				86E945C7204FDF300033BB7E /* PerformanceMonitor.m */,
+				86E945C8204FDF300033BB7E /* UIView+mainThread.h */,
+				86E945C9204FDF300033BB7E /* UIView+mainThread.m */,
 				86E945B0204FDB8D0033BB7E /* AppDelegate.h */,
 				86E945B1204FDB8D0033BB7E /* AppDelegate.m */,
 				86E945B3204FDB8D0033BB7E /* ViewController.h */,
@@ -143,7 +153,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				86E945B5204FDB8D0033BB7E /* ViewController.m in Sources */,
+				86E945CA204FDF300033BB7E /* PerformanceMonitor.m in Sources */,
 				86E945C0204FDB8D0033BB7E /* main.m in Sources */,
+				86E945CB204FDF300033BB7E /* UIView+mainThread.m in Sources */,
 				86E945B2204FDB8D0033BB7E /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
