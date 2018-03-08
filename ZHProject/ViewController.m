@@ -45,14 +45,23 @@
     v.backgroundColor = [UIColor redColor];
     
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tap)];
-    [v extendHitArea:100 left:100 bottom:100 right:100];
+//    [v extendHitArea:100 left:100 bottom:100 right:100];
+    v.extendedHitArea = CGRectMake(100, 100, 100, 100);
     [v addGestureRecognizer:tap];
-
     [self.view addSubview:v];
+    
+    UIView *v2 = [[UIView alloc] initWithFrame:CGRectMake(100, 300, 202, 202)];
+    [v2 extendHitAreaTop:40 left:40 bottom:40 right:40];
+    UITapGestureRecognizer *tap2 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(c)];
+    [v2 addGestureRecognizer:tap2];
+    v2.backgroundColor = [UIColor orangeColor];
+    [self.view addSubview:v2];
 
 }
 
-
+- (void)c {
+    NSLog(@"cccccc");
+}
 - (void)tap {
     NSLog(@"tap----");
 }
