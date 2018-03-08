@@ -1,4 +1,4 @@
-//
+
 //  ViewController.m
 //  PerformanceMonitor
 //
@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "PerformanceMonitor.h"
+#import "UIView+extendHitArea.h"
 
 @interface ViewController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -31,33 +32,30 @@
     [super viewDidLoad];
     
 
-    PerformanceMonitor *m = [PerformanceMonitor sharedMonitor];
-    [m startMonitor];
+//    PerformanceMonitor *m = [PerformanceMonitor sharedMonitor];
+//    [m startMonitor];
+//
+//    self.tableView = [[UITableView alloc] initWithFrame:self.view.frame style:UITableViewStylePlain];
+//    self.tableView.delegate = self;
+//    self.tableView.dataSource = self;
+//    [self.view addSubview:self.tableView];
     
-    self.tableView = [[UITableView alloc] initWithFrame:self.view.frame style:UITableViewStylePlain];
-    self.tableView.delegate = self;
-    self.tableView.dataSource = self;
-    [self.view addSubview:self.tableView];
     
+    UIView *v = [[UIView alloc] initWithFrame:CGRectMake(100, 100, 100, 100)];
+    v.backgroundColor = [UIColor redColor];
     
-//    UIView *v = [[UIView alloc] initWithFrame:CGRectMake(100, 100, 100, 100)];
-//    v.backgroundColor = [UIColor redColor];
-//    UIView *v2 = [[UIView alloc] initWithFrame:CGRectMake(10, 10, 10, 10)];
-//    v2.backgroundColor = [UIColor orangeColor];
-//    dispatch_async(dispatch_get_global_queue(0, 0), ^{
-//        [v addSubview:v2];
-//        [self.view addSubview:v];
-//        UIView *v3 = [[UIView alloc] initWithFrame:CGRectMake(10, 30, 10, 10)];
-//        v2.backgroundColor = [UIColor blueColor];
-//        [v addSubview:v3];
-//        [UIView animateWithDuration:1 animations:^{
-//            v.alpha = 0.5;
-//        }];
-//    });
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tap)];
+    [v extendHitArea:100 left:100 bottom:100 right:100];
+    [v addGestureRecognizer:tap];
+
+    [self.view addSubview:v];
+
 }
 
 
-
+- (void)tap {
+    NSLog(@"tap----");
+}
 
 
 

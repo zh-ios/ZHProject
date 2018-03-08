@@ -4,7 +4,7 @@
 //
 //  Created by autohome on 2018/3/6.
 //  Copyright © 2018年 autohome. All rights reserved.
-//
+//  检测view展示是否在主线程中进行
 
 #import "UIView+mainThread.h"
 #import <objc/runtime.h>
@@ -74,8 +74,6 @@
     }
     // 交换方法的实现之后，这个方法调用的是 originalIMP
     [self swz_setNeedsDisplayInRect:rect];
-    
-    [self setNeedsDisplayInRect:rect];
 }
 
 

@@ -15,6 +15,8 @@
 		86E945C0204FDB8D0033BB7E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 86E945BF204FDB8D0033BB7E /* main.m */; };
 		86E945CA204FDF300033BB7E /* PerformanceMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = 86E945C7204FDF300033BB7E /* PerformanceMonitor.m */; };
 		86E945CB204FDF300033BB7E /* UIView+mainThread.m in Sources */ = {isa = PBXBuildFile; fileRef = 86E945C9204FDF300033BB7E /* UIView+mainThread.m */; };
+		86E945CF205007120033BB7E /* NSDate+AHDateUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 86E945CE205007120033BB7E /* NSDate+AHDateUtil.m */; };
+		86E945D220500B1C0033BB7E /* UIView+extendHitArea.m in Sources */ = {isa = PBXBuildFile; fileRef = 86E945D120500B1C0033BB7E /* UIView+extendHitArea.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +34,10 @@
 		86E945C7204FDF300033BB7E /* PerformanceMonitor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PerformanceMonitor.m; sourceTree = "<group>"; };
 		86E945C8204FDF300033BB7E /* UIView+mainThread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+mainThread.h"; sourceTree = "<group>"; };
 		86E945C9204FDF300033BB7E /* UIView+mainThread.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+mainThread.m"; sourceTree = "<group>"; };
+		86E945CD205007110033BB7E /* NSDate+AHDateUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+AHDateUtil.h"; sourceTree = "<group>"; };
+		86E945CE205007120033BB7E /* NSDate+AHDateUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+AHDateUtil.m"; sourceTree = "<group>"; };
+		86E945D020500B1C0033BB7E /* UIView+extendHitArea.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+extendHitArea.h"; sourceTree = "<group>"; };
+		86E945D120500B1C0033BB7E /* UIView+extendHitArea.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+extendHitArea.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,10 +70,9 @@
 		86E945AF204FDB8D0033BB7E /* ZHProject */ = {
 			isa = PBXGroup;
 			children = (
+				86E945CC205006AE0033BB7E /* category */,
 				86E945C6204FDF300033BB7E /* PerformanceMonitor.h */,
 				86E945C7204FDF300033BB7E /* PerformanceMonitor.m */,
-				86E945C8204FDF300033BB7E /* UIView+mainThread.h */,
-				86E945C9204FDF300033BB7E /* UIView+mainThread.m */,
 				86E945B0204FDB8D0033BB7E /* AppDelegate.h */,
 				86E945B1204FDB8D0033BB7E /* AppDelegate.m */,
 				86E945B3204FDB8D0033BB7E /* ViewController.h */,
@@ -79,6 +84,19 @@
 				86E945BF204FDB8D0033BB7E /* main.m */,
 			);
 			path = ZHProject;
+			sourceTree = "<group>";
+		};
+		86E945CC205006AE0033BB7E /* category */ = {
+			isa = PBXGroup;
+			children = (
+				86E945CD205007110033BB7E /* NSDate+AHDateUtil.h */,
+				86E945CE205007120033BB7E /* NSDate+AHDateUtil.m */,
+				86E945C8204FDF300033BB7E /* UIView+mainThread.h */,
+				86E945C9204FDF300033BB7E /* UIView+mainThread.m */,
+				86E945D020500B1C0033BB7E /* UIView+extendHitArea.h */,
+				86E945D120500B1C0033BB7E /* UIView+extendHitArea.m */,
+			);
+			path = category;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -153,9 +171,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				86E945B5204FDB8D0033BB7E /* ViewController.m in Sources */,
+				86E945CF205007120033BB7E /* NSDate+AHDateUtil.m in Sources */,
 				86E945CA204FDF300033BB7E /* PerformanceMonitor.m in Sources */,
 				86E945C0204FDB8D0033BB7E /* main.m in Sources */,
 				86E945CB204FDF300033BB7E /* UIView+mainThread.m in Sources */,
+				86E945D220500B1C0033BB7E /* UIView+extendHitArea.m in Sources */,
 				86E945B2204FDB8D0033BB7E /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
