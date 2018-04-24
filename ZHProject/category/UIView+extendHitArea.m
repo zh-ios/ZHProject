@@ -87,7 +87,7 @@ static char *kTop_extendKey;
         }
 }
 
-- (void)extendHitArea:(CGFloat)top left:(CGFloat)left bottom:(CGFloat)bottom right:(CGFloat)right {
+- (void)extendHitAreaTop:(CGFloat)top left:(CGFloat)left bottom:(CGFloat)bottom right:(CGFloat)right {
     objc_setAssociatedObject(self, kLeft_extendKey, @(left), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     objc_setAssociatedObject(self, kBottom_extendKey, @(bottom), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     objc_setAssociatedObject(self, kRight_extendKey, @(right), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
