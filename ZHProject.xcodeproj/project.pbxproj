@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		67AB4B5E82690FEC284C84E0 /* libPods-ZHProject.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 434B450BB6E1C2EBEBBBE039 /* libPods-ZHProject.a */; };
 		86E945B2204FDB8D0033BB7E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 86E945B1204FDB8D0033BB7E /* AppDelegate.m */; };
 		86E945B5204FDB8D0033BB7E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86E945B4204FDB8D0033BB7E /* ViewController.m */; };
 		86E945B8204FDB8D0033BB7E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 86E945B6204FDB8D0033BB7E /* Main.storyboard */; };
@@ -21,6 +22,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		353F6F2D0F1B07FC6C594E9B /* Pods-ZHProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZHProject.release.xcconfig"; path = "Pods/Target Support Files/Pods-ZHProject/Pods-ZHProject.release.xcconfig"; sourceTree = "<group>"; };
+		434B450BB6E1C2EBEBBBE039 /* libPods-ZHProject.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ZHProject.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7FBD28D63E2E57E6132EBE73 /* Pods-ZHProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZHProject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ZHProject/Pods-ZHProject.debug.xcconfig"; sourceTree = "<group>"; };
 		86E945AD204FDB8D0033BB7E /* ZHProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZHProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		86E945B0204FDB8D0033BB7E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		86E945B1204FDB8D0033BB7E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -48,17 +52,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				67AB4B5E82690FEC284C84E0 /* libPods-ZHProject.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4841E2A2247B018A551D2D77 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7FBD28D63E2E57E6132EBE73 /* Pods-ZHProject.debug.xcconfig */,
+				353F6F2D0F1B07FC6C594E9B /* Pods-ZHProject.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		5B21560E608949D3011B441A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				434B450BB6E1C2EBEBBBE039 /* libPods-ZHProject.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		86E945A4204FDB8D0033BB7E = {
 			isa = PBXGroup;
 			children = (
 				86E945AF204FDB8D0033BB7E /* ZHProject */,
 				86E945AE204FDB8D0033BB7E /* Products */,
+				4841E2A2247B018A551D2D77 /* Pods */,
+				5B21560E608949D3011B441A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -111,9 +135,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 86E945C3204FDB8D0033BB7E /* Build configuration list for PBXNativeTarget "ZHProject" */;
 			buildPhases = (
+				9B133882E2139520CABCD9B7 /* [CP] Check Pods Manifest.lock */,
 				86E945A9204FDB8D0033BB7E /* Sources */,
 				86E945AA204FDB8D0033BB7E /* Frameworks */,
 				86E945AB204FDB8D0033BB7E /* Resources */,
+				D719284FF7A87E9895164423 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -169,6 +195,45 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		9B133882E2139520CABCD9B7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ZHProject-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D719284FF7A87E9895164423 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-ZHProject/Pods-ZHProject-resources.sh",
+				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MJRefresh.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ZHProject/Pods-ZHProject-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		86E945A9204FDB8D0033BB7E /* Sources */ = {
@@ -314,6 +379,7 @@
 		};
 		86E945C4204FDB8D0033BB7E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7FBD28D63E2E57E6132EBE73 /* Pods-ZHProject.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -328,6 +394,7 @@
 		};
 		86E945C5204FDB8D0033BB7E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 353F6F2D0F1B07FC6C594E9B /* Pods-ZHProject.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
