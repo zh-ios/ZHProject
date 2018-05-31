@@ -4,6 +4,9 @@
 
 #Specifies the platform for which a static library should be built
 platform :ios, '9.0'
+inhibit_all_warnings!
+# 使用动态库类型
+use_frameworks!
 
 #This group list the options to configure workspace and to set global settings
 #If no explicit Xcode workspace is specified and only one project exists in the same directory as the Podfile, then the name of that project is used as the workspace’s name.
@@ -16,7 +19,6 @@ end
 target 'ZHProject' do
 
   mainProjectPod
-  pod 'AFNetworking', '~> 3.2.1'
   
   project 'ZHProject.xocdeproj'
 end
@@ -24,4 +26,8 @@ end
 target 'CommonFunction' do
 #    Specifies the Xcode project that contains the target that the Pods library should be linked with.
     project 'CommonFunction/CommonFunction.xcodeproj'
+end
+
+target 'ZHNetwork' do
+    project 'ZHNetwork/ZHNetwork.xcodeproj'
 end
