@@ -17,3 +17,5 @@ FOUNDATION_EXPORT const unsigned char ZHNetworkVersionString[];
 // In this header, you should import all the public headers of your framework using statements like #import <ZHNetwork/PublicHeader.h>
 
 
+#import "ZHTamperConfig.h"
+#import "ZHTamperGuard.h"

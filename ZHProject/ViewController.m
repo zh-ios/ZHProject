@@ -32,7 +32,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-
+//    [NSDate dateWithTimeIntervalString:@""];
+    
+    
+    ZHTamperConfig *config =  [ZHTamperConfig sharedConfig];
+    config.enableHttpDns = YES;
+    
 //    PerformanceMonitor *m = [PerformanceMonitor sharedMonitor];
 //    [m startMonitor];
 //
@@ -57,6 +62,9 @@
     [v2 addGestureRecognizer:tap2];
     v2.backgroundColor = [UIColor orangeColor];
     [self.view addSubview:v2];
+    
+    
+    
 
 }
 

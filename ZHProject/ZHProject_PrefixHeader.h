@@ -9,8 +9,8 @@
 #ifndef ZHProject_PrefixHeader_h
 #define ZHProject_PrefixHeader_h
 
-// @import引入动态库
+// @import引入动态库，使用里面的类的时候也不需要导入。
 @import CommonFunction;
-
+@import ZHNetwork;
 
 #endif /* ZHProject_PrefixHeader_h */

@@ -381,8 +381,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = W35GD34VEQ;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/ZHProject/ZHProject_PrefixHeader.h";
+				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = ZHProject/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.autohome.--PluginName--Framework.ZHProject";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -397,8 +399,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = W35GD34VEQ;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/ZHProject/ZHProject_PrefixHeader.h";
+				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = ZHProject/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.autohome.--PluginName--Framework.ZHProject";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";

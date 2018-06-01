@@ -10,6 +10,12 @@
 		F62BF6CD78EBFC181D20E2E9 /* Pods_CommonFunction.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19A06798570748EB926E024C /* Pods_CommonFunction.framework */; };
 		F9C3A0BE20BEAFEC004AE87D /* NSDate+AHDateUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = F9C3A0BD20BEAFEC004AE87D /* NSDate+AHDateUtil.m */; };
 		F9C3A0BF20BEB078004AE87D /* NSDate+AHDateUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = F9C3A0BC20BEAFEC004AE87D /* NSDate+AHDateUtil.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F9CB735420C12DA000060EF9 /* ZHResettViewStacksTool.h in Headers */ = {isa = PBXBuildFile; fileRef = F9CB735220C12DA000060EF9 /* ZHResettViewStacksTool.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F9CB735520C12DA000060EF9 /* ZHResettViewStacksTool.m in Sources */ = {isa = PBXBuildFile; fileRef = F9CB735320C12DA000060EF9 /* ZHResettViewStacksTool.m */; };
+		F9CB735920C1328C00060EF9 /* NSString+stringUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = F9CB735720C1328C00060EF9 /* NSString+stringUtil.h */; };
+		F9CB735A20C1328C00060EF9 /* NSString+stringUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = F9CB735820C1328C00060EF9 /* NSString+stringUtil.m */; };
+		F9CB735D20C1361E00060EF9 /* NSString+RegEx.h in Headers */ = {isa = PBXBuildFile; fileRef = F9CB735B20C1361E00060EF9 /* NSString+RegEx.h */; };
+		F9CB735E20C1361E00060EF9 /* NSString+RegEx.m in Sources */ = {isa = PBXBuildFile; fileRef = F9CB735C20C1361E00060EF9 /* NSString+RegEx.m */; };
 		F9EB691720B6564F00BA7E5B /* CommonFunction.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9EB690D20B6564F00BA7E5B /* CommonFunction.framework */; };
 		F9EB691C20B6564F00BA7E5B /* CommonFunctionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F9EB691B20B6564F00BA7E5B /* CommonFunctionTests.m */; };
 		F9EB691E20B6564F00BA7E5B /* CommonFunction.h in Headers */ = {isa = PBXBuildFile; fileRef = F9EB691020B6564F00BA7E5B /* CommonFunction.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -31,6 +37,12 @@
 		B0F86DC90139B7548BBA9196 /* Pods-CommonFunction.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CommonFunction.release.xcconfig"; path = "../Pods/Target Support Files/Pods-CommonFunction/Pods-CommonFunction.release.xcconfig"; sourceTree = "<group>"; };
 		F9C3A0BC20BEAFEC004AE87D /* NSDate+AHDateUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+AHDateUtil.h"; sourceTree = "<group>"; };
 		F9C3A0BD20BEAFEC004AE87D /* NSDate+AHDateUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+AHDateUtil.m"; sourceTree = "<group>"; };
+		F9CB735220C12DA000060EF9 /* ZHResettViewStacksTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZHResettViewStacksTool.h; sourceTree = "<group>"; };
+		F9CB735320C12DA000060EF9 /* ZHResettViewStacksTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZHResettViewStacksTool.m; sourceTree = "<group>"; };
+		F9CB735720C1328C00060EF9 /* NSString+stringUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+stringUtil.h"; sourceTree = "<group>"; };
+		F9CB735820C1328C00060EF9 /* NSString+stringUtil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+stringUtil.m"; sourceTree = "<group>"; };
+		F9CB735B20C1361E00060EF9 /* NSString+RegEx.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+RegEx.h"; sourceTree = "<group>"; };
+		F9CB735C20C1361E00060EF9 /* NSString+RegEx.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+RegEx.m"; sourceTree = "<group>"; };
 		F9EB690D20B6564F00BA7E5B /* CommonFunction.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CommonFunction.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9EB691020B6564F00BA7E5B /* CommonFunction.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommonFunction.h; sourceTree = "<group>"; };
 		F9EB691120B6564F00BA7E5B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -76,6 +88,19 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		F9CB735620C1300C00060EF9 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				F9C3A0BC20BEAFEC004AE87D /* NSDate+AHDateUtil.h */,
+				F9C3A0BD20BEAFEC004AE87D /* NSDate+AHDateUtil.m */,
+				F9CB735720C1328C00060EF9 /* NSString+stringUtil.h */,
+				F9CB735820C1328C00060EF9 /* NSString+stringUtil.m */,
+				F9CB735B20C1361E00060EF9 /* NSString+RegEx.h */,
+				F9CB735C20C1361E00060EF9 /* NSString+RegEx.m */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
 		F9EB690320B6564F00BA7E5B = {
 			isa = PBXGroup;
 			children = (
@@ -99,8 +124,9 @@
 		F9EB690F20B6564F00BA7E5B /* CommonFunction */ = {
 			isa = PBXGroup;
 			children = (
-				F9C3A0BC20BEAFEC004AE87D /* NSDate+AHDateUtil.h */,
-				F9C3A0BD20BEAFEC004AE87D /* NSDate+AHDateUtil.m */,
+				F9CB735620C1300C00060EF9 /* Category */,
+				F9CB735220C12DA000060EF9 /* ZHResettViewStacksTool.h */,
+				F9CB735320C12DA000060EF9 /* ZHResettViewStacksTool.m */,
 				F9EB691020B6564F00BA7E5B /* CommonFunction.h */,
 				F9EB691120B6564F00BA7E5B /* Info.plist */,
 			);
@@ -124,7 +150,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				F9C3A0BF20BEB078004AE87D /* NSDate+AHDateUtil.h in Headers */,
+				F9CB735420C12DA000060EF9 /* ZHResettViewStacksTool.h in Headers */,
 				F9EB691E20B6564F00BA7E5B /* CommonFunction.h in Headers */,
+				F9CB735D20C1361E00060EF9 /* NSString+RegEx.h in Headers */,
+				F9CB735920C1328C00060EF9 /* NSString+stringUtil.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -246,7 +275,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F9CB735A20C1328C00060EF9 /* NSString+stringUtil.m in Sources */,
+				F9CB735E20C1361E00060EF9 /* NSString+RegEx.m in Sources */,
 				F9C3A0BE20BEAFEC004AE87D /* NSDate+AHDateUtil.m in Sources */,
+				F9CB735520C12DA000060EF9 /* ZHResettViewStacksTool.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -398,7 +430,11 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = CommonFunction/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.xiaomi.zuanzuan.CommonFunction;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -419,7 +455,11 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = CommonFunction/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.xiaomi.zuanzuan.CommonFunction;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -433,7 +473,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = W35GD34VEQ;
 				INFOPLIST_FILE = CommonFunctionTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.xiaomi.zuanzuan.CommonFunctionTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -446,7 +490,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = W35GD34VEQ;
 				INFOPLIST_FILE = CommonFunctionTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.xiaomi.zuanzuan.CommonFunctionTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
