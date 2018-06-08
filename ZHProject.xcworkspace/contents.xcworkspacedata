@@ -13,4 +13,7 @@
    <FileRef
       location = "group:ZHNetwork/ZHNetwork.xcodeproj">
    </FileRef>
+   <FileRef
+      location = "group:BussinessFramework/BussinessFramework.xcodeproj">
+   </FileRef>
 </Workspace>

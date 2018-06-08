@@ -8,13 +8,21 @@
 
 /* Begin PBXBuildFile section */
 		F62BF6CD78EBFC181D20E2E9 /* Pods_CommonFunction.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19A06798570748EB926E024C /* Pods_CommonFunction.framework */; };
+		F9348E8420C4D9750083246C /* NSString+Encoding.h in Headers */ = {isa = PBXBuildFile; fileRef = F9348E8220C4D9750083246C /* NSString+Encoding.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F9348E8520C4D9750083246C /* NSString+Encoding.m in Sources */ = {isa = PBXBuildFile; fileRef = F9348E8320C4D9750083246C /* NSString+Encoding.m */; };
+		F9349F5E20C91E5D0083246C /* NSString+Encryption.h in Headers */ = {isa = PBXBuildFile; fileRef = F9349F5C20C91E5D0083246C /* NSString+Encryption.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F9349F5F20C91E5D0083246C /* NSString+Encryption.m in Sources */ = {isa = PBXBuildFile; fileRef = F9349F5D20C91E5D0083246C /* NSString+Encryption.m */; };
+		F9349F6220C925CD0083246C /* UIColor+HexString.h in Headers */ = {isa = PBXBuildFile; fileRef = F9349F6020C925CD0083246C /* UIColor+HexString.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F9349F6320C925CD0083246C /* UIColor+HexString.m in Sources */ = {isa = PBXBuildFile; fileRef = F9349F6120C925CD0083246C /* UIColor+HexString.m */; };
+		F9349F9420CA11140083246C /* UIView+ExtendHitArea.h in Headers */ = {isa = PBXBuildFile; fileRef = F9349F9220CA11140083246C /* UIView+ExtendHitArea.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F9349F9520CA11140083246C /* UIView+ExtendHitArea.m in Sources */ = {isa = PBXBuildFile; fileRef = F9349F9320CA11140083246C /* UIView+ExtendHitArea.m */; };
 		F9C3A0BE20BEAFEC004AE87D /* NSDate+AHDateUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = F9C3A0BD20BEAFEC004AE87D /* NSDate+AHDateUtil.m */; };
 		F9C3A0BF20BEB078004AE87D /* NSDate+AHDateUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = F9C3A0BC20BEAFEC004AE87D /* NSDate+AHDateUtil.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F9CB735420C12DA000060EF9 /* ZHResettViewStacksTool.h in Headers */ = {isa = PBXBuildFile; fileRef = F9CB735220C12DA000060EF9 /* ZHResettViewStacksTool.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F9CB735520C12DA000060EF9 /* ZHResettViewStacksTool.m in Sources */ = {isa = PBXBuildFile; fileRef = F9CB735320C12DA000060EF9 /* ZHResettViewStacksTool.m */; };
-		F9CB735920C1328C00060EF9 /* NSString+stringUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = F9CB735720C1328C00060EF9 /* NSString+stringUtil.h */; };
+		F9CB735920C1328C00060EF9 /* NSString+stringUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = F9CB735720C1328C00060EF9 /* NSString+stringUtil.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F9CB735A20C1328C00060EF9 /* NSString+stringUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = F9CB735820C1328C00060EF9 /* NSString+stringUtil.m */; };
-		F9CB735D20C1361E00060EF9 /* NSString+RegEx.h in Headers */ = {isa = PBXBuildFile; fileRef = F9CB735B20C1361E00060EF9 /* NSString+RegEx.h */; };
+		F9CB735D20C1361E00060EF9 /* NSString+RegEx.h in Headers */ = {isa = PBXBuildFile; fileRef = F9CB735B20C1361E00060EF9 /* NSString+RegEx.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F9CB735E20C1361E00060EF9 /* NSString+RegEx.m in Sources */ = {isa = PBXBuildFile; fileRef = F9CB735C20C1361E00060EF9 /* NSString+RegEx.m */; };
 		F9EB691720B6564F00BA7E5B /* CommonFunction.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9EB690D20B6564F00BA7E5B /* CommonFunction.framework */; };
 		F9EB691C20B6564F00BA7E5B /* CommonFunctionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F9EB691B20B6564F00BA7E5B /* CommonFunctionTests.m */; };
@@ -35,6 +43,14 @@
 		19A06798570748EB926E024C /* Pods_CommonFunction.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CommonFunction.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		465DF4FF4C67EBAD1C4D81E3 /* Pods-CommonFunction.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CommonFunction.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-CommonFunction/Pods-CommonFunction.debug.xcconfig"; sourceTree = "<group>"; };
 		B0F86DC90139B7548BBA9196 /* Pods-CommonFunction.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CommonFunction.release.xcconfig"; path = "../Pods/Target Support Files/Pods-CommonFunction/Pods-CommonFunction.release.xcconfig"; sourceTree = "<group>"; };
+		F9348E8220C4D9750083246C /* NSString+Encoding.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+Encoding.h"; sourceTree = "<group>"; };
+		F9348E8320C4D9750083246C /* NSString+Encoding.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+Encoding.m"; sourceTree = "<group>"; };
+		F9349F5C20C91E5D0083246C /* NSString+Encryption.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+Encryption.h"; sourceTree = "<group>"; };
+		F9349F5D20C91E5D0083246C /* NSString+Encryption.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+Encryption.m"; sourceTree = "<group>"; };
+		F9349F6020C925CD0083246C /* UIColor+HexString.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+HexString.h"; sourceTree = "<group>"; };
+		F9349F6120C925CD0083246C /* UIColor+HexString.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIColor+HexString.m"; sourceTree = "<group>"; };
+		F9349F9220CA11140083246C /* UIView+ExtendHitArea.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+ExtendHitArea.h"; sourceTree = "<group>"; };
+		F9349F9320CA11140083246C /* UIView+ExtendHitArea.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+ExtendHitArea.m"; sourceTree = "<group>"; };
 		F9C3A0BC20BEAFEC004AE87D /* NSDate+AHDateUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+AHDateUtil.h"; sourceTree = "<group>"; };
 		F9C3A0BD20BEAFEC004AE87D /* NSDate+AHDateUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+AHDateUtil.m"; sourceTree = "<group>"; };
 		F9CB735220C12DA000060EF9 /* ZHResettViewStacksTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZHResettViewStacksTool.h; sourceTree = "<group>"; };
@@ -97,6 +113,14 @@
 				F9CB735820C1328C00060EF9 /* NSString+stringUtil.m */,
 				F9CB735B20C1361E00060EF9 /* NSString+RegEx.h */,
 				F9CB735C20C1361E00060EF9 /* NSString+RegEx.m */,
+				F9348E8220C4D9750083246C /* NSString+Encoding.h */,
+				F9348E8320C4D9750083246C /* NSString+Encoding.m */,
+				F9349F5C20C91E5D0083246C /* NSString+Encryption.h */,
+				F9349F5D20C91E5D0083246C /* NSString+Encryption.m */,
+				F9349F6020C925CD0083246C /* UIColor+HexString.h */,
+				F9349F6120C925CD0083246C /* UIColor+HexString.m */,
+				F9349F9220CA11140083246C /* UIView+ExtendHitArea.h */,
+				F9349F9320CA11140083246C /* UIView+ExtendHitArea.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -150,9 +174,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				F9C3A0BF20BEB078004AE87D /* NSDate+AHDateUtil.h in Headers */,
+				F9349F9420CA11140083246C /* UIView+ExtendHitArea.h in Headers */,
 				F9CB735420C12DA000060EF9 /* ZHResettViewStacksTool.h in Headers */,
 				F9EB691E20B6564F00BA7E5B /* CommonFunction.h in Headers */,
+				F9348E8420C4D9750083246C /* NSString+Encoding.h in Headers */,
 				F9CB735D20C1361E00060EF9 /* NSString+RegEx.h in Headers */,
+				F9349F6220C925CD0083246C /* UIColor+HexString.h in Headers */,
+				F9349F5E20C91E5D0083246C /* NSString+Encryption.h in Headers */,
 				F9CB735920C1328C00060EF9 /* NSString+stringUtil.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -275,9 +303,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F9348E8520C4D9750083246C /* NSString+Encoding.m in Sources */,
 				F9CB735A20C1328C00060EF9 /* NSString+stringUtil.m in Sources */,
 				F9CB735E20C1361E00060EF9 /* NSString+RegEx.m in Sources */,
+				F9349F9520CA11140083246C /* UIView+ExtendHitArea.m in Sources */,
 				F9C3A0BE20BEAFEC004AE87D /* NSDate+AHDateUtil.m in Sources */,
+				F9349F6320C925CD0083246C /* UIColor+HexString.m in Sources */,
+				F9349F5F20C91E5D0083246C /* NSString+Encryption.m in Sources */,
 				F9CB735520C12DA000060EF9 /* ZHResettViewStacksTool.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -435,6 +467,8 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MACH_O_TYPE = staticlib;
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.xiaomi.zuanzuan.CommonFunction;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -460,6 +494,8 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MACH_O_TYPE = staticlib;
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.xiaomi.zuanzuan.CommonFunction;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;

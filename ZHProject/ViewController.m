@@ -31,12 +31,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
+//    ZHTamperConfig *config =  [ZHTamperConfig sharedConfig];
+//    config.enableHttpDns = YES;
     
-//    [NSDate dateWithTimeIntervalString:@""];
-    
-    
-    ZHTamperConfig *config =  [ZHTamperConfig sharedConfig];
-    config.enableHttpDns = YES;
+    NSString *str =  [@":" encoding];
+    NSString *str2 = [@":" urlEncoding];
     
 //    PerformanceMonitor *m = [PerformanceMonitor sharedMonitor];
 //    [m startMonitor];
@@ -46,6 +46,9 @@
 //    self.tableView.dataSource = self;
 //    [self.view addSubview:self.tableView];
     
+
+    NSString *sss =  [@"sss" base64Encoding];
+    NSString *jjj = [@"1111" MD5Str];
     
     UIView *v = [[UIView alloc] initWithFrame:CGRectMake(100, 100, 100, 100)];
     v.backgroundColor = [UIColor redColor];
@@ -56,7 +59,7 @@
     [v addGestureRecognizer:tap];
     [self.view addSubview:v];
     
-    UIView *v2 = [[UIView alloc] initWithFrame:CGRectMake(100, 300, 202, 202)];
+    UIView *v2 = [[UIView alloc] initWithFrame:CGRectMake(100, 300, 102,102)];
     [v2 extendHitAreaTop:40 left:40 bottom:40 right:40];
     UITapGestureRecognizer *tap2 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(c)];
     [v2 addGestureRecognizer:tap2];
@@ -64,8 +67,25 @@
     [self.view addSubview:v2];
     
     
+    UIButton *b = [[UIButton alloc] initWithFrame:CGRectMake(100, 400, 100, 100)];
+    b.backgroundColor = [UIColor blueColor];
+    [b addTarget:self action:@selector(b) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:b];
     
 
+}
+
+- (void)b {
+    
+    Class cls = NSClassFromString(@"TestViewController");
+    
+    id view = [[cls alloc] init];
+    
+    [self presentViewController:view animated:YES completion:^{
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [self dismissViewControllerAnimated:YES completion:nil];
+        });
+    }];
 }
 
 - (void)c {

@@ -18,3 +18,9 @@ FOUNDATION_EXPORT const unsigned char CommonFunctionVersionString[];
 
 
 #import "NSDate+AHDateUtil.h"
+#import "NSString+stringUtil.h"
+#import "NSString+RegEx.h"
+#import "NSString+Encoding.h"
+#import "NSString+Encryption.h"
+#import "UIColor+HexString.h"
+#import "UIView+ExtendHitArea.h"

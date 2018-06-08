@@ -28,6 +28,9 @@
         self.enableProxy = NO;
         self.enableTamperGuard = NO;
     }
+    
+    
+    
     return self;
 }
 

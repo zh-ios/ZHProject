@@ -13,8 +13,8 @@
 
 - (BOOL)isValidateString {
     if (![self isKindOfClass:[NSString class]]) return NO;
-    self =  [self trimingWhiteSpaceAndNewline];
-    if ([self length] > 0) {
+    NSString *str =  [self trimingWhiteSpaceAndNewline];
+    if ([str length] > 0) {
         return YES;
     }
     return NO;

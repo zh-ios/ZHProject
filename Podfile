@@ -33,3 +33,7 @@ end
 target 'ZHNetwork' do
     project 'ZHNetwork/ZHNetwork.xcodeproj'
 end
+
+target 'BussinessFramework' do
+    project 'BussinessFramework/BussinessFramework.xcodeproj'
+end
