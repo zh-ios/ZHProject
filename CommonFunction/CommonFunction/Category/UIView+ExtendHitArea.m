@@ -80,6 +80,8 @@ static char *kTop_extendKey;
 
 
 /////////////////////////////////////////////////////////////////////////
+
+
 - (CGRect)resonseHitArea_associateObj {
     NSNumber *left = objc_getAssociatedObject(self, kLeft_extendKey);
     NSNumber *top = objc_getAssociatedObject(self, kTop_extendKey);

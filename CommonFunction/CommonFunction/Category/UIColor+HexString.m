@@ -10,7 +10,7 @@
 
 @implementation UIColor (HexString)
 
-- (UIColor *)colorWithHexString:(NSString *)hexStr alpha:(CGFloat)alpha {
++ (UIColor *)colorWithHexString:(NSString *)hexStr alpha:(CGFloat)alpha {
     //删除字符串中的空格
     NSString *cString = [[hexStr stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] uppercaseString];
     // String should be 6 or 8 characters
@@ -51,16 +51,16 @@
     return [UIColor colorWithRed:((float)r / 255.0f) green:((float)g / 255.0f) blue:((float)b / 255.0f) alpha:alpha];
 }
 
-- (UIColor *)colorWithHexString:(NSString *)hexStr {
++ (UIColor *)colorWithHexString:(NSString *)hexStr {
     return [self colorWithHexString:hexStr alpha:1];
 }
 
-- (UIColor *)colorWithRGB:(NSInteger)r G:(NSInteger)g B:(NSInteger)b alpha:(CGFloat)alpha {
++ (UIColor *)colorWithRGB:(NSInteger)r G:(NSInteger)g B:(NSInteger)b alpha:(CGFloat)alpha {
     return [UIColor colorWithRed:((float)r / 255.0f) green:((float)g / 255.0f) blue:((float)b / 255.0f) alpha:alpha];
 }
 
-- (UIColor *)colorWithRGB:(NSInteger)r G:(NSInteger)g B:(NSInteger)b {
-    return [self colorWithRGB:r G:g B:b];
++ (UIColor *)colorWithRGB:(NSInteger)r G:(NSInteger)g B:(NSInteger)b {
+    return [self colorWithRGB:r G:g B:b alpha:1];
 }
 
 @end

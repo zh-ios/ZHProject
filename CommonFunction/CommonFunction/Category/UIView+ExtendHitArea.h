@@ -17,6 +17,9 @@
  */
 @property(nonatomic, assign) CGRect extendedHitArea;
 // or
-- (void)extendHitAreaTop:(CGFloat)top left:(CGFloat)left bottom:(CGFloat)bottom right:(CGFloat)right;
+- (void)extendHitAreaTop:(CGFloat)top
+                    left:(CGFloat)left
+                  bottom:(CGFloat)bottom
+                   right:(CGFloat)right;
 
 @end

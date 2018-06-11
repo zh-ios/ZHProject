@@ -10,12 +10,12 @@
 
 @interface UIColor (HexString)
 
-- (UIColor *)colorWithHexString:(NSString *)hexStr alpha:(CGFloat)alpha;
++ (UIColor *)colorWithHexString:(NSString *)hexStr alpha:(CGFloat)alpha;
 
-- (UIColor *)colorWithHexString:(NSString *)hexStr;
++ (UIColor *)colorWithHexString:(NSString *)hexStr;
 
-- (UIColor *)colorWithRGB:(NSInteger)r G:(NSInteger)g B:(NSInteger)b alpha:(CGFloat)alpha;
++ (UIColor *)colorWithRGB:(NSInteger)r G:(NSInteger)g B:(NSInteger)b alpha:(CGFloat)alpha;
 
-- (UIColor *)colorWithRGB:(NSInteger)r G:(NSInteger)g B:(NSInteger)b;
++ (UIColor *)colorWithRGB:(NSInteger)r G:(NSInteger)g B:(NSInteger)b;
 
 @end
