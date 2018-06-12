@@ -1,18 +1,18 @@
 //
-//  ZHNetworkTests.m
-//  ZHNetworkTests
+//  NetworkTests.m
+//  NetworkTests
 //
-//  Created by zh on 2018/5/31.
+//  Created by zh on 2018/6/12.
 //  Copyright © 2018年 zh. All rights reserved.
 //
 
 #import <XCTest/XCTest.h>
 
-@interface ZHNetworkTests : XCTestCase
+@interface NetworkTests : XCTestCase
 
 @end
 
-@implementation ZHNetworkTests
+@implementation NetworkTests
 
 - (void)setUp {
     [super setUp];

@@ -10,6 +10,7 @@
 #import "ZHProxyManager.h"
 #import "ZHTamperGuard.h"
 #import "ZHNetworkConst.h"
+
 #define BaseServiceDebugLog(sentence) if(self.enableLog){sentence}
 
 @interface ZHBaseService()<ZHRequestDelegate>
@@ -32,7 +33,7 @@
 #pragma mark --- INIT
 - (void)initProperties {
     self.priority = ZHRequest_Priority_Default;
-    self.timeoutSeconds = 10;
+    self.timeoutSeconds = 30;
     ///////////////////////
     self.enableLog = NO;
     self.enableMD5 = YES;
@@ -89,6 +90,14 @@
     request.requestType = ZHRequest_Type_GET;
     request.timeoutInterval = self.timeoutSeconds;
     request.priority = self.priority;
+    
+    // block 回调不实现了，全部使用代理方式回调。
+//    request.successBlock = ^(id responseObj) {
+//
+//    };
+//    request.failureBlock = ^(NSError *error) {
+//
+//    };
    
     _request = request;
     [_request start];
@@ -119,49 +128,31 @@
 }
 
 #pragma mark --- ZHRequestDelegate
-- (void)requestWillStart:(NSInteger)handle {
-    if ([self.delegate respondsToSelector:@selector(requestWillStart:)]) {
-        dispatch_main_queue_excute(^{
-            [self.delegate requestWillStart:self.handle];
-        });
+
+- (void)requestWillStart {
+    if ([self.delegate respondsToSelector:@selector(requestWillStart:serviceObj:)]) {
+        [self.delegate requestWillStart:self.handle serviceObj:self];
+    }
+}
+- (void)requestFinished:(ZHRequest *)request responseObj:(id)responseObj {
+    
+    // 劫持校验在这里进行 
+    
+    if ([self.delegate respondsToSelector:@selector(requestFinished:responseData:serviceObj:handle:)]) {
+        [self.delegate requestFinished:request.responseString responseData:request.responseData serviceObj:self handle:self.handle];
+    }
+}
+- (void)requestFinished:(ZHRequest *)request responseStr:(NSString *)responseStr {
+    if ([self.delegate respondsToSelector:@selector(requestFinished:serviceObj:)]) {
+        [self.delegate requestFinished:request.responseString serviceObj:self];
+    }
+}
+- (void)requestFailed:(NSError *)error {
+    if ([self.delegate respondsToSelector:@selector(requestFailed:serviceObj:handle:)]) {
+        [self.delegate requestFailed:error serviceObj:self handle:self.handle];
     }
 }
 
-- (void)requestFinished:(NSString *)responseStr
-             serviceObj:(id)obj
-                 handle:(NSInteger)handle {
-    BaseServiceDebugLog(NSLog(@"接口请求成功===============%@",responseStr););
-    
-}
 
-- (void)requestFinished:(NSData *)responseData
-            responseStr:(NSString *)responseStr
-             serviceObj:(id)obj
-                 handle:(NSInteger)handle {
-    
-}
-
-- (void)requestFailed:(NSError *)error
-           serviceObj:(id)obj
-               handle:(NSInteger)handle {
-    
-}
-
-- (void)requestFailed:(NSError *)error
-            errorCode:(NSUInteger)errorCode
-             errorMsg:(NSString *)errorMsg
-           serviceObj:(id)obj
-               handle:(NSInteger)handle {
-    
-}
-
-- (void)requestWillRetry:(id)serviceObj handle:(NSInteger)handle isAsync:(BOOL)async {
-    
-}
-
-
-- (void)requestRedirected:(id)serviceObj handle:(NSInteger)handle {
-    
-}
 
 @end

@@ -8,10 +8,9 @@
 
 #import "ViewController.h"
 #import "PerformanceMonitor.h"
-#import "UIView+extendHitArea.h"
 
 
-@interface ViewController ()<UITableViewDelegate,UITableViewDataSource>
+@interface ViewController ()<ZHBaseServiceDelegate>
 
 @property(nonatomic, strong) UITableView *tableView;
 @property(nonatomic, strong) CADisplayLink *display;
@@ -23,6 +22,7 @@
 @property(nonatomic, strong) dispatch_semaphore_t semmphore;
 @property(nonatomic, assign) CFRunLoopActivity activity;
 @property(nonatomic, assign) NSInteger timeoutCount;
+@property (nonatomic, strong) ZHBaseService *service;
 
 @end
 
@@ -32,23 +32,23 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-//    ZHTamperConfig *config =  [ZHTamperConfig sharedConfig];
-//    config.enableHttpDns = YES;
     
-    NSString *str =  [@":" encoding];
-    NSString *str2 = [@":" urlEncoding];
+//    ZHDNSHttpManager *dns = [ZHDNSHttpManager sharedManager];
+//    [dns  getAllDomain];
     
-//    PerformanceMonitor *m = [PerformanceMonitor sharedMonitor];
-//    [m startMonitor];
-//
-//    self.tableView = [[UITableView alloc] initWithFrame:self.view.frame style:UITableViewStylePlain];
-//    self.tableView.delegate = self;
-//    self.tableView.dataSource = self;
-//    [self.view addSubview:self.tableView];
+    ZHTamperConfig *config = [ZHTamperConfig sharedConfig];
+    config.enableHttpDns = YES;
+    config.enableTamperGuard = YES;
     
-
-    NSString *sss =  [@"sss" base64Encoding];
-    NSString *jjj = [@"1111" MD5Str];
+    
+    
+    NSString *localpushurl = @"https://activity.app.autohome.com.cn/ugapi/api/localpush/getLocalPush?deviceid=sssssssssaas1sss3123sdfasssssdfasdf&flag=0&userid=0&version=8.5.1";
+    
+    self.service = [[ZHBaseService alloc] init];
+    self.service.delegate = self;
+    self.service.handle = self.service.hash;
+    [self.service GET:[NSURL URLWithString:localpushurl]];
+    
     
     UIView *v = [[UIView alloc] initWithFrame:CGRectMake(100, 100, 100, 100)];
     v.backgroundColor = [UIColor redColor];
@@ -71,7 +71,6 @@
     b.backgroundColor = [UIColor blueColor];
     [b addTarget:self action:@selector(b) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:b];
-    
 
 }
 
@@ -95,28 +94,24 @@
     NSLog(@"tap----");
 }
 
-
-
-
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 40;
+- (void)requestWillStart:(NSInteger)handle
+              serviceObj:(id)service {
+    
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
-    }
-    cell.textLabel.text = @"666";
-    cell.textLabel.textColor = [UIColor blueColor];
-    for (int i = 0; i<100; i++) {
-        UIView *v = [[UIView alloc] initWithFrame:self.view.frame];
-        [cell.contentView addSubview:v];
-        [v removeFromSuperview];
-    }
-    return cell;
+- (void)requestFinished:(NSString *)responseStr
+           responseData:(NSData *)responseData
+             serviceObj:(id)service
+                 handle:(NSInteger)handle {
+    
 }
 
+- (void)requestFinished:(NSString *)responseStr serviceObj:(id)service {
+    
+}
+
+- (void)requestFailed:(NSError *)error serviceObj:(id)service handle:(NSInteger)handle {
+    
+}
 
 @end

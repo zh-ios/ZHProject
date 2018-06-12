@@ -13,7 +13,6 @@
 + (void)resetViewStacksOfViewController:(UIViewController *)vc
                                 popedVC:(NSArray<NSString *> *)vcNames {
     if (![[NSThread currentThread] isMainThread]) assert("请在主线程中进行...");
-    
     if (vc.navigationController.viewControllers.count < 2) return;
     if (vcNames.count == 0) return;
     NSMutableArray *vcCls = @[].mutableCopy;

@@ -10,9 +10,11 @@
 #define ZHProject_PrefixHeader_h
 
 // @import引入动态库，使用里面的类的时候也不需要导入。
-@import CommonFunction;
 
+@import CommonFunction;
 @import BussinessFramework;
+@import Network;
+
 // 或者使用下面这种引入方式
 //#import <CommonFunction/CommonFunction.h>
 

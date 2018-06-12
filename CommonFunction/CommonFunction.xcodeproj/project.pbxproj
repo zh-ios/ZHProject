@@ -104,6 +104,13 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		F912AE3E20CE7B5F00393ECA /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		F9CB735620C1300C00060EF9 /* Category */ = {
 			isa = PBXGroup;
 			children = (
@@ -148,6 +155,7 @@
 		F9EB690F20B6564F00BA7E5B /* CommonFunction */ = {
 			isa = PBXGroup;
 			children = (
+				F912AE3E20CE7B5F00393ECA /* View */,
 				F9CB735620C1300C00060EF9 /* Category */,
 				F9CB735220C12DA000060EF9 /* ZHResettViewStacksTool.h */,
 				F9CB735320C12DA000060EF9 /* ZHResettViewStacksTool.m */,

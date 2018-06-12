@@ -11,9 +11,9 @@
       location = "group:CommonFunction/CommonFunction.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:ZHNetwork/ZHNetwork.xcodeproj">
+      location = "group:BussinessFramework/BussinessFramework.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:BussinessFramework/BussinessFramework.xcodeproj">
+      location = "group:Network/Network.xcodeproj">
    </FileRef>
 </Workspace>

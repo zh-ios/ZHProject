@@ -11,11 +11,12 @@
 
 #define DATA_EXPIRED_RETRY_COUNT (1)
 
-#define dispatch_main_queue_excute(block)\
+#define dispatch_excute_mainThread(block)\
         if ([NSThread isMainThread]) {\
-        block();\
+            block();\
         } else {\
         dispatch_async(dispatch_get_main_queue(), block);\
         }
+
 
 #endif /* ZHNetworkConst_h */

@@ -29,9 +29,8 @@ target 'CommonFunction' do
 end
 
 
-
-target 'ZHNetwork' do
-    project 'ZHNetwork/ZHNetwork.xcodeproj'
+target 'Network' do
+    project 'Network/Network.xcodeproj'
 end
 
 target 'BussinessFramework' do

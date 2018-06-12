@@ -189,7 +189,7 @@
     serializer.timeoutInterval = request.timeoutInterval;
     
     // If api needs server username and password
-    // TODO
+    // FIXME: TODO
     if (request.requestHeaders) {
         for (NSString *key in request.requestHeaders.allKeys) {
             [serializer setValue:request.requestHeaders[key] forHTTPHeaderField:key];
@@ -421,7 +421,7 @@
 
 #pragma mark - Resumable Download
 - (NSURL *)incompleteDownloadTempPathForDownloadPath:(NSString *)downloadPath {
-    // TODO MD5 String downloadPath 取MD5值，当做存临近数据的url路径
+    // FIXME: TODO MD5 String downloadPath 取MD5值，当做存临近数据的url路径
 //    [downloadPath md5]
     NSString *tempPath = [[self incompleteDownloadTempCacheFolder] stringByAppendingPathComponent:@"aaassswedafsdfa"];
     

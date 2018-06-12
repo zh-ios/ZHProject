@@ -1,0 +1,873 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C8CAD9187D6B8306CFCD0CCE /* Pods_Network.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0901F9CC9113FC9594DDF3CC /* Pods_Network.framework */; };
+		F912AF2D20CF70DB00393ECA /* Network.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F912AF2320CF70DB00393ECA /* Network.framework */; };
+		F912AF3220CF70DB00393ECA /* NetworkTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F912AF3120CF70DB00393ECA /* NetworkTests.m */; };
+		F912AF3420CF70DB00393ECA /* Network.h in Headers */ = {isa = PBXBuildFile; fileRef = F912AF2620CF70DB00393ECA /* Network.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F912B03420CF721F00393ECA /* ZHTamperConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = F912AFE220CF721E00393ECA /* ZHTamperConfig.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F912B03520CF721F00393ECA /* ZHTamperConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = F912AFE320CF721E00393ECA /* ZHTamperConfig.m */; };
+		F912B03620CF721F00393ECA /* ZHTamperGuard.h in Headers */ = {isa = PBXBuildFile; fileRef = F912AFE420CF721E00393ECA /* ZHTamperGuard.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F912B03720CF721F00393ECA /* ZHTamperGuard.m in Sources */ = {isa = PBXBuildFile; fileRef = F912AFE520CF721E00393ECA /* ZHTamperGuard.m */; };
+		F912B03820CF721F00393ECA /* MD5Tools.h in Headers */ = {isa = PBXBuildFile; fileRef = F912AFE720CF721E00393ECA /* MD5Tools.h */; };
+		F912B03920CF721F00393ECA /* MD5Tools.m in Sources */ = {isa = PBXBuildFile; fileRef = F912AFE820CF721E00393ECA /* MD5Tools.m */; };
+		F912B03A20CF721F00393ECA /* AFCompatibilityMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = F912AFEB20CF721E00393ECA /* AFCompatibilityMacros.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F912B03B20CF721F00393ECA /* AFHTTPSessionManager.h in Headers */ = {isa = PBXBuildFile; fileRef = F912AFEC20CF721E00393ECA /* AFHTTPSessionManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F912B03C20CF721F00393ECA /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F912AFED20CF721E00393ECA /* AFHTTPSessionManager.m */; };
+		F912B03D20CF721F00393ECA /* AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = F912AFEE20CF721E00393ECA /* AFNetworking.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F912B03E20CF721F00393ECA /* AFNetworkReachabilityManager.h in Headers */ = {isa = PBXBuildFile; fileRef = F912AFEF20CF721E00393ECA /* AFNetworkReachabilityManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F912B03F20CF721F00393ECA /* AFNetworkReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F912AFF020CF721E00393ECA /* AFNetworkReachabilityManager.m */; };
+		F912B04020CF721F00393ECA /* AFSecurityPolicy.h in Headers */ = {isa = PBXBuildFile; fileRef = F912AFF120CF721E00393ECA /* AFSecurityPolicy.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F912B04120CF721F00393ECA /* AFSecurityPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = F912AFF220CF721E00393ECA /* AFSecurityPolicy.m */; };
+		F912B04220CF721F00393ECA /* AFURLRequestSerialization.h in Headers */ = {isa = PBXBuildFile; fileRef = F912AFF320CF721E00393ECA /* AFURLRequestSerialization.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F912B04320CF721F00393ECA /* AFURLRequestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = F912AFF420CF721E00393ECA /* AFURLRequestSerialization.m */; };
+		F912B04420CF721F00393ECA /* AFURLResponseSerialization.h in Headers */ = {isa = PBXBuildFile; fileRef = F912AFF520CF721E00393ECA /* AFURLResponseSerialization.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F912B04520CF721F00393ECA /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = F912AFF620CF721E00393ECA /* AFURLResponseSerialization.m */; };
+		F912B04620CF721F00393ECA /* AFURLSessionManager.h in Headers */ = {isa = PBXBuildFile; fileRef = F912AFF720CF721E00393ECA /* AFURLSessionManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F912B04720CF721F00393ECA /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F912AFF820CF721E00393ECA /* AFURLSessionManager.m */; };
+		F912B04820CF721F00393ECA /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = F912AFF920CF721E00393ECA /* LICENSE */; };
+		F912B04920CF721F00393ECA /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = F912AFFA20CF721E00393ECA /* README.md */; };
+		F912B04A20CF721F00393ECA /* AFAutoPurgingImageCache.h in Headers */ = {isa = PBXBuildFile; fileRef = F912AFFC20CF721E00393ECA /* AFAutoPurgingImageCache.h */; };
+		F912B04B20CF721F00393ECA /* AFAutoPurgingImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = F912AFFD20CF721E00393ECA /* AFAutoPurgingImageCache.m */; };
+		F912B04C20CF721F00393ECA /* AFImageDownloader.h in Headers */ = {isa = PBXBuildFile; fileRef = F912AFFE20CF721E00393ECA /* AFImageDownloader.h */; };
+		F912B04D20CF721F00393ECA /* AFImageDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = F912AFFF20CF721E00393ECA /* AFImageDownloader.m */; };
+		F912B04E20CF721F00393ECA /* AFNetworkActivityIndicatorManager.h in Headers */ = {isa = PBXBuildFile; fileRef = F912B00020CF721E00393ECA /* AFNetworkActivityIndicatorManager.h */; };
+		F912B04F20CF721F00393ECA /* AFNetworkActivityIndicatorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F912B00120CF721E00393ECA /* AFNetworkActivityIndicatorManager.m */; };
+		F912B05020CF721F00393ECA /* UIActivityIndicatorView+AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = F912B00220CF721E00393ECA /* UIActivityIndicatorView+AFNetworking.h */; };
+		F912B05120CF721F00393ECA /* UIActivityIndicatorView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = F912B00320CF721E00393ECA /* UIActivityIndicatorView+AFNetworking.m */; };
+		F912B05220CF721F00393ECA /* UIButton+AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = F912B00420CF721E00393ECA /* UIButton+AFNetworking.h */; };
+		F912B05320CF721F00393ECA /* UIButton+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = F912B00520CF721E00393ECA /* UIButton+AFNetworking.m */; };
+		F912B05420CF721F00393ECA /* UIImage+AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = F912B00620CF721E00393ECA /* UIImage+AFNetworking.h */; };
+		F912B05520CF721F00393ECA /* UIImageView+AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = F912B00720CF721E00393ECA /* UIImageView+AFNetworking.h */; };
+		F912B05620CF721F00393ECA /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = F912B00820CF721E00393ECA /* UIImageView+AFNetworking.m */; };
+		F912B05720CF721F00393ECA /* UIKit+AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = F912B00920CF721E00393ECA /* UIKit+AFNetworking.h */; };
+		F912B05820CF721F00393ECA /* UIProgressView+AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = F912B00A20CF721E00393ECA /* UIProgressView+AFNetworking.h */; };
+		F912B05920CF721F00393ECA /* UIProgressView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = F912B00B20CF721E00393ECA /* UIProgressView+AFNetworking.m */; };
+		F912B05A20CF721F00393ECA /* UIRefreshControl+AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = F912B00C20CF721E00393ECA /* UIRefreshControl+AFNetworking.h */; };
+		F912B05B20CF721F00393ECA /* UIRefreshControl+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = F912B00D20CF721E00393ECA /* UIRefreshControl+AFNetworking.m */; };
+		F912B05C20CF721F00393ECA /* UIWebView+AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = F912B00E20CF721E00393ECA /* UIWebView+AFNetworking.h */; };
+		F912B05D20CF721F00393ECA /* UIWebView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = F912B00F20CF721E00393ECA /* UIWebView+AFNetworking.m */; };
+		F912B05E20CF721F00393ECA /* ZHDNSDes.h in Headers */ = {isa = PBXBuildFile; fileRef = F912B01120CF721E00393ECA /* ZHDNSDes.h */; };
+		F912B05F20CF721F00393ECA /* ZHDNSDes.m in Sources */ = {isa = PBXBuildFile; fileRef = F912B01220CF721E00393ECA /* ZHDNSDes.m */; };
+		F912B06020CF721F00393ECA /* ZHDNSHex.h in Headers */ = {isa = PBXBuildFile; fileRef = F912B01320CF721E00393ECA /* ZHDNSHex.h */; };
+		F912B06120CF721F00393ECA /* ZHDNSHex.m in Sources */ = {isa = PBXBuildFile; fileRef = F912B01420CF721E00393ECA /* ZHDNSHex.m */; };
+		F912B06220CF721F00393ECA /* ZHDNSHttpManager.h in Headers */ = {isa = PBXBuildFile; fileRef = F912B01520CF721E00393ECA /* ZHDNSHttpManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F912B06320CF721F00393ECA /* ZHDNSHttpManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F912B01620CF721E00393ECA /* ZHDNSHttpManager.m */; };
+		F912B06420CF721F00393ECA /* ZHDNSIpService.h in Headers */ = {isa = PBXBuildFile; fileRef = F912B01720CF721E00393ECA /* ZHDNSIpService.h */; };
+		F912B06520CF721F00393ECA /* ZHDNSIpService.m in Sources */ = {isa = PBXBuildFile; fileRef = F912B01820CF721E00393ECA /* ZHDNSIpService.m */; };
+		F912B06620CF721F00393ECA /* ZHDNSResolveItem.h in Headers */ = {isa = PBXBuildFile; fileRef = F912B01920CF721E00393ECA /* ZHDNSResolveItem.h */; };
+		F912B06720CF721F00393ECA /* ZHDNSResolveItem.m in Sources */ = {isa = PBXBuildFile; fileRef = F912B01A20CF721E00393ECA /* ZHDNSResolveItem.m */; };
+		F912B06820CF721F00393ECA /* ZHNetworkConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = F912B01B20CF721E00393ECA /* ZHNetworkConfig.h */; };
+		F912B06920CF721F00393ECA /* ZHNetworkConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = F912B01C20CF721E00393ECA /* ZHNetworkConfig.m */; };
+		F912B06A20CF721F00393ECA /* ZHBaseService.h in Headers */ = {isa = PBXBuildFile; fileRef = F912B01E20CF721E00393ECA /* ZHBaseService.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F912B06B20CF721F00393ECA /* ZHBaseService.m in Sources */ = {isa = PBXBuildFile; fileRef = F912B01F20CF721E00393ECA /* ZHBaseService.m */; };
+		F912B06C20CF721F00393ECA /* ZHBaseServiceDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = F912B02020CF721E00393ECA /* ZHBaseServiceDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F912B06D20CF721F00393ECA /* ZHBatchRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = F912B02120CF721E00393ECA /* ZHBatchRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F912B06E20CF721F00393ECA /* ZHBatchRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = F912B02220CF721E00393ECA /* ZHBatchRequest.m */; };
+		F912B06F20CF721F00393ECA /* ZHBatchRequestManager.h in Headers */ = {isa = PBXBuildFile; fileRef = F912B02320CF721E00393ECA /* ZHBatchRequestManager.h */; };
+		F912B07020CF721F00393ECA /* ZHBatchRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F912B02420CF721E00393ECA /* ZHBatchRequestManager.m */; };
+		F912B07120CF721F00393ECA /* ZHChainRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = F912B02520CF721E00393ECA /* ZHChainRequest.h */; };
+		F912B07220CF721F00393ECA /* ZHChainRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = F912B02620CF721E00393ECA /* ZHChainRequest.m */; };
+		F912B07320CF721F00393ECA /* ZHChainRequestManager.h in Headers */ = {isa = PBXBuildFile; fileRef = F912B02720CF721E00393ECA /* ZHChainRequestManager.h */; };
+		F912B07420CF721F00393ECA /* ZHChainRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F912B02820CF721E00393ECA /* ZHChainRequestManager.m */; };
+		F912B07520CF721F00393ECA /* ZHNetworkConst.h in Headers */ = {isa = PBXBuildFile; fileRef = F912B02920CF721E00393ECA /* ZHNetworkConst.h */; };
+		F912B07620CF721F00393ECA /* ZHNetworkingManager.h in Headers */ = {isa = PBXBuildFile; fileRef = F912B02A20CF721E00393ECA /* ZHNetworkingManager.h */; };
+		F912B07720CF721F00393ECA /* ZHNetworkingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F912B02B20CF721E00393ECA /* ZHNetworkingManager.m */; };
+		F912B07820CF721F00393ECA /* ZHRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = F912B02C20CF721E00393ECA /* ZHRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F912B07920CF721F00393ECA /* ZHRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = F912B02D20CF721E00393ECA /* ZHRequest.m */; };
+		F912B07A20CF721F00393ECA /* ZHRequestDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = F912B02E20CF721E00393ECA /* ZHRequestDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F912B07B20CF721F00393ECA /* ZHRequestManager.h in Headers */ = {isa = PBXBuildFile; fileRef = F912B02F20CF721E00393ECA /* ZHRequestManager.h */; };
+		F912B07C20CF721F00393ECA /* ZHRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F912B03020CF721E00393ECA /* ZHRequestManager.m */; };
+		F912B07D20CF721F00393ECA /* ZHProxyManager.h in Headers */ = {isa = PBXBuildFile; fileRef = F912B03220CF721E00393ECA /* ZHProxyManager.h */; };
+		F912B07E20CF721F00393ECA /* ZHProxyManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F912B03320CF721E00393ECA /* ZHProxyManager.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F912AF2E20CF70DB00393ECA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F912AF1A20CF70DB00393ECA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F912AF2220CF70DB00393ECA;
+			remoteInfo = Network;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0901F9CC9113FC9594DDF3CC /* Pods_Network.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Network.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		58CBC8FA54205E1DDAFD4257 /* Pods-Network.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Network.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-Network/Pods-Network.debug.xcconfig"; sourceTree = "<group>"; };
+		F912AF2320CF70DB00393ECA /* Network.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Network.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F912AF2620CF70DB00393ECA /* Network.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Network.h; sourceTree = "<group>"; };
+		F912AF2720CF70DB00393ECA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F912AF2C20CF70DB00393ECA /* NetworkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NetworkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F912AF3120CF70DB00393ECA /* NetworkTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NetworkTests.m; sourceTree = "<group>"; };
+		F912AF3320CF70DB00393ECA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F912AFE220CF721E00393ECA /* ZHTamperConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZHTamperConfig.h; sourceTree = "<group>"; };
+		F912AFE320CF721E00393ECA /* ZHTamperConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZHTamperConfig.m; sourceTree = "<group>"; };
+		F912AFE420CF721E00393ECA /* ZHTamperGuard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZHTamperGuard.h; sourceTree = "<group>"; };
+		F912AFE520CF721E00393ECA /* ZHTamperGuard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZHTamperGuard.m; sourceTree = "<group>"; };
+		F912AFE720CF721E00393ECA /* MD5Tools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MD5Tools.h; sourceTree = "<group>"; };
+		F912AFE820CF721E00393ECA /* MD5Tools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MD5Tools.m; sourceTree = "<group>"; };
+		F912AFEB20CF721E00393ECA /* AFCompatibilityMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFCompatibilityMacros.h; sourceTree = "<group>"; };
+		F912AFEC20CF721E00393ECA /* AFHTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPSessionManager.h; sourceTree = "<group>"; };
+		F912AFED20CF721E00393ECA /* AFHTTPSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPSessionManager.m; sourceTree = "<group>"; };
+		F912AFEE20CF721E00393ECA /* AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworking.h; sourceTree = "<group>"; };
+		F912AFEF20CF721E00393ECA /* AFNetworkReachabilityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworkReachabilityManager.h; sourceTree = "<group>"; };
+		F912AFF020CF721E00393ECA /* AFNetworkReachabilityManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFNetworkReachabilityManager.m; sourceTree = "<group>"; };
+		F912AFF120CF721E00393ECA /* AFSecurityPolicy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFSecurityPolicy.h; sourceTree = "<group>"; };
+		F912AFF220CF721E00393ECA /* AFSecurityPolicy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFSecurityPolicy.m; sourceTree = "<group>"; };
+		F912AFF320CF721E00393ECA /* AFURLRequestSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLRequestSerialization.h; sourceTree = "<group>"; };
+		F912AFF420CF721E00393ECA /* AFURLRequestSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLRequestSerialization.m; sourceTree = "<group>"; };
+		F912AFF520CF721E00393ECA /* AFURLResponseSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLResponseSerialization.h; sourceTree = "<group>"; };
+		F912AFF620CF721E00393ECA /* AFURLResponseSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLResponseSerialization.m; sourceTree = "<group>"; };
+		F912AFF720CF721E00393ECA /* AFURLSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLSessionManager.h; sourceTree = "<group>"; };
+		F912AFF820CF721E00393ECA /* AFURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLSessionManager.m; sourceTree = "<group>"; };
+		F912AFF920CF721E00393ECA /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		F912AFFA20CF721E00393ECA /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		F912AFFC20CF721E00393ECA /* AFAutoPurgingImageCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFAutoPurgingImageCache.h; sourceTree = "<group>"; };
+		F912AFFD20CF721E00393ECA /* AFAutoPurgingImageCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFAutoPurgingImageCache.m; sourceTree = "<group>"; };
+		F912AFFE20CF721E00393ECA /* AFImageDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFImageDownloader.h; sourceTree = "<group>"; };
+		F912AFFF20CF721E00393ECA /* AFImageDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFImageDownloader.m; sourceTree = "<group>"; };
+		F912B00020CF721E00393ECA /* AFNetworkActivityIndicatorManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworkActivityIndicatorManager.h; sourceTree = "<group>"; };
+		F912B00120CF721E00393ECA /* AFNetworkActivityIndicatorManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFNetworkActivityIndicatorManager.m; sourceTree = "<group>"; };
+		F912B00220CF721E00393ECA /* UIActivityIndicatorView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIActivityIndicatorView+AFNetworking.h"; sourceTree = "<group>"; };
+		F912B00320CF721E00393ECA /* UIActivityIndicatorView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIActivityIndicatorView+AFNetworking.m"; sourceTree = "<group>"; };
+		F912B00420CF721E00393ECA /* UIButton+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+AFNetworking.h"; sourceTree = "<group>"; };
+		F912B00520CF721E00393ECA /* UIButton+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+AFNetworking.m"; sourceTree = "<group>"; };
+		F912B00620CF721E00393ECA /* UIImage+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+AFNetworking.h"; sourceTree = "<group>"; };
+		F912B00720CF721E00393ECA /* UIImageView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+AFNetworking.h"; sourceTree = "<group>"; };
+		F912B00820CF721E00393ECA /* UIImageView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+AFNetworking.m"; sourceTree = "<group>"; };
+		F912B00920CF721E00393ECA /* UIKit+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIKit+AFNetworking.h"; sourceTree = "<group>"; };
+		F912B00A20CF721E00393ECA /* UIProgressView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIProgressView+AFNetworking.h"; sourceTree = "<group>"; };
+		F912B00B20CF721E00393ECA /* UIProgressView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIProgressView+AFNetworking.m"; sourceTree = "<group>"; };
+		F912B00C20CF721E00393ECA /* UIRefreshControl+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIRefreshControl+AFNetworking.h"; sourceTree = "<group>"; };
+		F912B00D20CF721E00393ECA /* UIRefreshControl+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIRefreshControl+AFNetworking.m"; sourceTree = "<group>"; };
+		F912B00E20CF721E00393ECA /* UIWebView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWebView+AFNetworking.h"; sourceTree = "<group>"; };
+		F912B00F20CF721E00393ECA /* UIWebView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWebView+AFNetworking.m"; sourceTree = "<group>"; };
+		F912B01120CF721E00393ECA /* ZHDNSDes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZHDNSDes.h; sourceTree = "<group>"; };
+		F912B01220CF721E00393ECA /* ZHDNSDes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZHDNSDes.m; sourceTree = "<group>"; };
+		F912B01320CF721E00393ECA /* ZHDNSHex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZHDNSHex.h; sourceTree = "<group>"; };
+		F912B01420CF721E00393ECA /* ZHDNSHex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZHDNSHex.m; sourceTree = "<group>"; };
+		F912B01520CF721E00393ECA /* ZHDNSHttpManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZHDNSHttpManager.h; sourceTree = "<group>"; };
+		F912B01620CF721E00393ECA /* ZHDNSHttpManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZHDNSHttpManager.m; sourceTree = "<group>"; };
+		F912B01720CF721E00393ECA /* ZHDNSIpService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZHDNSIpService.h; sourceTree = "<group>"; };
+		F912B01820CF721E00393ECA /* ZHDNSIpService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZHDNSIpService.m; sourceTree = "<group>"; };
+		F912B01920CF721E00393ECA /* ZHDNSResolveItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZHDNSResolveItem.h; sourceTree = "<group>"; };
+		F912B01A20CF721E00393ECA /* ZHDNSResolveItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZHDNSResolveItem.m; sourceTree = "<group>"; };
+		F912B01B20CF721E00393ECA /* ZHNetworkConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZHNetworkConfig.h; sourceTree = "<group>"; };
+		F912B01C20CF721E00393ECA /* ZHNetworkConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZHNetworkConfig.m; sourceTree = "<group>"; };
+		F912B01E20CF721E00393ECA /* ZHBaseService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZHBaseService.h; sourceTree = "<group>"; };
+		F912B01F20CF721E00393ECA /* ZHBaseService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZHBaseService.m; sourceTree = "<group>"; };
+		F912B02020CF721E00393ECA /* ZHBaseServiceDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZHBaseServiceDelegate.h; sourceTree = "<group>"; };
+		F912B02120CF721E00393ECA /* ZHBatchRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZHBatchRequest.h; sourceTree = "<group>"; };
+		F912B02220CF721E00393ECA /* ZHBatchRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZHBatchRequest.m; sourceTree = "<group>"; };
+		F912B02320CF721E00393ECA /* ZHBatchRequestManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZHBatchRequestManager.h; sourceTree = "<group>"; };
+		F912B02420CF721E00393ECA /* ZHBatchRequestManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZHBatchRequestManager.m; sourceTree = "<group>"; };
+		F912B02520CF721E00393ECA /* ZHChainRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZHChainRequest.h; sourceTree = "<group>"; };
+		F912B02620CF721E00393ECA /* ZHChainRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZHChainRequest.m; sourceTree = "<group>"; };
+		F912B02720CF721E00393ECA /* ZHChainRequestManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZHChainRequestManager.h; sourceTree = "<group>"; };
+		F912B02820CF721E00393ECA /* ZHChainRequestManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZHChainRequestManager.m; sourceTree = "<group>"; };
+		F912B02920CF721E00393ECA /* ZHNetworkConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZHNetworkConst.h; sourceTree = "<group>"; };
+		F912B02A20CF721E00393ECA /* ZHNetworkingManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZHNetworkingManager.h; sourceTree = "<group>"; };
+		F912B02B20CF721E00393ECA /* ZHNetworkingManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZHNetworkingManager.m; sourceTree = "<group>"; };
+		F912B02C20CF721E00393ECA /* ZHRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZHRequest.h; sourceTree = "<group>"; };
+		F912B02D20CF721E00393ECA /* ZHRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZHRequest.m; sourceTree = "<group>"; };
+		F912B02E20CF721E00393ECA /* ZHRequestDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZHRequestDelegate.h; sourceTree = "<group>"; };
+		F912B02F20CF721E00393ECA /* ZHRequestManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZHRequestManager.h; sourceTree = "<group>"; };
+		F912B03020CF721E00393ECA /* ZHRequestManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZHRequestManager.m; sourceTree = "<group>"; };
+		F912B03220CF721E00393ECA /* ZHProxyManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZHProxyManager.h; sourceTree = "<group>"; };
+		F912B03320CF721E00393ECA /* ZHProxyManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZHProxyManager.m; sourceTree = "<group>"; };
+		FD5800F2C2C6AC5B4501E1EE /* Pods-Network.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Network.release.xcconfig"; path = "../Pods/Target Support Files/Pods-Network/Pods-Network.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F912AF1F20CF70DB00393ECA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C8CAD9187D6B8306CFCD0CCE /* Pods_Network.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F912AF2920CF70DB00393ECA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F912AF2D20CF70DB00393ECA /* Network.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		8F6399848920F5D117C767A4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0901F9CC9113FC9594DDF3CC /* Pods_Network.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F35EFED0974ACB425603262D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				58CBC8FA54205E1DDAFD4257 /* Pods-Network.debug.xcconfig */,
+				FD5800F2C2C6AC5B4501E1EE /* Pods-Network.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		F912AF1920CF70DB00393ECA = {
+			isa = PBXGroup;
+			children = (
+				F912AF2520CF70DB00393ECA /* Network */,
+				F912AF3020CF70DB00393ECA /* NetworkTests */,
+				F912AF2420CF70DB00393ECA /* Products */,
+				F35EFED0974ACB425603262D /* Pods */,
+				8F6399848920F5D117C767A4 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		F912AF2420CF70DB00393ECA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F912AF2320CF70DB00393ECA /* Network.framework */,
+				F912AF2C20CF70DB00393ECA /* NetworkTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F912AF2520CF70DB00393ECA /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				F912AFE920CF721E00393ECA /* AFNetworking */,
+				F912B01020CF721E00393ECA /* DNSPod */,
+				F912B01D20CF721E00393ECA /* Network */,
+				F912B03120CF721E00393ECA /* Proxy */,
+				F912AFE020CF721E00393ECA /* Tamper */,
+				F912AFE620CF721E00393ECA /* Tools */,
+				F912AF2620CF70DB00393ECA /* Network.h */,
+				F912AF2720CF70DB00393ECA /* Info.plist */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		F912AF3020CF70DB00393ECA /* NetworkTests */ = {
+			isa = PBXGroup;
+			children = (
+				F912AF3120CF70DB00393ECA /* NetworkTests.m */,
+				F912AF3320CF70DB00393ECA /* Info.plist */,
+			);
+			path = NetworkTests;
+			sourceTree = "<group>";
+		};
+		F912AFE020CF721E00393ECA /* Tamper */ = {
+			isa = PBXGroup;
+			children = (
+				F912AFE120CF721E00393ECA /* Tamper */,
+			);
+			path = Tamper;
+			sourceTree = "<group>";
+		};
+		F912AFE120CF721E00393ECA /* Tamper */ = {
+			isa = PBXGroup;
+			children = (
+				F912AFE220CF721E00393ECA /* ZHTamperConfig.h */,
+				F912AFE320CF721E00393ECA /* ZHTamperConfig.m */,
+				F912AFE420CF721E00393ECA /* ZHTamperGuard.h */,
+				F912AFE520CF721E00393ECA /* ZHTamperGuard.m */,
+			);
+			path = Tamper;
+			sourceTree = "<group>";
+		};
+		F912AFE620CF721E00393ECA /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				F912AFE720CF721E00393ECA /* MD5Tools.h */,
+				F912AFE820CF721E00393ECA /* MD5Tools.m */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
+		F912AFE920CF721E00393ECA /* AFNetworking */ = {
+			isa = PBXGroup;
+			children = (
+				F912AFEA20CF721E00393ECA /* AFNetworking */,
+				F912AFF920CF721E00393ECA /* LICENSE */,
+				F912AFFA20CF721E00393ECA /* README.md */,
+				F912AFFB20CF721E00393ECA /* UIKit+AFNetworking */,
+			);
+			path = AFNetworking;
+			sourceTree = "<group>";
+		};
+		F912AFEA20CF721E00393ECA /* AFNetworking */ = {
+			isa = PBXGroup;
+			children = (
+				F912AFEB20CF721E00393ECA /* AFCompatibilityMacros.h */,
+				F912AFEC20CF721E00393ECA /* AFHTTPSessionManager.h */,
+				F912AFED20CF721E00393ECA /* AFHTTPSessionManager.m */,
+				F912AFEE20CF721E00393ECA /* AFNetworking.h */,
+				F912AFEF20CF721E00393ECA /* AFNetworkReachabilityManager.h */,
+				F912AFF020CF721E00393ECA /* AFNetworkReachabilityManager.m */,
+				F912AFF120CF721E00393ECA /* AFSecurityPolicy.h */,
+				F912AFF220CF721E00393ECA /* AFSecurityPolicy.m */,
+				F912AFF320CF721E00393ECA /* AFURLRequestSerialization.h */,
+				F912AFF420CF721E00393ECA /* AFURLRequestSerialization.m */,
+				F912AFF520CF721E00393ECA /* AFURLResponseSerialization.h */,
+				F912AFF620CF721E00393ECA /* AFURLResponseSerialization.m */,
+				F912AFF720CF721E00393ECA /* AFURLSessionManager.h */,
+				F912AFF820CF721E00393ECA /* AFURLSessionManager.m */,
+			);
+			path = AFNetworking;
+			sourceTree = "<group>";
+		};
+		F912AFFB20CF721E00393ECA /* UIKit+AFNetworking */ = {
+			isa = PBXGroup;
+			children = (
+				F912AFFC20CF721E00393ECA /* AFAutoPurgingImageCache.h */,
+				F912AFFD20CF721E00393ECA /* AFAutoPurgingImageCache.m */,
+				F912AFFE20CF721E00393ECA /* AFImageDownloader.h */,
+				F912AFFF20CF721E00393ECA /* AFImageDownloader.m */,
+				F912B00020CF721E00393ECA /* AFNetworkActivityIndicatorManager.h */,
+				F912B00120CF721E00393ECA /* AFNetworkActivityIndicatorManager.m */,
+				F912B00220CF721E00393ECA /* UIActivityIndicatorView+AFNetworking.h */,
+				F912B00320CF721E00393ECA /* UIActivityIndicatorView+AFNetworking.m */,
+				F912B00420CF721E00393ECA /* UIButton+AFNetworking.h */,
+				F912B00520CF721E00393ECA /* UIButton+AFNetworking.m */,
+				F912B00620CF721E00393ECA /* UIImage+AFNetworking.h */,
+				F912B00720CF721E00393ECA /* UIImageView+AFNetworking.h */,
+				F912B00820CF721E00393ECA /* UIImageView+AFNetworking.m */,
+				F912B00920CF721E00393ECA /* UIKit+AFNetworking.h */,
+				F912B00A20CF721E00393ECA /* UIProgressView+AFNetworking.h */,
+				F912B00B20CF721E00393ECA /* UIProgressView+AFNetworking.m */,
+				F912B00C20CF721E00393ECA /* UIRefreshControl+AFNetworking.h */,
+				F912B00D20CF721E00393ECA /* UIRefreshControl+AFNetworking.m */,
+				F912B00E20CF721E00393ECA /* UIWebView+AFNetworking.h */,
+				F912B00F20CF721E00393ECA /* UIWebView+AFNetworking.m */,
+			);
+			path = "UIKit+AFNetworking";
+			sourceTree = "<group>";
+		};
+		F912B01020CF721E00393ECA /* DNSPod */ = {
+			isa = PBXGroup;
+			children = (
+				F912B01120CF721E00393ECA /* ZHDNSDes.h */,
+				F912B01220CF721E00393ECA /* ZHDNSDes.m */,
+				F912B01320CF721E00393ECA /* ZHDNSHex.h */,
+				F912B01420CF721E00393ECA /* ZHDNSHex.m */,
+				F912B01520CF721E00393ECA /* ZHDNSHttpManager.h */,
+				F912B01620CF721E00393ECA /* ZHDNSHttpManager.m */,
+				F912B01720CF721E00393ECA /* ZHDNSIpService.h */,
+				F912B01820CF721E00393ECA /* ZHDNSIpService.m */,
+				F912B01920CF721E00393ECA /* ZHDNSResolveItem.h */,
+				F912B01A20CF721E00393ECA /* ZHDNSResolveItem.m */,
+				F912B01B20CF721E00393ECA /* ZHNetworkConfig.h */,
+				F912B01C20CF721E00393ECA /* ZHNetworkConfig.m */,
+			);
+			path = DNSPod;
+			sourceTree = "<group>";
+		};
+		F912B01D20CF721E00393ECA /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				F912B01E20CF721E00393ECA /* ZHBaseService.h */,
+				F912B01F20CF721E00393ECA /* ZHBaseService.m */,
+				F912B02020CF721E00393ECA /* ZHBaseServiceDelegate.h */,
+				F912B02120CF721E00393ECA /* ZHBatchRequest.h */,
+				F912B02220CF721E00393ECA /* ZHBatchRequest.m */,
+				F912B02320CF721E00393ECA /* ZHBatchRequestManager.h */,
+				F912B02420CF721E00393ECA /* ZHBatchRequestManager.m */,
+				F912B02520CF721E00393ECA /* ZHChainRequest.h */,
+				F912B02620CF721E00393ECA /* ZHChainRequest.m */,
+				F912B02720CF721E00393ECA /* ZHChainRequestManager.h */,
+				F912B02820CF721E00393ECA /* ZHChainRequestManager.m */,
+				F912B02920CF721E00393ECA /* ZHNetworkConst.h */,
+				F912B02A20CF721E00393ECA /* ZHNetworkingManager.h */,
+				F912B02B20CF721E00393ECA /* ZHNetworkingManager.m */,
+				F912B02C20CF721E00393ECA /* ZHRequest.h */,
+				F912B02D20CF721E00393ECA /* ZHRequest.m */,
+				F912B02E20CF721E00393ECA /* ZHRequestDelegate.h */,
+				F912B02F20CF721E00393ECA /* ZHRequestManager.h */,
+				F912B03020CF721E00393ECA /* ZHRequestManager.m */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		F912B03120CF721E00393ECA /* Proxy */ = {
+			isa = PBXGroup;
+			children = (
+				F912B03220CF721E00393ECA /* ZHProxyManager.h */,
+				F912B03320CF721E00393ECA /* ZHProxyManager.m */,
+			);
+			path = Proxy;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		F912AF2020CF70DB00393ECA /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F912B04620CF721F00393ECA /* AFURLSessionManager.h in Headers */,
+				F912B06C20CF721F00393ECA /* ZHBaseServiceDelegate.h in Headers */,
+				F912B07820CF721F00393ECA /* ZHRequest.h in Headers */,
+				F912B05220CF721F00393ECA /* UIButton+AFNetworking.h in Headers */,
+				F912B06220CF721F00393ECA /* ZHDNSHttpManager.h in Headers */,
+				F912B04020CF721F00393ECA /* AFSecurityPolicy.h in Headers */,
+				F912B05A20CF721F00393ECA /* UIRefreshControl+AFNetworking.h in Headers */,
+				F912B03D20CF721F00393ECA /* AFNetworking.h in Headers */,
+				F912B04220CF721F00393ECA /* AFURLRequestSerialization.h in Headers */,
+				F912B03E20CF721F00393ECA /* AFNetworkReachabilityManager.h in Headers */,
+				F912B07520CF721F00393ECA /* ZHNetworkConst.h in Headers */,
+				F912B03620CF721F00393ECA /* ZHTamperGuard.h in Headers */,
+				F912B07120CF721F00393ECA /* ZHChainRequest.h in Headers */,
+				F912B06020CF721F00393ECA /* ZHDNSHex.h in Headers */,
+				F912B07B20CF721F00393ECA /* ZHRequestManager.h in Headers */,
+				F912B06420CF721F00393ECA /* ZHDNSIpService.h in Headers */,
+				F912B04A20CF721F00393ECA /* AFAutoPurgingImageCache.h in Headers */,
+				F912AF3420CF70DB00393ECA /* Network.h in Headers */,
+				F912B05420CF721F00393ECA /* UIImage+AFNetworking.h in Headers */,
+				F912B05820CF721F00393ECA /* UIProgressView+AFNetworking.h in Headers */,
+				F912B07D20CF721F00393ECA /* ZHProxyManager.h in Headers */,
+				F912B04420CF721F00393ECA /* AFURLResponseSerialization.h in Headers */,
+				F912B05020CF721F00393ECA /* UIActivityIndicatorView+AFNetworking.h in Headers */,
+				F912B07620CF721F00393ECA /* ZHNetworkingManager.h in Headers */,
+				F912B05C20CF721F00393ECA /* UIWebView+AFNetworking.h in Headers */,
+				F912B06D20CF721F00393ECA /* ZHBatchRequest.h in Headers */,
+				F912B06F20CF721F00393ECA /* ZHBatchRequestManager.h in Headers */,
+				F912B03B20CF721F00393ECA /* AFHTTPSessionManager.h in Headers */,
+				F912B04C20CF721F00393ECA /* AFImageDownloader.h in Headers */,
+				F912B03420CF721F00393ECA /* ZHTamperConfig.h in Headers */,
+				F912B03A20CF721F00393ECA /* AFCompatibilityMacros.h in Headers */,
+				F912B06620CF721F00393ECA /* ZHDNSResolveItem.h in Headers */,
+				F912B07A20CF721F00393ECA /* ZHRequestDelegate.h in Headers */,
+				F912B05E20CF721F00393ECA /* ZHDNSDes.h in Headers */,
+				F912B05520CF721F00393ECA /* UIImageView+AFNetworking.h in Headers */,
+				F912B06A20CF721F00393ECA /* ZHBaseService.h in Headers */,
+				F912B03820CF721F00393ECA /* MD5Tools.h in Headers */,
+				F912B05720CF721F00393ECA /* UIKit+AFNetworking.h in Headers */,
+				F912B07320CF721F00393ECA /* ZHChainRequestManager.h in Headers */,
+				F912B06820CF721F00393ECA /* ZHNetworkConfig.h in Headers */,
+				F912B04E20CF721F00393ECA /* AFNetworkActivityIndicatorManager.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		F912AF2220CF70DB00393ECA /* Network */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F912AF3720CF70DB00393ECA /* Build configuration list for PBXNativeTarget "Network" */;
+			buildPhases = (
+				293CD4C9B82F6DD63A5AC216 /* [CP] Check Pods Manifest.lock */,
+				F912AF1E20CF70DB00393ECA /* Sources */,
+				F912AF1F20CF70DB00393ECA /* Frameworks */,
+				F912AF2020CF70DB00393ECA /* Headers */,
+				F912AF2120CF70DB00393ECA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Network;
+			productName = Network;
+			productReference = F912AF2320CF70DB00393ECA /* Network.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		F912AF2B20CF70DB00393ECA /* NetworkTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F912AF3A20CF70DB00393ECA /* Build configuration list for PBXNativeTarget "NetworkTests" */;
+			buildPhases = (
+				F912AF2820CF70DB00393ECA /* Sources */,
+				F912AF2920CF70DB00393ECA /* Frameworks */,
+				F912AF2A20CF70DB00393ECA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F912AF2F20CF70DB00393ECA /* PBXTargetDependency */,
+			);
+			name = NetworkTests;
+			productName = NetworkTests;
+			productReference = F912AF2C20CF70DB00393ECA /* NetworkTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F912AF1A20CF70DB00393ECA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0940;
+				ORGANIZATIONNAME = zh;
+				TargetAttributes = {
+					F912AF2220CF70DB00393ECA = {
+						CreatedOnToolsVersion = 9.4;
+					};
+					F912AF2B20CF70DB00393ECA = {
+						CreatedOnToolsVersion = 9.4;
+					};
+				};
+			};
+			buildConfigurationList = F912AF1D20CF70DB00393ECA /* Build configuration list for PBXProject "Network" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = F912AF1920CF70DB00393ECA;
+			productRefGroup = F912AF2420CF70DB00393ECA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F912AF2220CF70DB00393ECA /* Network */,
+				F912AF2B20CF70DB00393ECA /* NetworkTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F912AF2120CF70DB00393ECA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F912B04920CF721F00393ECA /* README.md in Resources */,
+				F912B04820CF721F00393ECA /* LICENSE in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F912AF2A20CF70DB00393ECA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		293CD4C9B82F6DD63A5AC216 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Network-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F912AF1E20CF70DB00393ECA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F912B07420CF721F00393ECA /* ZHChainRequestManager.m in Sources */,
+				F912B06E20CF721F00393ECA /* ZHBatchRequest.m in Sources */,
+				F912B07220CF721F00393ECA /* ZHChainRequest.m in Sources */,
+				F912B05920CF721F00393ECA /* UIProgressView+AFNetworking.m in Sources */,
+				F912B04720CF721F00393ECA /* AFURLSessionManager.m in Sources */,
+				F912B05D20CF721F00393ECA /* UIWebView+AFNetworking.m in Sources */,
+				F912B05620CF721F00393ECA /* UIImageView+AFNetworking.m in Sources */,
+				F912B07E20CF721F00393ECA /* ZHProxyManager.m in Sources */,
+				F912B07720CF721F00393ECA /* ZHNetworkingManager.m in Sources */,
+				F912B03720CF721F00393ECA /* ZHTamperGuard.m in Sources */,
+				F912B06B20CF721F00393ECA /* ZHBaseService.m in Sources */,
+				F912B05320CF721F00393ECA /* UIButton+AFNetworking.m in Sources */,
+				F912B06920CF721F00393ECA /* ZHNetworkConfig.m in Sources */,
+				F912B07920CF721F00393ECA /* ZHRequest.m in Sources */,
+				F912B06520CF721F00393ECA /* ZHDNSIpService.m in Sources */,
+				F912B03520CF721F00393ECA /* ZHTamperConfig.m in Sources */,
+				F912B03F20CF721F00393ECA /* AFNetworkReachabilityManager.m in Sources */,
+				F912B05B20CF721F00393ECA /* UIRefreshControl+AFNetworking.m in Sources */,
+				F912B05F20CF721F00393ECA /* ZHDNSDes.m in Sources */,
+				F912B06720CF721F00393ECA /* ZHDNSResolveItem.m in Sources */,
+				F912B07C20CF721F00393ECA /* ZHRequestManager.m in Sources */,
+				F912B03920CF721F00393ECA /* MD5Tools.m in Sources */,
+				F912B04B20CF721F00393ECA /* AFAutoPurgingImageCache.m in Sources */,
+				F912B04120CF721F00393ECA /* AFSecurityPolicy.m in Sources */,
+				F912B06120CF721F00393ECA /* ZHDNSHex.m in Sources */,
+				F912B04320CF721F00393ECA /* AFURLRequestSerialization.m in Sources */,
+				F912B04F20CF721F00393ECA /* AFNetworkActivityIndicatorManager.m in Sources */,
+				F912B04520CF721F00393ECA /* AFURLResponseSerialization.m in Sources */,
+				F912B03C20CF721F00393ECA /* AFHTTPSessionManager.m in Sources */,
+				F912B04D20CF721F00393ECA /* AFImageDownloader.m in Sources */,
+				F912B05120CF721F00393ECA /* UIActivityIndicatorView+AFNetworking.m in Sources */,
+				F912B06320CF721F00393ECA /* ZHDNSHttpManager.m in Sources */,
+				F912B07020CF721F00393ECA /* ZHBatchRequestManager.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F912AF2820CF70DB00393ECA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F912AF3220CF70DB00393ECA /* NetworkTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F912AF2F20CF70DB00393ECA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F912AF2220CF70DB00393ECA /* Network */;
+			targetProxy = F912AF2E20CF70DB00393ECA /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		F912AF3520CF70DB00393ECA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		F912AF3620CF70DB00393ECA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		F912AF3820CF70DB00393ECA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 58CBC8FA54205E1DDAFD4257 /* Pods-Network.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = W35GD34VEQ;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = Network/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_BUNDLE_IDENTIFIER = com.xiaomi.zuanzuan.Network;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F912AF3920CF70DB00393ECA /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FD5800F2C2C6AC5B4501E1EE /* Pods-Network.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = W35GD34VEQ;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = Network/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_BUNDLE_IDENTIFIER = com.xiaomi.zuanzuan.Network;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		F912AF3B20CF70DB00393ECA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = W35GD34VEQ;
+				INFOPLIST_FILE = NetworkTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.xiaomi.zuanzuan.NetworkTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F912AF3C20CF70DB00393ECA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = W35GD34VEQ;
+				INFOPLIST_FILE = NetworkTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.xiaomi.zuanzuan.NetworkTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F912AF1D20CF70DB00393ECA /* Build configuration list for PBXProject "Network" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F912AF3520CF70DB00393ECA /* Debug */,
+				F912AF3620CF70DB00393ECA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F912AF3720CF70DB00393ECA /* Build configuration list for PBXNativeTarget "Network" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F912AF3820CF70DB00393ECA /* Debug */,
+				F912AF3920CF70DB00393ECA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F912AF3A20CF70DB00393ECA /* Build configuration list for PBXNativeTarget "NetworkTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F912AF3B20CF70DB00393ECA /* Debug */,
+				F912AF3C20CF70DB00393ECA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F912AF1A20CF70DB00393ECA /* Project object */;
+}
