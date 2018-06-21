@@ -15,14 +15,11 @@
 
 @interface ZHBaseService()<ZHRequestDelegate>
 
-@property(nonatomic, assign) NSUInteger retryCount;
-@property(nonatomic, assign) NSUInteger expireRetryCount;
-
 @end
 
 @implementation ZHBaseService
 
-// TODO DNS映射缓存或者定时重发机制 
+// TODO DNS映射缓存或者定时重发机制
 
 - (instancetype)init {
     if (self = [super init]) {
@@ -58,12 +55,11 @@
 }
 
 - (void)initGETHttpRequest:(NSURL *)url {
-    self.retryCount = 0; // 超时重试和过期重试次数置为 0
-    self.expireRetryCount = 0;
-    
+
     [self clearRequest];
     
     ZHRequest *request = [[ZHRequest alloc] init];
+    _request = request;
     request.delegate = self;
     request.requestUrlStr = [url absoluteString];
     request.requestHeaders = self.requestHeaderDic;
@@ -73,26 +69,29 @@
     request.priority = self.priority;
     self.timeoutRetryTimes = 1;
 
-    NSString *reallyUrlStr = @"";
+    request.requestUrlStr = [self getRequestUrl];
+
+    [_request start];
+}
+
+- (NSString *)getRequestUrl {
+    NSString *requestUlrStr = @"";
     if (self.enableHttpDns) {
-        NSString *str = [[ZHDNSHttpManager sharedManager] getIpUrlStrWithReallyUrlStr:request.requestUrlStr requestUrlStr:request.requestUrlStr];
+        NSString *str = [[ZHDNSHttpManager sharedManager] getIpUrlStrWithReallyUrlStr:_request.requestUrlStr requestUrlStr:_request.requestUrlStr];
         if (!str) { // 还没有走域名解析，直接使用原始域名访问
-            reallyUrlStr = request.requestUrlStr;
+            requestUlrStr = _request.requestUrlStr;
         }
         if (str && str.length == 0) { // 已经走了域名解析，但是都被标记为失败,使用原始域名
-            reallyUrlStr = request.requestUrlStr;
+            requestUlrStr = _request.requestUrlStr;
         }
         if (str&&str.length>0) { // ip地址成功替换了域名
-            reallyUrlStr = str;
-            request.requestHostType = ZHRequest_HostType_DNSPOD;
+            requestUlrStr = str;
+            _request.requestHostType = ZHRequest_HostType_DNSPOD;
         }
     } else {
-        reallyUrlStr = request.requestUrlStr;
+        requestUlrStr = _request.requestUrlStr;
     }
-   
-    _request = request;
-    [_request start];
-    
+    return requestUlrStr;
 }
 
 #pragma mark --- POST 请求
@@ -150,6 +149,7 @@
     // get请求超时重试
     if (error.code == -1001 && self.timeoutRetryTimes > 0 && self.requestMethod == ZHRequest_Type_GET) {
         self.timeoutRetryTimes -= 1;
+        _request.requestUrlStr = [self getRequestUrl];
         [_request start];
     }
     // 重试完成之后如果还是失败，再回调业务层error
