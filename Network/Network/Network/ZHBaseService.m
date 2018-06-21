@@ -7,9 +7,9 @@
 //
 
 #import "ZHBaseService.h"
-#import "ZHProxyManager.h"
 #import "ZHTamperGuard.h"
 #import "ZHNetworkConst.h"
+#import "ZHDNSHttpManager.h"
 
 #define BaseServiceDebugLog(sentence) if(self.enableLog){sentence}
 
@@ -22,6 +22,7 @@
 
 @implementation ZHBaseService
 
+// TODO DNS映射缓存或者定时重发机制 
 
 - (instancetype)init {
     if (self = [super init]) {
@@ -33,15 +34,9 @@
 #pragma mark --- INIT
 - (void)initProperties {
     self.priority = ZHRequest_Priority_Default;
-    self.timeoutSeconds = 30;
-    ///////////////////////
+    self.timeoutSeconds = 15;
     self.enableLog = NO;
-    self.enableMD5 = YES;
-    self.enableProxy = NO;
-    self.enableRetry = YES;
-    self.enableHttpDns = NO;
-    self.enableTamperGuard = YES;
-    /////////////////////////
+    self.enableHttpDns = YES;
 }
 
 #pragma mark ---SETTER
@@ -51,32 +46,18 @@
 - (void)GET:(NSURL *)url {
     _requestUrlStr = [url absoluteString];
     _requestMethod = @"GET";
+    _reallyUrlStr = [url absoluteString];
     
     BaseServiceDebugLog(NSLog(@"原始requstUrl------------------>%@",[url absoluteString]););
     
     NSURL *tempUrl = nil;
-    /** 如果允许走反向代理，则对url进行处理：反劫持模块处理过的URL*/
-    if (self.enableProxy) {
-//        tempUrl = //// 反向代理处理url
-    } else {
-        _requestUrlStr = [url absoluteString];
-        tempUrl = url;
-    }
-    
-//    [self initGETHttpMethod:url readPolicy:readPolicy writePolicy];
+
+    _requestUrlStr = [url absoluteString];
+    tempUrl = url;
     [self initGETHttpRequest:url];
 }
 
 - (void)initGETHttpRequest:(NSURL *)url {
-    /** 对于下拉刷新的请求，需要重置所有请求信息 */
-    /** 清除requestHeader中的host信息 */
-    if (self.requestHeaderDic && self.requestHeaderDic[@"Host"]) {
-        NSMutableDictionary *mDic = [NSMutableDictionary dictionaryWithDictionary:self.requestHeaderDic];
-        [mDic removeObjectForKey:@"Host"];
-        self.requestHeaderDic = [mDic copy];
-        BaseServiceDebugLog(NSLog(@"删除Host的值"););
-    }
-
     self.retryCount = 0; // 超时重试和过期重试次数置为 0
     self.expireRetryCount = 0;
     
@@ -90,14 +71,24 @@
     request.requestType = ZHRequest_Type_GET;
     request.timeoutInterval = self.timeoutSeconds;
     request.priority = self.priority;
-    
-    // block 回调不实现了，全部使用代理方式回调。
-//    request.successBlock = ^(id responseObj) {
-//
-//    };
-//    request.failureBlock = ^(NSError *error) {
-//
-//    };
+    self.timeoutRetryTimes = 1;
+
+    NSString *reallyUrlStr = @"";
+    if (self.enableHttpDns) {
+        NSString *str = [[ZHDNSHttpManager sharedManager] getIpUrlStrWithReallyUrlStr:request.requestUrlStr requestUrlStr:request.requestUrlStr];
+        if (!str) { // 还没有走域名解析，直接使用原始域名访问
+            reallyUrlStr = request.requestUrlStr;
+        }
+        if (str && str.length == 0) { // 已经走了域名解析，但是都被标记为失败,使用原始域名
+            reallyUrlStr = request.requestUrlStr;
+        }
+        if (str&&str.length>0) { // ip地址成功替换了域名
+            reallyUrlStr = str;
+            request.requestHostType = ZHRequest_HostType_DNSPOD;
+        }
+    } else {
+        reallyUrlStr = request.requestUrlStr;
+    }
    
     _request = request;
     [_request start];
@@ -128,31 +119,45 @@
 }
 
 #pragma mark --- ZHRequestDelegate
-
 - (void)requestWillStart {
     if ([self.delegate respondsToSelector:@selector(requestWillStart:serviceObj:)]) {
         [self.delegate requestWillStart:self.handle serviceObj:self];
     }
 }
 - (void)requestFinished:(ZHRequest *)request responseObj:(id)responseObj {
-    
-    // 劫持校验在这里进行 
-    
     if ([self.delegate respondsToSelector:@selector(requestFinished:responseData:serviceObj:handle:)]) {
         [self.delegate requestFinished:request.responseString responseData:request.responseData serviceObj:self handle:self.handle];
+        [self parseJSON:request.responseString];
     }
 }
 - (void)requestFinished:(ZHRequest *)request responseStr:(NSString *)responseStr {
     if ([self.delegate respondsToSelector:@selector(requestFinished:serviceObj:)]) {
         [self.delegate requestFinished:request.responseString serviceObj:self];
+        [self parseJSON:request.responseString];
     }
 }
 - (void)requestFailed:(NSError *)error {
-    if ([self.delegate respondsToSelector:@selector(requestFailed:serviceObj:handle:)]) {
-        [self.delegate requestFailed:error serviceObj:self handle:self.handle];
+ 
+    if (error.code == -1009) NSLog(@"---->网络连接失败");
+    
+    NSUInteger httpCode = self.request.statusCode;
+    
+    if (httpCode >= 400 && httpCode <= 510 && self.request.requestHostType == ZHRequest_HostType_DNSPOD) { // 400或者500错误
+        // 设置ip失效 
+        [[ZHDNSHttpManager sharedManager] setIpInvalidate:self.request.requestUrlStr requestUrlStr:self.reallyUrlStr];
+    }
+    
+    // get请求超时重试
+    if (error.code == -1001 && self.timeoutRetryTimes > 0 && self.requestMethod == ZHRequest_Type_GET) {
+        self.timeoutRetryTimes -= 1;
+        [_request start];
+    }
+    // 重试完成之后如果还是失败，再回调业务层error
+    if (self.timeoutRetryTimes == 0) {
+        if ([self.delegate respondsToSelector:@selector(requestFailed:serviceObj:handle:)]) {
+            [self.delegate requestFailed:error serviceObj:self handle:self.handle];
+        }
     }
 }
-
-
 
 @end

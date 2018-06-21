@@ -8,7 +8,7 @@
 
 #import "ViewController.h"
 #import "PerformanceMonitor.h"
-
+#import "TestService.h"
 
 @interface ViewController ()<ZHBaseServiceDelegate>
 
@@ -22,7 +22,7 @@
 @property(nonatomic, strong) dispatch_semaphore_t semmphore;
 @property(nonatomic, assign) CFRunLoopActivity activity;
 @property(nonatomic, assign) NSInteger timeoutCount;
-@property (nonatomic, strong) ZHBaseService *service;
+@property (nonatomic, strong) TestService *service;
 
 @end
 
@@ -36,18 +36,18 @@
 //    ZHDNSHttpManager *dns = [ZHDNSHttpManager sharedManager];
 //    [dns  getAllDomain];
     
-    ZHTamperConfig *config = [ZHTamperConfig sharedConfig];
-    config.enableHttpDns = YES;
-    config.enableTamperGuard = YES;
+//    ZHTamperConfig *config = [ZHTamperConfig sharedConfig];
+//    config.enableHttpDns = YES;
+//    config.enableTamperGuard = YES;
     
     
     
-    NSString *localpushurl = @"https://activity.app.autohome.com.cn/ugapi/api/localpush/getLocalPush?deviceid=sssssssssaas1sss3123sdfasssssdfasdf&flag=0&userid=0&version=8.5.1";
+   
     
-    self.service = [[ZHBaseService alloc] init];
+    self.service = [[TestService alloc] init];
     self.service.delegate = self;
-    self.service.handle = self.service.hash;
-    [self.service GET:[NSURL URLWithString:localpushurl]];
+    [self.service getData];
+   
     
     
     UIView *v = [[UIView alloc] initWithFrame:CGRectMake(100, 100, 100, 100)];
@@ -106,9 +106,9 @@
     
 }
 
-- (void)requestFinished:(NSString *)responseStr serviceObj:(id)service {
-    
-}
+//- (void)requestFinished:(NSString *)responseStr serviceObj:(id)service {
+//    
+//}
 
 - (void)requestFailed:(NSError *)error serviceObj:(id)service handle:(NSInteger)handle {
     

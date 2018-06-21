@@ -16,6 +16,10 @@
 		F9349F6320C925CD0083246C /* UIColor+HexString.m in Sources */ = {isa = PBXBuildFile; fileRef = F9349F6120C925CD0083246C /* UIColor+HexString.m */; };
 		F9349F9420CA11140083246C /* UIView+ExtendHitArea.h in Headers */ = {isa = PBXBuildFile; fileRef = F9349F9220CA11140083246C /* UIView+ExtendHitArea.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F9349F9520CA11140083246C /* UIView+ExtendHitArea.m in Sources */ = {isa = PBXBuildFile; fileRef = F9349F9320CA11140083246C /* UIView+ExtendHitArea.m */; };
+		F9B14C3320D9E7C200FC79EB /* UIView+mainThread.h in Headers */ = {isa = PBXBuildFile; fileRef = F9B14C2F20D9E7C200FC79EB /* UIView+mainThread.h */; };
+		F9B14C3420D9E7C200FC79EB /* UIView+coordinate.m in Sources */ = {isa = PBXBuildFile; fileRef = F9B14C3020D9E7C200FC79EB /* UIView+coordinate.m */; };
+		F9B14C3520D9E7C200FC79EB /* UIView+mainThread.m in Sources */ = {isa = PBXBuildFile; fileRef = F9B14C3120D9E7C200FC79EB /* UIView+mainThread.m */; };
+		F9B14C3620D9E7C200FC79EB /* UIView+coordinate.h in Headers */ = {isa = PBXBuildFile; fileRef = F9B14C3220D9E7C200FC79EB /* UIView+coordinate.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F9C3A0BE20BEAFEC004AE87D /* NSDate+AHDateUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = F9C3A0BD20BEAFEC004AE87D /* NSDate+AHDateUtil.m */; };
 		F9C3A0BF20BEB078004AE87D /* NSDate+AHDateUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = F9C3A0BC20BEAFEC004AE87D /* NSDate+AHDateUtil.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F9CB735420C12DA000060EF9 /* ZHResettViewStacksTool.h in Headers */ = {isa = PBXBuildFile; fileRef = F9CB735220C12DA000060EF9 /* ZHResettViewStacksTool.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -51,6 +55,10 @@
 		F9349F6120C925CD0083246C /* UIColor+HexString.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIColor+HexString.m"; sourceTree = "<group>"; };
 		F9349F9220CA11140083246C /* UIView+ExtendHitArea.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+ExtendHitArea.h"; sourceTree = "<group>"; };
 		F9349F9320CA11140083246C /* UIView+ExtendHitArea.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+ExtendHitArea.m"; sourceTree = "<group>"; };
+		F9B14C2F20D9E7C200FC79EB /* UIView+mainThread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+mainThread.h"; sourceTree = "<group>"; };
+		F9B14C3020D9E7C200FC79EB /* UIView+coordinate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+coordinate.m"; sourceTree = "<group>"; };
+		F9B14C3120D9E7C200FC79EB /* UIView+mainThread.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+mainThread.m"; sourceTree = "<group>"; };
+		F9B14C3220D9E7C200FC79EB /* UIView+coordinate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+coordinate.h"; sourceTree = "<group>"; };
 		F9C3A0BC20BEAFEC004AE87D /* NSDate+AHDateUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+AHDateUtil.h"; sourceTree = "<group>"; };
 		F9C3A0BD20BEAFEC004AE87D /* NSDate+AHDateUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+AHDateUtil.m"; sourceTree = "<group>"; };
 		F9CB735220C12DA000060EF9 /* ZHResettViewStacksTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZHResettViewStacksTool.h; sourceTree = "<group>"; };
@@ -114,6 +122,10 @@
 		F9CB735620C1300C00060EF9 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				F9B14C3220D9E7C200FC79EB /* UIView+coordinate.h */,
+				F9B14C3020D9E7C200FC79EB /* UIView+coordinate.m */,
+				F9B14C2F20D9E7C200FC79EB /* UIView+mainThread.h */,
+				F9B14C3120D9E7C200FC79EB /* UIView+mainThread.m */,
 				F9C3A0BC20BEAFEC004AE87D /* NSDate+AHDateUtil.h */,
 				F9C3A0BD20BEAFEC004AE87D /* NSDate+AHDateUtil.m */,
 				F9CB735720C1328C00060EF9 /* NSString+stringUtil.h */,
@@ -181,6 +193,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F9B14C3620D9E7C200FC79EB /* UIView+coordinate.h in Headers */,
 				F9C3A0BF20BEB078004AE87D /* NSDate+AHDateUtil.h in Headers */,
 				F9349F9420CA11140083246C /* UIView+ExtendHitArea.h in Headers */,
 				F9CB735420C12DA000060EF9 /* ZHResettViewStacksTool.h in Headers */,
@@ -189,6 +202,7 @@
 				F9CB735D20C1361E00060EF9 /* NSString+RegEx.h in Headers */,
 				F9349F6220C925CD0083246C /* UIColor+HexString.h in Headers */,
 				F9349F5E20C91E5D0083246C /* NSString+Encryption.h in Headers */,
+				F9B14C3320D9E7C200FC79EB /* UIView+mainThread.h in Headers */,
 				F9CB735920C1328C00060EF9 /* NSString+stringUtil.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -314,7 +328,9 @@
 				F9348E8520C4D9750083246C /* NSString+Encoding.m in Sources */,
 				F9CB735A20C1328C00060EF9 /* NSString+stringUtil.m in Sources */,
 				F9CB735E20C1361E00060EF9 /* NSString+RegEx.m in Sources */,
+				F9B14C3520D9E7C200FC79EB /* UIView+mainThread.m in Sources */,
 				F9349F9520CA11140083246C /* UIView+ExtendHitArea.m in Sources */,
+				F9B14C3420D9E7C200FC79EB /* UIView+coordinate.m in Sources */,
 				F9C3A0BE20BEAFEC004AE87D /* NSDate+AHDateUtil.m in Sources */,
 				F9349F6320C925CD0083246C /* UIColor+HexString.m in Sources */,
 				F9349F5F20C91E5D0083246C /* NSString+Encryption.m in Sources */,

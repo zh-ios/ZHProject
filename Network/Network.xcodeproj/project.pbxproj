@@ -84,8 +84,6 @@
 		F912B07A20CF721F00393ECA /* ZHRequestDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = F912B02E20CF721E00393ECA /* ZHRequestDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F912B07B20CF721F00393ECA /* ZHRequestManager.h in Headers */ = {isa = PBXBuildFile; fileRef = F912B02F20CF721E00393ECA /* ZHRequestManager.h */; };
 		F912B07C20CF721F00393ECA /* ZHRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F912B03020CF721E00393ECA /* ZHRequestManager.m */; };
-		F912B07D20CF721F00393ECA /* ZHProxyManager.h in Headers */ = {isa = PBXBuildFile; fileRef = F912B03220CF721E00393ECA /* ZHProxyManager.h */; };
-		F912B07E20CF721F00393ECA /* ZHProxyManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F912B03320CF721E00393ECA /* ZHProxyManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -180,8 +178,6 @@
 		F912B02E20CF721E00393ECA /* ZHRequestDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZHRequestDelegate.h; sourceTree = "<group>"; };
 		F912B02F20CF721E00393ECA /* ZHRequestManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZHRequestManager.h; sourceTree = "<group>"; };
 		F912B03020CF721E00393ECA /* ZHRequestManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZHRequestManager.m; sourceTree = "<group>"; };
-		F912B03220CF721E00393ECA /* ZHProxyManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZHProxyManager.h; sourceTree = "<group>"; };
-		F912B03320CF721E00393ECA /* ZHProxyManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZHProxyManager.m; sourceTree = "<group>"; };
 		FD5800F2C2C6AC5B4501E1EE /* Pods-Network.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Network.release.xcconfig"; path = "../Pods/Target Support Files/Pods-Network/Pods-Network.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -248,7 +244,6 @@
 				F912AFE920CF721E00393ECA /* AFNetworking */,
 				F912B01020CF721E00393ECA /* DNSPod */,
 				F912B01D20CF721E00393ECA /* Network */,
-				F912B03120CF721E00393ECA /* Proxy */,
 				F912AFE020CF721E00393ECA /* Tamper */,
 				F912AFE620CF721E00393ECA /* Tools */,
 				F912AF2620CF70DB00393ECA /* Network.h */,
@@ -398,15 +393,6 @@
 			path = Network;
 			sourceTree = "<group>";
 		};
-		F912B03120CF721E00393ECA /* Proxy */ = {
-			isa = PBXGroup;
-			children = (
-				F912B03220CF721E00393ECA /* ZHProxyManager.h */,
-				F912B03320CF721E00393ECA /* ZHProxyManager.m */,
-			);
-			path = Proxy;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -434,7 +420,6 @@
 				F912AF3420CF70DB00393ECA /* Network.h in Headers */,
 				F912B05420CF721F00393ECA /* UIImage+AFNetworking.h in Headers */,
 				F912B05820CF721F00393ECA /* UIProgressView+AFNetworking.h in Headers */,
-				F912B07D20CF721F00393ECA /* ZHProxyManager.h in Headers */,
 				F912B04420CF721F00393ECA /* AFURLResponseSerialization.h in Headers */,
 				F912B05020CF721F00393ECA /* UIActivityIndicatorView+AFNetworking.h in Headers */,
 				F912B07620CF721F00393ECA /* ZHNetworkingManager.h in Headers */,
@@ -585,7 +570,6 @@
 				F912B04720CF721F00393ECA /* AFURLSessionManager.m in Sources */,
 				F912B05D20CF721F00393ECA /* UIWebView+AFNetworking.m in Sources */,
 				F912B05620CF721F00393ECA /* UIImageView+AFNetworking.m in Sources */,
-				F912B07E20CF721F00393ECA /* ZHProxyManager.m in Sources */,
 				F912B07720CF721F00393ECA /* ZHNetworkingManager.m in Sources */,
 				F912B03720CF721F00393ECA /* ZHTamperGuard.m in Sources */,
 				F912B06B20CF721F00393ECA /* ZHBaseService.m in Sources */,

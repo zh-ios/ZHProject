@@ -20,7 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
  @property
  @abstract 真是的url 如 https://www.baidu.com 而非ip
  */
-@property(nonatomic, copy) NSString *reallyUrlStr;
+@property(nonatomic, copy, readonly) NSString *reallyUrlStr;
 /*!
  @property
  @abstract 网络请求服务的标示
@@ -36,46 +36,22 @@ NS_ASSUME_NONNULL_BEGIN
 /** 在 getData 之前进行设置 */
 /*!
  @property
- @abstract 是否压缩请求体
- */
-@property(nonatomic, assign) BOOL shouldCompressRequestBody;
-/*!
- @property
  @abstract 是否使用dnspod 目前测试默认为no
  */
 @property(nonatomic, assign) BOOL enableHttpDns;
-/*!
- @property
- @abstract 是否使用反劫持
- */
-@property(nonatomic, assign) BOOL enableTamperGuard;
+
 /*!
  @property
  @abstract 是否允许走重试 , 默认是 YES
  */
 @property(nonatomic, assign) BOOL enableRetry;
-/*!
- @property
- @abstract 是否使用反向代理 ，默认no
- */
-@property(nonatomic, assign) BOOL enableProxy;
-/*!
- @property
- @abstract 是否使用MD5校验
- */
-@property(nonatomic, assign) BOOL enableMD5;
-@property(nonatomic, assign) BOOL enableJSONPrase;
 
 /*!
  @property
  @abstract 超时重试次数 ，只针对get请求 ，post不重试
  */
 @property(nonatomic, assign) NSUInteger timeoutRetryTimes;
-/*!
- @property
- @abstract 数据过期重试次数
- */
-@property(nonatomic, assign) NSUInteger exipredRertyTimes;
+
 /*!
  @property
  @abstract 超时时间
@@ -106,37 +82,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSDictionary *requestHeaderDic;
 
 @property(nonatomic, strong, readonly) ZHRequest *request;
-
-
-///////////////////////缓存相关 暂未实现/////////////////////////////////////////
-// TODO 读取缓存策略 ，写入缓存策略
-/*!
- @property
- @abstract 写入缓存的keyword
- */
-@property(nonatomic, copy) NSString *keyword;
-/*!
- @property
- @abstract 缓存的表名
- */
-@property(nonatomic, copy) NSString *keywordTableName;
-/*!
- @property
- @abstract 最大缓存条数
- */
-@property(nonatomic, assign) NSUInteger maxCacheCount;
-/*!
- @property
- @abstract 是否是缓存数据
- */
-@property(nonatomic, assign, readonly) BOOL isCacheData;
-/*!
- @property
- @abstract 缓存有效时长
- */
-@property(nonatomic, assign) NSTimeInterval effectiveCacheTime;
-////////////////////////////////////////////////////////////////
-
 
 #pragma mark --- GET 请求相关方法
 /*!

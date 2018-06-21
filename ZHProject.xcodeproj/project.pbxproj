@@ -14,11 +14,10 @@
 		86E945BD204FDB8D0033BB7E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 86E945BB204FDB8D0033BB7E /* LaunchScreen.storyboard */; };
 		86E945C0204FDB8D0033BB7E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 86E945BF204FDB8D0033BB7E /* main.m */; };
 		86E945CA204FDF300033BB7E /* PerformanceMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = 86E945C7204FDF300033BB7E /* PerformanceMonitor.m */; };
-		86E945CB204FDF300033BB7E /* UIView+mainThread.m in Sources */ = {isa = PBXBuildFile; fileRef = 86E945C9204FDF300033BB7E /* UIView+mainThread.m */; };
-		86E945D520511CCF0033BB7E /* UIView+coordinate.m in Sources */ = {isa = PBXBuildFile; fileRef = 86E945D420511CCF0033BB7E /* UIView+coordinate.m */; };
 		F912B08220CF728900393ECA /* Network.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F912B08120CF728900393ECA /* Network.framework */; };
 		F912B08420CF9CAE00393ECA /* BussinessFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F912B08320CF9CAE00393ECA /* BussinessFramework.framework */; };
 		F912B08620CF9CB500393ECA /* CommonFunction.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F912B08520CF9CB500393ECA /* CommonFunction.framework */; };
+		F9BC7CCC20DA439C008BE310 /* TestService.m in Sources */ = {isa = PBXBuildFile; fileRef = F9BC7CCB20DA439C008BE310 /* TestService.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,10 +36,6 @@
 		86E945BF204FDB8D0033BB7E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		86E945C6204FDF300033BB7E /* PerformanceMonitor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PerformanceMonitor.h; sourceTree = "<group>"; };
 		86E945C7204FDF300033BB7E /* PerformanceMonitor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PerformanceMonitor.m; sourceTree = "<group>"; };
-		86E945C8204FDF300033BB7E /* UIView+mainThread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+mainThread.h"; sourceTree = "<group>"; };
-		86E945C9204FDF300033BB7E /* UIView+mainThread.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+mainThread.m"; sourceTree = "<group>"; };
-		86E945D320511CCF0033BB7E /* UIView+coordinate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+coordinate.h"; sourceTree = "<group>"; };
-		86E945D420511CCF0033BB7E /* UIView+coordinate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+coordinate.m"; sourceTree = "<group>"; };
 		F912AE3F20CF5C7400393ECA /* ZHNetwork.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ZHNetwork.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F912AE4220CF5FFE00393ECA /* ZHNetwork.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ZHNetwork.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F912AE4420CF620B00393ECA /* ZHNetwork.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ZHNetwork.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -55,6 +50,8 @@
 		F9348E8820C513C80083246C /* Pods_CommonFunction.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_CommonFunction.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9348E8A20C513E90083246C /* CommonFunction.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CommonFunction.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9349F8C20C931EC0083246C /* BussinessFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = BussinessFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F9BC7CCA20DA439C008BE310 /* TestService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestService.h; sourceTree = "<group>"; };
+		F9BC7CCB20DA439C008BE310 /* TestService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestService.m; sourceTree = "<group>"; };
 		F9C3A0C120BEB11C004AE87D /* ZHProject_PrefixHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZHProject_PrefixHeader.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -131,6 +128,8 @@
 				86E945B1204FDB8D0033BB7E /* AppDelegate.m */,
 				86E945B3204FDB8D0033BB7E /* ViewController.h */,
 				86E945B4204FDB8D0033BB7E /* ViewController.m */,
+				F9BC7CCA20DA439C008BE310 /* TestService.h */,
+				F9BC7CCB20DA439C008BE310 /* TestService.m */,
 				86E945B6204FDB8D0033BB7E /* Main.storyboard */,
 				86E945B9204FDB8D0033BB7E /* Assets.xcassets */,
 				86E945BB204FDB8D0033BB7E /* LaunchScreen.storyboard */,
@@ -144,10 +143,6 @@
 		86E945CC205006AE0033BB7E /* category */ = {
 			isa = PBXGroup;
 			children = (
-				86E945C8204FDF300033BB7E /* UIView+mainThread.h */,
-				86E945C9204FDF300033BB7E /* UIView+mainThread.m */,
-				86E945D320511CCF0033BB7E /* UIView+coordinate.h */,
-				86E945D420511CCF0033BB7E /* UIView+coordinate.m */,
 			);
 			path = category;
 			sourceTree = "<group>";
@@ -265,11 +260,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				86E945B5204FDB8D0033BB7E /* ViewController.m in Sources */,
-				86E945D520511CCF0033BB7E /* UIView+coordinate.m in Sources */,
 				86E945CA204FDF300033BB7E /* PerformanceMonitor.m in Sources */,
 				86E945C0204FDB8D0033BB7E /* main.m in Sources */,
-				86E945CB204FDF300033BB7E /* UIView+mainThread.m in Sources */,
 				86E945B2204FDB8D0033BB7E /* AppDelegate.m in Sources */,
+				F9BC7CCC20DA439C008BE310 /* TestService.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -404,6 +398,7 @@
 			baseConfigurationReference = 7FBD28D63E2E57E6132EBE73 /* Pods-ZHProject.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = W35GD34VEQ;
 				ENABLE_BITCODE = NO;
@@ -419,8 +414,9 @@
 					"-framework",
 					"\"MJRefresh\"",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.autohome.--PluginName--Framework.ZHProject";
+				PRODUCT_BUNDLE_IDENTIFIER = com.autohome.test.test;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "";
 				USE_HEADERMAP = YES;
@@ -432,6 +428,7 @@
 			baseConfigurationReference = 353F6F2D0F1B07FC6C594E9B /* Pods-ZHProject.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = W35GD34VEQ;
 				ENABLE_BITCODE = NO;
@@ -447,8 +444,9 @@
 					"-framework",
 					"\"MJRefresh\"",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.autohome.--PluginName--Framework.ZHProject";
+				PRODUCT_BUNDLE_IDENTIFIER = com.autohome.test.test;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "";
 				USE_HEADERMAP = YES;

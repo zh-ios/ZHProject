@@ -23,7 +23,7 @@
 
 
 /**
- 请求成功回调
+ 请求成功回调,按需要写一个成功的回调即可，否则会调用两次 - parseJSON 方法 。
 
  @param responseStr 结果字符串
  @param service service

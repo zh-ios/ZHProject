@@ -15,11 +15,7 @@
  @abstract 是否允许 httpDns 
  */
 @property(nonatomic, assign) BOOL enableHttpDns;
-/*!
- @property
- @abstract 是否允许反向代理
- */
-@property(nonatomic, assign) BOOL enableProxy;
+
 /*!
  @property
  @abstract 是否允许反劫持

@@ -6,19 +6,17 @@
 //  Copyright © 2017年 autohome. All rights reserved.
 //
 
-#import "AFNetworking.h"
+#import "AFNetworking.h" // 引用的内部文件也需要设置为public
 #import "ZHRequestDelegate.h"
 
 typedef NS_ENUM(NSInteger, ZHRequest_HostType) {
     ZHRequest_HostType_INIT = 0, // 初始请求域名
     ZHRequest_HostType_DNSPOD,  // DNSPOD 域名请求
-    ZHRequest_HostType_PROXY // 反向代理域名
 };
 
 typedef NS_ENUM(NSInteger, ZHRequest_Retry_Type) {
     ZHRequest_Retry_Type_INIT = 0, // 初始请求
     ZHRequest_Retry_Type_Retry,   // 重试请求
-    ZHRequest_Retry_Type_Other   // 其他请求 异步重试的请求
 };
 
 typedef NS_ENUM(NSInteger, ZHRequest_Type) {
@@ -27,10 +25,10 @@ typedef NS_ENUM(NSInteger, ZHRequest_Type) {
 };
 
 typedef NS_ENUM(NSInteger, ZHRequest_RequestSerializerType) {
-    // 二进制格式 default 
-    ZHRequest_RequestSerializerType_HTTP = 0,
     // json
-    ZHRequest_RequestSerializerType_JSON,
+    ZHRequest_RequestSerializerType_JSON = 0,
+    // 二进制格式
+    ZHRequest_RequestSerializerType_HTTP,
     // plist
     ZHRequest_RequestSerializerType_Plist
     
@@ -85,8 +83,6 @@ typedef void (^DownloadProcessBlock)(NSProgress *process);
 @property(nonatomic, strong) NSDictionary *params;
 
 
-
-
 /*!
  @property
  @abstract 自定义的请求头参数
@@ -110,7 +106,7 @@ typedef void (^DownloadProcessBlock)(NSProgress *process);
 @property(nonatomic, assign) ZHRequest_Retry_Type requestRetryType;
 /*!
  @property
- @abstract 默认 http
+ @abstract 默认 JSON
  */
 @property(nonatomic, assign) ZHRequest_RequestSerializerType requestSerializerType;
 
@@ -145,8 +141,6 @@ typedef void (^DownloadProcessBlock)(NSProgress *process);
 @property(nonatomic, copy) FailureBlock failureBlock;
 
 @property(nonatomic, weak) id<ZHRequestDelegate> delegate;
-
-@property(nonatomic, assign) BOOL useProxy;
 
 - (void)cancel;
 

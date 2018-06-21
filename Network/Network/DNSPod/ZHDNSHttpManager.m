@@ -307,7 +307,7 @@
                 } else {
                     //
                 }
-                NSLog(@"---------%@--%@--%d",item.domain,item.ipAddr,item.resolveStatus);
+                NSLog(@"---------%@--%@--%@",item.domain,item.ipAddr,@(item.resolveStatus));
             }
         }
     }

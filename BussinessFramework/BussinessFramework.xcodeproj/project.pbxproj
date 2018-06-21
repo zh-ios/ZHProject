@@ -29,6 +29,7 @@
 		6F1638AD1E1914C85B2ACFA2 /* Pods_BussinessFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BussinessFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8AF3AB31DC094E8BEF9BC94B /* Pods-BussinessFramework.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BussinessFramework.release.xcconfig"; path = "../Pods/Target Support Files/Pods-BussinessFramework/Pods-BussinessFramework.release.xcconfig"; sourceTree = "<group>"; };
 		D2671F02B161AD83F704C42E /* Pods-BussinessFramework.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BussinessFramework.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-BussinessFramework/Pods-BussinessFramework.debug.xcconfig"; sourceTree = "<group>"; };
+		F912B08720CFCF1B00393ECA /* Bussiness_PrefixHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Bussiness_PrefixHeader.h; sourceTree = "<group>"; };
 		F9349F6E20C92E560083246C /* BussinessFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BussinessFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9349F7120C92E560083246C /* BussinessFramework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BussinessFramework.h; sourceTree = "<group>"; };
 		F9349F7220C92E560083246C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -103,6 +104,7 @@
 				F9349F8820C92FC10083246C /* TestViewController.h */,
 				F9349F8920C92FC10083246C /* TestViewController.m */,
 				F9349F7220C92E560083246C /* Info.plist */,
+				F912B08720CFCF1B00393ECA /* Bussiness_PrefixHeader.h */,
 			);
 			path = BussinessFramework;
 			sourceTree = "<group>";
@@ -396,6 +398,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "$(SRCROOT)/BussinessFramework/Bussiness_PrefixHeader.h";
 				INFOPLIST_FILE = BussinessFramework/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -422,6 +425,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "$(SRCROOT)/BussinessFramework/Bussiness_PrefixHeader.h";
 				INFOPLIST_FILE = BussinessFramework/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
