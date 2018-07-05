@@ -25,4 +25,4 @@ FOUNDATION_EXPORT const unsigned char CommonFunctionVersionString[];
 #import "UIColor+HexString.h"
 #import "UIView+ExtendHitArea.h"
 #import "UIView+coordinate.h"
-
+#import "UIImage+color.h"

@@ -34,6 +34,13 @@
     self.ser = ser;
     self.ser.handle = 200;
     [ser GET:[NSURL URLWithString:@"http://www.baidu.com"]];
+    
+    UIImageView *view = [[UIImageView alloc] initWithFrame:CGRectMake(100, 100, 100, 100)];
+    
+    UIImage *img = [UIImage imageFromColor:[UIColor orangeColor] size:CGSizeMake(1, 1)];
+    
+    view.image = [UIImage imageFromColor:[UIColor orangeColor]];
+    [self.view addSubview:view];
 
 }
 

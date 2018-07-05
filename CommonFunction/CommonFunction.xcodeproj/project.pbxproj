@@ -16,6 +16,8 @@
 		F9349F6320C925CD0083246C /* UIColor+HexString.m in Sources */ = {isa = PBXBuildFile; fileRef = F9349F6120C925CD0083246C /* UIColor+HexString.m */; };
 		F9349F9420CA11140083246C /* UIView+ExtendHitArea.h in Headers */ = {isa = PBXBuildFile; fileRef = F9349F9220CA11140083246C /* UIView+ExtendHitArea.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F9349F9520CA11140083246C /* UIView+ExtendHitArea.m in Sources */ = {isa = PBXBuildFile; fileRef = F9349F9320CA11140083246C /* UIView+ExtendHitArea.m */; };
+		F9A9DD8920DB8270009C3B84 /* UIImage+color.h in Headers */ = {isa = PBXBuildFile; fileRef = F9A9DD8720DB8270009C3B84 /* UIImage+color.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F9A9DD8A20DB8270009C3B84 /* UIImage+color.m in Sources */ = {isa = PBXBuildFile; fileRef = F9A9DD8820DB8270009C3B84 /* UIImage+color.m */; };
 		F9B14C3320D9E7C200FC79EB /* UIView+mainThread.h in Headers */ = {isa = PBXBuildFile; fileRef = F9B14C2F20D9E7C200FC79EB /* UIView+mainThread.h */; };
 		F9B14C3420D9E7C200FC79EB /* UIView+coordinate.m in Sources */ = {isa = PBXBuildFile; fileRef = F9B14C3020D9E7C200FC79EB /* UIView+coordinate.m */; };
 		F9B14C3520D9E7C200FC79EB /* UIView+mainThread.m in Sources */ = {isa = PBXBuildFile; fileRef = F9B14C3120D9E7C200FC79EB /* UIView+mainThread.m */; };
@@ -55,6 +57,8 @@
 		F9349F6120C925CD0083246C /* UIColor+HexString.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIColor+HexString.m"; sourceTree = "<group>"; };
 		F9349F9220CA11140083246C /* UIView+ExtendHitArea.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+ExtendHitArea.h"; sourceTree = "<group>"; };
 		F9349F9320CA11140083246C /* UIView+ExtendHitArea.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+ExtendHitArea.m"; sourceTree = "<group>"; };
+		F9A9DD8720DB8270009C3B84 /* UIImage+color.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+color.h"; sourceTree = "<group>"; };
+		F9A9DD8820DB8270009C3B84 /* UIImage+color.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+color.m"; sourceTree = "<group>"; };
 		F9B14C2F20D9E7C200FC79EB /* UIView+mainThread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+mainThread.h"; sourceTree = "<group>"; };
 		F9B14C3020D9E7C200FC79EB /* UIView+coordinate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+coordinate.m"; sourceTree = "<group>"; };
 		F9B14C3120D9E7C200FC79EB /* UIView+mainThread.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+mainThread.m"; sourceTree = "<group>"; };
@@ -140,6 +144,8 @@
 				F9349F6120C925CD0083246C /* UIColor+HexString.m */,
 				F9349F9220CA11140083246C /* UIView+ExtendHitArea.h */,
 				F9349F9320CA11140083246C /* UIView+ExtendHitArea.m */,
+				F9A9DD8720DB8270009C3B84 /* UIImage+color.h */,
+				F9A9DD8820DB8270009C3B84 /* UIImage+color.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -201,6 +207,7 @@
 				F9348E8420C4D9750083246C /* NSString+Encoding.h in Headers */,
 				F9CB735D20C1361E00060EF9 /* NSString+RegEx.h in Headers */,
 				F9349F6220C925CD0083246C /* UIColor+HexString.h in Headers */,
+				F9A9DD8920DB8270009C3B84 /* UIImage+color.h in Headers */,
 				F9349F5E20C91E5D0083246C /* NSString+Encryption.h in Headers */,
 				F9B14C3320D9E7C200FC79EB /* UIView+mainThread.h in Headers */,
 				F9CB735920C1328C00060EF9 /* NSString+stringUtil.h in Headers */,
@@ -330,6 +337,7 @@
 				F9CB735E20C1361E00060EF9 /* NSString+RegEx.m in Sources */,
 				F9B14C3520D9E7C200FC79EB /* UIView+mainThread.m in Sources */,
 				F9349F9520CA11140083246C /* UIView+ExtendHitArea.m in Sources */,
+				F9A9DD8A20DB8270009C3B84 /* UIImage+color.m in Sources */,
 				F9B14C3420D9E7C200FC79EB /* UIView+coordinate.m in Sources */,
 				F9C3A0BE20BEAFEC004AE87D /* NSDate+AHDateUtil.m in Sources */,
 				F9349F6320C925CD0083246C /* UIColor+HexString.m in Sources */,
