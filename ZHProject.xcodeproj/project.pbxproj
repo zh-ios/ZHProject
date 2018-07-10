@@ -17,6 +17,15 @@
 		F912B08220CF728900393ECA /* Network.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F912B08120CF728900393ECA /* Network.framework */; };
 		F912B08420CF9CAE00393ECA /* BussinessFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F912B08320CF9CAE00393ECA /* BussinessFramework.framework */; };
 		F912B08620CF9CB500393ECA /* CommonFunction.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F912B08520CF9CB500393ECA /* CommonFunction.framework */; };
+		F93EFD9D20F4A2CC004211FC /* XCBaseSettingController.m in Sources */ = {isa = PBXBuildFile; fileRef = F93EFD9B20F4A2CC004211FC /* XCBaseSettingController.m */; };
+		F93EFDA220F4A2DD004211FC /* XCCommonSettingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F93EFD9E20F4A2DC004211FC /* XCCommonSettingCell.m */; };
+		F93EFDA320F4A2DD004211FC /* XCSettingCellContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = F93EFDA020F4A2DC004211FC /* XCSettingCellContainerView.m */; };
+		F93EFDAE20F4A2F1004211FC /* XCLabelItem.m in Sources */ = {isa = PBXBuildFile; fileRef = F93EFDA420F4A2F0004211FC /* XCLabelItem.m */; };
+		F93EFDAF20F4A2F1004211FC /* XCCellItem.m in Sources */ = {isa = PBXBuildFile; fileRef = F93EFDA820F4A2F0004211FC /* XCCellItem.m */; };
+		F93EFDB020F4A2F1004211FC /* XCSwitchItem.m in Sources */ = {isa = PBXBuildFile; fileRef = F93EFDA920F4A2F0004211FC /* XCSwitchItem.m */; };
+		F93EFDB120F4A2F1004211FC /* XCCellGroupItem.m in Sources */ = {isa = PBXBuildFile; fileRef = F93EFDAA20F4A2F0004211FC /* XCCellGroupItem.m */; };
+		F93EFDB220F4A2F1004211FC /* XCArrowItem.m in Sources */ = {isa = PBXBuildFile; fileRef = F93EFDAB20F4A2F0004211FC /* XCArrowItem.m */; };
+		F93EFDB920F4A55E004211FC /* XCTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = F93EFDB820F4A55E004211FC /* XCTextField.m */; };
 		F9BC7CCC20DA439C008BE310 /* TestService.m in Sources */ = {isa = PBXBuildFile; fileRef = F9BC7CCB20DA439C008BE310 /* TestService.m */; };
 /* End PBXBuildFile section */
 
@@ -50,6 +59,24 @@
 		F9348E8820C513C80083246C /* Pods_CommonFunction.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_CommonFunction.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9348E8A20C513E90083246C /* CommonFunction.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CommonFunction.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9349F8C20C931EC0083246C /* BussinessFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = BussinessFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F93EFD9B20F4A2CC004211FC /* XCBaseSettingController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XCBaseSettingController.m; sourceTree = "<group>"; };
+		F93EFD9C20F4A2CC004211FC /* XCBaseSettingController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCBaseSettingController.h; sourceTree = "<group>"; };
+		F93EFD9E20F4A2DC004211FC /* XCCommonSettingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XCCommonSettingCell.m; sourceTree = "<group>"; };
+		F93EFD9F20F4A2DC004211FC /* XCCommonSettingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCCommonSettingCell.h; sourceTree = "<group>"; };
+		F93EFDA020F4A2DC004211FC /* XCSettingCellContainerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XCSettingCellContainerView.m; sourceTree = "<group>"; };
+		F93EFDA120F4A2DD004211FC /* XCSettingCellContainerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCSettingCellContainerView.h; sourceTree = "<group>"; };
+		F93EFDA420F4A2F0004211FC /* XCLabelItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XCLabelItem.m; sourceTree = "<group>"; };
+		F93EFDA520F4A2F0004211FC /* XCCellItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCCellItem.h; sourceTree = "<group>"; };
+		F93EFDA620F4A2F0004211FC /* XCCellGroupItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCCellGroupItem.h; sourceTree = "<group>"; };
+		F93EFDA720F4A2F0004211FC /* XCArrowItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCArrowItem.h; sourceTree = "<group>"; };
+		F93EFDA820F4A2F0004211FC /* XCCellItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XCCellItem.m; sourceTree = "<group>"; };
+		F93EFDA920F4A2F0004211FC /* XCSwitchItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XCSwitchItem.m; sourceTree = "<group>"; };
+		F93EFDAA20F4A2F0004211FC /* XCCellGroupItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XCCellGroupItem.m; sourceTree = "<group>"; };
+		F93EFDAB20F4A2F0004211FC /* XCArrowItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XCArrowItem.m; sourceTree = "<group>"; };
+		F93EFDAC20F4A2F0004211FC /* XCSwitchItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCSwitchItem.h; sourceTree = "<group>"; };
+		F93EFDAD20F4A2F0004211FC /* XCLabelItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCLabelItem.h; sourceTree = "<group>"; };
+		F93EFDB720F4A55E004211FC /* XCTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCTextField.h; sourceTree = "<group>"; };
+		F93EFDB820F4A55E004211FC /* XCTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XCTextField.m; sourceTree = "<group>"; };
 		F9BC7CCA20DA439C008BE310 /* TestService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestService.h; sourceTree = "<group>"; };
 		F9BC7CCB20DA439C008BE310 /* TestService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestService.m; sourceTree = "<group>"; };
 		F9C3A0C120BEB11C004AE87D /* ZHProject_PrefixHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZHProject_PrefixHeader.h; sourceTree = "<group>"; };
@@ -121,6 +148,8 @@
 		86E945AF204FDB8D0033BB7E /* ZHProject */ = {
 			isa = PBXGroup;
 			children = (
+				F93EFDB620F4A548004211FC /* CommoinUI */,
+				F93EFD9920F4A279004211FC /* Setting */,
 				86E945CC205006AE0033BB7E /* category */,
 				86E945C6204FDF300033BB7E /* PerformanceMonitor.h */,
 				86E945C7204FDF300033BB7E /* PerformanceMonitor.m */,
@@ -145,6 +174,62 @@
 			children = (
 			);
 			path = category;
+			sourceTree = "<group>";
+		};
+		F93EFD9920F4A279004211FC /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				F93EFDB520F4A309004211FC /* Model */,
+				F93EFDB420F4A2FF004211FC /* view */,
+				F93EFDB320F4A2F6004211FC /* Controller */,
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
+		F93EFDB320F4A2F6004211FC /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				F93EFD9C20F4A2CC004211FC /* XCBaseSettingController.h */,
+				F93EFD9B20F4A2CC004211FC /* XCBaseSettingController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		F93EFDB420F4A2FF004211FC /* view */ = {
+			isa = PBXGroup;
+			children = (
+				F93EFD9F20F4A2DC004211FC /* XCCommonSettingCell.h */,
+				F93EFD9E20F4A2DC004211FC /* XCCommonSettingCell.m */,
+				F93EFDA120F4A2DD004211FC /* XCSettingCellContainerView.h */,
+				F93EFDA020F4A2DC004211FC /* XCSettingCellContainerView.m */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		F93EFDB520F4A309004211FC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F93EFDA720F4A2F0004211FC /* XCArrowItem.h */,
+				F93EFDAB20F4A2F0004211FC /* XCArrowItem.m */,
+				F93EFDA620F4A2F0004211FC /* XCCellGroupItem.h */,
+				F93EFDAA20F4A2F0004211FC /* XCCellGroupItem.m */,
+				F93EFDA520F4A2F0004211FC /* XCCellItem.h */,
+				F93EFDA820F4A2F0004211FC /* XCCellItem.m */,
+				F93EFDAD20F4A2F0004211FC /* XCLabelItem.h */,
+				F93EFDA420F4A2F0004211FC /* XCLabelItem.m */,
+				F93EFDAC20F4A2F0004211FC /* XCSwitchItem.h */,
+				F93EFDA920F4A2F0004211FC /* XCSwitchItem.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F93EFDB620F4A548004211FC /* CommoinUI */ = {
+			isa = PBXGroup;
+			children = (
+				F93EFDB720F4A55E004211FC /* XCTextField.h */,
+				F93EFDB820F4A55E004211FC /* XCTextField.m */,
+			);
+			path = CommoinUI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -260,10 +345,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				86E945B5204FDB8D0033BB7E /* ViewController.m in Sources */,
+				F93EFDB220F4A2F1004211FC /* XCArrowItem.m in Sources */,
 				86E945CA204FDF300033BB7E /* PerformanceMonitor.m in Sources */,
 				86E945C0204FDB8D0033BB7E /* main.m in Sources */,
+				F93EFDB920F4A55E004211FC /* XCTextField.m in Sources */,
 				86E945B2204FDB8D0033BB7E /* AppDelegate.m in Sources */,
+				F93EFDAE20F4A2F1004211FC /* XCLabelItem.m in Sources */,
+				F93EFD9D20F4A2CC004211FC /* XCBaseSettingController.m in Sources */,
+				F93EFDA220F4A2DD004211FC /* XCCommonSettingCell.m in Sources */,
+				F93EFDB020F4A2F1004211FC /* XCSwitchItem.m in Sources */,
+				F93EFDAF20F4A2F1004211FC /* XCCellItem.m in Sources */,
+				F93EFDA320F4A2DD004211FC /* XCSettingCellContainerView.m in Sources */,
 				F9BC7CCC20DA439C008BE310 /* TestService.m in Sources */,
+				F93EFDB120F4A2F1004211FC /* XCCellGroupItem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
