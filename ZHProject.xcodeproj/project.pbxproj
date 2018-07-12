@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4FCB5892AB165F71DB2899E0 /* Pods_ZHProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05E41D7D923959D4A0AD886D /* Pods_ZHProject.framework */; };
 		86E945B2204FDB8D0033BB7E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 86E945B1204FDB8D0033BB7E /* AppDelegate.m */; };
 		86E945B5204FDB8D0033BB7E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86E945B4204FDB8D0033BB7E /* ViewController.m */; };
 		86E945B8204FDB8D0033BB7E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 86E945B6204FDB8D0033BB7E /* Main.storyboard */; };
@@ -14,9 +15,6 @@
 		86E945BD204FDB8D0033BB7E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 86E945BB204FDB8D0033BB7E /* LaunchScreen.storyboard */; };
 		86E945C0204FDB8D0033BB7E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 86E945BF204FDB8D0033BB7E /* main.m */; };
 		86E945CA204FDF300033BB7E /* PerformanceMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = 86E945C7204FDF300033BB7E /* PerformanceMonitor.m */; };
-		F912B08220CF728900393ECA /* Network.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F912B08120CF728900393ECA /* Network.framework */; };
-		F912B08420CF9CAE00393ECA /* BussinessFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F912B08320CF9CAE00393ECA /* BussinessFramework.framework */; };
-		F912B08620CF9CB500393ECA /* CommonFunction.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F912B08520CF9CB500393ECA /* CommonFunction.framework */; };
 		F93EFD9D20F4A2CC004211FC /* XCBaseSettingController.m in Sources */ = {isa = PBXBuildFile; fileRef = F93EFD9B20F4A2CC004211FC /* XCBaseSettingController.m */; };
 		F93EFDA220F4A2DD004211FC /* XCCommonSettingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F93EFD9E20F4A2DC004211FC /* XCCommonSettingCell.m */; };
 		F93EFDA320F4A2DD004211FC /* XCSettingCellContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = F93EFDA020F4A2DC004211FC /* XCSettingCellContainerView.m */; };
@@ -26,6 +24,11 @@
 		F93EFDB120F4A2F1004211FC /* XCCellGroupItem.m in Sources */ = {isa = PBXBuildFile; fileRef = F93EFDAA20F4A2F0004211FC /* XCCellGroupItem.m */; };
 		F93EFDB220F4A2F1004211FC /* XCArrowItem.m in Sources */ = {isa = PBXBuildFile; fileRef = F93EFDAB20F4A2F0004211FC /* XCArrowItem.m */; };
 		F93EFDB920F4A55E004211FC /* XCTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = F93EFDB820F4A55E004211FC /* XCTextField.m */; };
+		F93EFDBC20F4AE80004211FC /* ZHTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F93EFDBB20F4AE80004211FC /* ZHTableViewCell.m */; };
+		F93EFDBE20F4B0E3004211FC /* Network.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F93EFDBD20F4B0E3004211FC /* Network.framework */; };
+		F93EFDC020F4B0EB004211FC /* BussinessFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F93EFDBF20F4B0EB004211FC /* BussinessFramework.framework */; };
+		F93EFDC220F4B0F3004211FC /* CommonFunction.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F93EFDC120F4B0F3004211FC /* CommonFunction.framework */; };
+		F93EFDC520F5E8D9004211FC /* ZHLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = F93EFDC420F5E8D9004211FC /* ZHLabel.m */; };
 		F9BC7CCC20DA439C008BE310 /* TestService.m in Sources */ = {isa = PBXBuildFile; fileRef = F9BC7CCB20DA439C008BE310 /* TestService.m */; };
 /* End PBXBuildFile section */
 
@@ -77,6 +80,13 @@
 		F93EFDAD20F4A2F0004211FC /* XCLabelItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCLabelItem.h; sourceTree = "<group>"; };
 		F93EFDB720F4A55E004211FC /* XCTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCTextField.h; sourceTree = "<group>"; };
 		F93EFDB820F4A55E004211FC /* XCTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XCTextField.m; sourceTree = "<group>"; };
+		F93EFDBA20F4AE80004211FC /* ZHTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZHTableViewCell.h; sourceTree = "<group>"; };
+		F93EFDBB20F4AE80004211FC /* ZHTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZHTableViewCell.m; sourceTree = "<group>"; };
+		F93EFDBD20F4B0E3004211FC /* Network.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Network.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F93EFDBF20F4B0EB004211FC /* BussinessFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = BussinessFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F93EFDC120F4B0F3004211FC /* CommonFunction.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CommonFunction.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F93EFDC320F5E8D9004211FC /* ZHLabel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZHLabel.h; sourceTree = "<group>"; };
+		F93EFDC420F5E8D9004211FC /* ZHLabel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZHLabel.m; sourceTree = "<group>"; };
 		F9BC7CCA20DA439C008BE310 /* TestService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestService.h; sourceTree = "<group>"; };
 		F9BC7CCB20DA439C008BE310 /* TestService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestService.m; sourceTree = "<group>"; };
 		F9C3A0C120BEB11C004AE87D /* ZHProject_PrefixHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZHProject_PrefixHeader.h; sourceTree = "<group>"; };
@@ -87,9 +97,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F912B08620CF9CB500393ECA /* CommonFunction.framework in Frameworks */,
-				F912B08420CF9CAE00393ECA /* BussinessFramework.framework in Frameworks */,
-				F912B08220CF728900393ECA /* Network.framework in Frameworks */,
+				F93EFDC220F4B0F3004211FC /* CommonFunction.framework in Frameworks */,
+				F93EFDC020F4B0EB004211FC /* BussinessFramework.framework in Frameworks */,
+				F93EFDBE20F4B0E3004211FC /* Network.framework in Frameworks */,
+				4FCB5892AB165F71DB2899E0 /* Pods_ZHProject.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -108,6 +119,9 @@
 		5B21560E608949D3011B441A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F93EFDC120F4B0F3004211FC /* CommonFunction.framework */,
+				F93EFDBF20F4B0EB004211FC /* BussinessFramework.framework */,
+				F93EFDBD20F4B0E3004211FC /* Network.framework */,
 				F912B08520CF9CB500393ECA /* CommonFunction.framework */,
 				F912B08320CF9CAE00393ECA /* BussinessFramework.framework */,
 				F912B08120CF728900393ECA /* Network.framework */,
@@ -228,6 +242,10 @@
 			children = (
 				F93EFDB720F4A55E004211FC /* XCTextField.h */,
 				F93EFDB820F4A55E004211FC /* XCTextField.m */,
+				F93EFDBA20F4AE80004211FC /* ZHTableViewCell.h */,
+				F93EFDBB20F4AE80004211FC /* ZHTableViewCell.m */,
+				F93EFDC320F5E8D9004211FC /* ZHLabel.h */,
+				F93EFDC420F5E8D9004211FC /* ZHLabel.m */,
 			);
 			path = CommoinUI;
 			sourceTree = "<group>";
@@ -350,7 +368,9 @@
 				86E945C0204FDB8D0033BB7E /* main.m in Sources */,
 				F93EFDB920F4A55E004211FC /* XCTextField.m in Sources */,
 				86E945B2204FDB8D0033BB7E /* AppDelegate.m in Sources */,
+				F93EFDC520F5E8D9004211FC /* ZHLabel.m in Sources */,
 				F93EFDAE20F4A2F1004211FC /* XCLabelItem.m in Sources */,
+				F93EFDBC20F4AE80004211FC /* ZHTableViewCell.m in Sources */,
 				F93EFD9D20F4A2CC004211FC /* XCBaseSettingController.m in Sources */,
 				F93EFDA220F4A2DD004211FC /* XCCommonSettingCell.m in Sources */,
 				F93EFDB020F4A2F1004211FC /* XCSwitchItem.m in Sources */,

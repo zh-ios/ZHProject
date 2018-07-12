@@ -30,7 +30,9 @@
     if (self.leftView&&self.leftViewMode == UITextFieldViewModeWhileEditing&&self.isEditing) {
         x = self.leftView.frame.origin.x + self.leftView.frame.size.width;
     }
-    CGRect inset = CGRectMake(x, (self.bounds.size.height - self.font.pointSize) * 0.5,
+    
+    CGFloat placeHolderH = [self.placeholder sizeWithAttributes:@{NSFontAttributeName:self.font}].height;
+    CGRect inset = CGRectMake(x, (self.bounds.size.height - placeHolderH) * 0.5,
                               bounds.size.width, bounds.size.height);
     return inset;
 }
