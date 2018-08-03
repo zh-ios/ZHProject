@@ -21,4 +21,6 @@
 
 //@import ZHNetwork;
 
+#import "ZHProjectDefine.h"
+
 #endif /* ZHProject_PrefixHeader_h */

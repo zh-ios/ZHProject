@@ -12,19 +12,19 @@
 #import "XCLabelItem.h"
 
 
-#define kSettingCellImgW 30
+#define kSettingCellImgW 46
 #define kSettingCellImgH kSettingCellImgW
 
-#define kSettingCellPaddingLeft 10 //图片距离左边的距离
+#define kSettingCellPaddingLeft 20 //图片距离左边的距离
 
-#define kSettingCellArrowW 15 //尖括号的宽度10
-#define kSettingCellArrowH 15 //夹括号的高度 15
+#define kSettingCellArrowW 20 //尖括号的宽度10
+#define kSettingCellArrowH 20 //夹括号的高度 15
 
 #define kSettingCellAsseoryLabelW 100
 #define kSettingCellAsseoryLabelH  30
 
 #define kSettingCellTitleFont                   (15)
-#define kSettingCellSubTitleFont                (13)
+#define kSettingCellSubTitleFont                (14)
 #define kSettingCellAccessoryLabelFont          (14)
 
 @interface XCSettingCellContainerView ()

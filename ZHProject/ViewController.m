@@ -10,8 +10,9 @@
 #import "PerformanceMonitor.h"
 #import "TestService.h"
 #import "ZHTableViewCell.h"
-#import "ZHLabel.h"
-
+#import "ZHMediaFetcher.h"
+#import "SXAddScoreView.h"
+#import "SXScoreModel.h"
 @interface ViewController ()<ZHBaseServiceDelegate,UITableViewDelegate,UITableViewDataSource>
 
 @property(nonatomic, strong) UITableView *tableView;
@@ -27,6 +28,7 @@
 @property (nonatomic, strong) TestService *service;
 
 @property (nonatomic, strong) NSMutableArray *cellHeightArr;
+@property (nonatomic, strong) ZHMediaFetcher *fetcher;
 
 
 @end
@@ -37,45 +39,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    self.fetcher = [[ZHMediaFetcher alloc] init];
     
-//    ZHDNSHttpManager *dns = [ZHDNSHttpManager sharedManager];
-//    [dns  getAllDomain];
-    
-//    ZHTamperConfig *config = [ZHTamperConfig sharedConfig];
-//    config.enableHttpDns = YES;
-//    config.enableTamperGuard = YES;
-    
-    
-    
-   
-    
-//    self.service = [[TestService alloc] init];
-//    self.service.delegate = self;
-//    [self.service getData];
-//
-//
-//
-//    UIView *v = [[UIView alloc] initWithFrame:CGRectMake(100, 100, 100, 100)];
-//    v.backgroundColor = [UIColor redColor];
-//
-//    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tap)];
-////    [v extendHitArea:100 left:100 bottom:100 right:100];
-//    v.extendedHitArea = CGRectMake(100, 100, 100, 100);
-//    [v addGestureRecognizer:tap];
-//    [self.view addSubview:v];
-//
-//    UIView *v2 = [[UIView alloc] initWithFrame:CGRectMake(100, 300, 102,102)];
-//    [v2 extendHitAreaTop:40 left:40 bottom:40 right:40];
-//    UITapGestureRecognizer *tap2 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(c)];
-//    [v2 addGestureRecognizer:tap2];
-//    v2.backgroundColor = [UIColor orangeColor];
-//    [self.view addSubview:v2];
-//
-//    UIButton *b = [[UIButton alloc] initWithFrame:CGRectMake(100, 400, 100, 100)];
-//    b.backgroundColor = [UIColor blueColor];
-//    [b addTarget:self action:@selector(b) forControlEvents:UIControlEventTouchUpInside];
-//    [self.view addSubview:b];
-    
+    [self.fetcher getAlbumsAllowPickVideo:YES pickImage:YES completion:^(NSArray<ZHAlbumModel *> *albums) {
+        
+    }];
     
     self.cellHeightArr = @[].mutableCopy;
     
@@ -84,9 +52,36 @@
     }
     
     [self setupTableView];
-
     
+    
+    UIButton *b = [[UIButton alloc] initWithFrame:CGRectMake(100, 100, 100, 100)];
+    b.backgroundColor = [UIColor redColor];
+    [b addTarget:self action:@selector(b ) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:b];
 
+
+}
+
+- (void)b {
+    NSString *mainBundleDirectory=[[NSBundle mainBundle] bundlePath];
+    NSString *path = [mainBundleDirectory stringByAppendingPathComponent:@"json"];
+    NSData *data = [[NSData alloc]initWithContentsOfFile:path];
+    NSError *err;
+    
+    NSDictionary *jsonArray = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&err];
+    
+    NSMutableArray *array = @[].mutableCopy;
+    for (NSDictionary *dict in jsonArray[@"data"][@"oneList"]) {
+        SXScoreModel *model = [[SXScoreModel alloc] initWithDictionary:dict error:nil];
+        [array addObject:model];
+    }
+    
+    SXAddScoreView *view = [[SXAddScoreView alloc] initWithFrame:CGRectMake(0, 200, self.view.width, 300)];
+    view.dataArray = array;
+    view.finishSelectBlock = ^(SXScoreModel * _Nullable first, SXScoreModel *_Nullable second, SXScoreModel * _Nullable third) {
+        
+    };
+    [view show];
 }
 
 - (void)setupTableView {
@@ -144,18 +139,18 @@
 
 
 
-- (void)b {
-    
-    Class cls = NSClassFromString(@"TestViewController");
-    
-    id view = [[cls alloc] init];
-    
-    [self presentViewController:view animated:YES completion:^{
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            [self dismissViewControllerAnimated:YES completion:nil];
-        });
-    }];
-}
+//- (void)b {
+//    
+//    Class cls = NSClassFromString(@"TestViewController");
+//    
+//    id view = [[cls alloc] init];
+//    
+//    [self presentViewController:view animated:YES completion:^{
+//        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//            [self dismissViewControllerAnimated:YES completion:nil];
+//        });
+//    }];
+//}
 
 - (void)c {
     NSLog(@"cccccc");
