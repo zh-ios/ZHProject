@@ -23,16 +23,22 @@ typedef NS_ENUM(NSInteger, ZHAssetMediaType) {
  */
 @property (nonatomic, assign) BOOL isSelected;
 
+
+/**
+  选中图片后，当前图片的索引，默认为 0 。
+ */
+@property (nonatomic, assign) NSInteger selectedIndex;
+
 @property (nonatomic, strong) id asset; // PHAsset 模型
 
 @property (nonatomic, assign) ZHAssetMediaType type;
 
-+ (instancetype)assetWithType:(ZHAssetMediaType)type;
++ (instancetype)modelWithAsset:(PHAsset *)asset type:(ZHAssetMediaType)type;
 
 /**
  video 类型 model初始化
  */
-+ (instancetype)assetWithType:(ZHAssetMediaType)type videoDuration:(CGFloat)duration;
++ (instancetype)modelWithAsset:(PHAsset *)asset type:(ZHAssetMediaType)type videoDuration:(CGFloat)duration;
 
 @end
 
@@ -47,6 +53,6 @@ typedef NS_ENUM(NSInteger, ZHAssetMediaType) {
 
 @property (nonatomic, strong) NSArray *selectedModels;
 
-+ (instancetype)albumWithResult:(id)result name:(NSString *)name;
++ (instancetype)modelWithResult:(id)result name:(NSString *)name;
 
 @end

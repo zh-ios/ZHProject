@@ -17,7 +17,7 @@
 
 @implementation ZHAlbumModel
 
-+ (instancetype)albumWithResult:(id)result name:(NSString *)name {
++ (instancetype)modelWithResult:(id)result name:(NSString *)name {
     return [[self alloc] initWithAlbumWithResult:result name:name];
 }
 

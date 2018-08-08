@@ -10,6 +10,16 @@
 #import <Photos/Photos.h>
 @implementation ZHMediaFetcher
 
++ (instancetype)shareFetcher {
+    static ZHMediaFetcher *_fetcher = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        if (!_fetcher) {
+            _fetcher = [[self alloc] init];
+        }
+    });
+    return _fetcher;
+}
 
 - (PHImageRequestID)requestImageForAsset:(PHAsset *)asset targetSize:(CGSize)targetSize completion:(ImageFetchedBlock)completed {
     // TODO 添加超长和超宽图片的处理
@@ -32,9 +42,22 @@
     
 }
 
+
+
+
 - (void)getAssetsForResult:(PHFetchResult *)result allowPickVideo:(BOOL)pickVideo
             allowPickImage:(BOOL)pickImage completion:(AssetsFetchedBlock)completed {
     
+    NSMutableArray *assetsArray = @[].mutableCopy;
+    [result enumerateObjectsUsingBlock:^(PHAsset *_Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        ZHAssetModel *model = [self p_getAssetModelForAsset:obj allowPickVideo:pickVideo allowPickImage:pickImage];
+        if (model) {
+            [assetsArray addObject:model];
+        }
+    }];
+    if (completed) {
+        completed(assetsArray);
+    }
 }
 
 - (void)getAlbumsAllowPickVideo:(BOOL)pickVideo pickImage:(BOOL)pickImage completion:(AlbumsFetchedBlock)completed {
@@ -66,7 +89,7 @@
             PHFetchResult *fetchResult = [PHAsset fetchAssetsInAssetCollection:collection options:option];
             if (fetchResult.count < 1) continue;
             if (fetchResult.count > 1) {
-                ZHAlbumModel *model = [ZHAlbumModel albumWithResult:fetchResult name:collection.localizedTitle];
+                ZHAlbumModel *model = [ZHAlbumModel modelWithResult:fetchResult name:collection.localizedTitle];
                 [albumsArr addObject:model];
                 
                 [self getPosterImageForAlbumModel:model completion:^(UIImage *image, NSDictionary *info) {
@@ -99,7 +122,15 @@
     if (!pickVideo && type == ZHAssetMediaType_Video) return nil;
     if (!pickImage && (type == ZHAssetMediaType_Image || type == ZHAssetMediaType_Gif)) return nil;
     if (type == ZHAssetMediaType_Audio) return nil;
-    return nil;
+    
+    if (type == ZHAssetMediaType_Video) {
+        CGFloat duration = asset.duration;
+        model = [ZHAssetModel modelWithAsset:asset type:ZHAssetMediaType_Video videoDuration:duration];
+        return model;
+    } else {
+        model = [ZHAssetModel modelWithAsset:asset type:type];
+    }
+    return model;
 }
 
 
