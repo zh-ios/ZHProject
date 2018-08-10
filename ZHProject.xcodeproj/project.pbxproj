@@ -53,6 +53,8 @@
 		F952D196211ADC5600FF88E0 /* ZHPhotoPickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = F952D195211ADC5600FF88E0 /* ZHPhotoPickerController.m */; };
 		F952D199211ADD6300FF88E0 /* ZHPhotoPickerCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F952D198211ADD6300FF88E0 /* ZHPhotoPickerCollectionCell.m */; };
 		F9BC7CCC20DA439C008BE310 /* TestService.m in Sources */ = {isa = PBXBuildFile; fileRef = F9BC7CCB20DA439C008BE310 /* TestService.m */; };
+		F9EE5C2B211D621E0081E427 /* zhimagepicker.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F9EE5C2A211D621E0081E427 /* zhimagepicker.bundle */; };
+		F9EE5C2E211D62CF0081E427 /* UIImage+ImagePicerBundle.m in Sources */ = {isa = PBXBuildFile; fileRef = F9EE5C2D211D62CF0081E427 /* UIImage+ImagePicerBundle.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -159,6 +161,9 @@
 		F9BC7CCA20DA439C008BE310 /* TestService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestService.h; sourceTree = "<group>"; };
 		F9BC7CCB20DA439C008BE310 /* TestService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestService.m; sourceTree = "<group>"; };
 		F9C3A0C120BEB11C004AE87D /* ZHProject_PrefixHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZHProject_PrefixHeader.h; sourceTree = "<group>"; };
+		F9EE5C2A211D621E0081E427 /* zhimagepicker.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = zhimagepicker.bundle; sourceTree = "<group>"; };
+		F9EE5C2C211D62CF0081E427 /* UIImage+ImagePicerBundle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImagePicerBundle.h"; sourceTree = "<group>"; };
+		F9EE5C2D211D62CF0081E427 /* UIImage+ImagePicerBundle.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImagePicerBundle.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -342,6 +347,7 @@
 		F94B88FC210EEF0400A4B63E /* ImagePicker */ = {
 			isa = PBXGroup;
 			children = (
+				F9EE5C2A211D621E0081E427 /* zhimagepicker.bundle */,
 				F952D193211AD76100FF88E0 /* ZHImagePickerConst.h */,
 				F94B88FD210EFFC100A4B63E /* ZHAssetsModel.h */,
 				F94B88FE210EFFC100A4B63E /* ZHAssetsModel.m */,
@@ -355,6 +361,8 @@
 				F952D195211ADC5600FF88E0 /* ZHPhotoPickerController.m */,
 				F952D197211ADD6300FF88E0 /* ZHPhotoPickerCollectionCell.h */,
 				F952D198211ADD6300FF88E0 /* ZHPhotoPickerCollectionCell.m */,
+				F9EE5C2C211D62CF0081E427 /* UIImage+ImagePicerBundle.h */,
+				F9EE5C2D211D62CF0081E427 /* UIImage+ImagePicerBundle.m */,
 			);
 			path = ImagePicker;
 			sourceTree = "<group>";
@@ -493,6 +501,7 @@
 				86E945BD204FDB8D0033BB7E /* LaunchScreen.storyboard in Resources */,
 				86E945BA204FDB8D0033BB7E /* Assets.xcassets in Resources */,
 				F94B898F2113F13C00A4B63E /* json in Resources */,
+				F9EE5C2B211D621E0081E427 /* zhimagepicker.bundle in Resources */,
 				86E945B8204FDB8D0033BB7E /* Main.storyboard in Resources */,
 				F94B89BD2114254700A4B63E /* LICENSE_jsonmodel.txt in Resources */,
 			);
@@ -557,6 +566,7 @@
 				86E945B2204FDB8D0033BB7E /* AppDelegate.m in Sources */,
 				F94B89BA2114254700A4B63E /* JSONModel+networking.m in Sources */,
 				F94B89922113F17100A4B63E /* SXScoreModel.m in Sources */,
+				F9EE5C2E211D62CF0081E427 /* UIImage+ImagePicerBundle.m in Sources */,
 				F94B89B52114254700A4B63E /* JSONModelClassProperty.m in Sources */,
 				F94B891221106AB400A4B63E /* ZHMediaFetcher.m in Sources */,
 				F93EFDAE20F4A2F1004211FC /* XCLabelItem.m in Sources */,

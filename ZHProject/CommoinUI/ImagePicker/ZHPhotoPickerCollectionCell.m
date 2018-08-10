@@ -7,12 +7,12 @@
 //
 
 #import "ZHPhotoPickerCollectionCell.h"
-
-
+#import "ZHMediaFetcher.h"
+#import "UIImage+ImagePicerBundle.h"
 @interface ZHPhotoPickerCollectionCell ()
 
 @property (nonatomic, strong) UIImageView *imageView;
-@property (nonatomic, strong) UIView *cantSelectedCoverView;
+
 @property (nonatomic, strong) UIButton *unselectedImageBtn;
 
 @end
@@ -34,24 +34,25 @@
     CGFloat coverBtnWH = 60;
     
     UIImageView *imageView = [[UIImageView alloc] initWithFrame:self.bounds];
+    imageView.contentMode = UIViewContentModeScaleAspectFill;
+    imageView.clipsToBounds = YES;
     [self.contentView addSubview:imageView];
     self.imageView = imageView;
-    
-    UIButton *unselectedImageBtn = [[UIButton alloc] initWithFrame:CGRectMake(self.width-padding-imageViewWH, padding, imageViewWH, imageViewWH)];
-    self.unselectedImageBtn = unselectedImageBtn;
-    unselectedImageBtn.backgroundColor = [UIColor redColor];
-    
-    [unselectedImageBtn setBackgroundImage:[UIImage imageFromColor:[UIColor redColor]] forState:UIControlStateNormal];
-    [unselectedImageBtn setBackgroundImage:[UIImage imageFromColor:[UIColor greenColor]] forState:UIControlStateSelected];
-
-    [self.contentView addSubview:unselectedImageBtn];
-    
     
     UIView *cantSelectedCoverView = [[UIView alloc] initWithFrame:self.bounds];
     self.cantSelectedCoverView = cantSelectedCoverView;
     cantSelectedCoverView.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.7];
     cantSelectedCoverView.hidden = YES;
     [self.contentView addSubview:cantSelectedCoverView];
+    
+    UIButton *unselectedImageBtn = [[UIButton alloc] initWithFrame:CGRectMake(self.width-padding-imageViewWH, padding, imageViewWH, imageViewWH)];
+    self.unselectedImageBtn = unselectedImageBtn;
+    unselectedImageBtn.titleLabel.font = [UIFont systemFontOfSize:10];
+
+    [unselectedImageBtn setBackgroundImage:[UIImage imageFromColor:[UIColor redColor]] forState:UIControlStateNormal];
+    [unselectedImageBtn setBackgroundImage:[UIImage imageFromColor:[UIColor orangeColor]] forState:UIControlStateSelected];
+
+    [self.contentView addSubview:unselectedImageBtn];
     
     UIButton *coverBtn = [[UIButton alloc] initWithFrame:CGRectMake(self.width-60, 0, coverBtnWH, coverBtnWH)];
     [coverBtn addTarget:self action:@selector(coverBtnOnClick:) forControlEvents:UIControlEventTouchUpInside];
@@ -63,15 +64,23 @@
     _model = model;
     // 说明是选中的
     if (model.selectedIndex != 0 && model.isSelected) {
-        
+        [self.unselectedImageBtn setTitle:[NSString stringWithFormat:@"%@",@(model.selectedIndex)] forState:UIControlStateNormal];
+    } else {
+        [self.unselectedImageBtn setTitle:@"" forState:UIControlStateNormal];
+    }
+    [[ZHMediaFetcher shareFetcher] getImageForAssetModel:model.asset imageSize:CGSizeMake(self.bounds.size.width, self.bounds.size.height) completion:^(UIImage *image, NSDictionary *info) {
+        if (image) {
+           self.imageView.image = image;
+        }
+    }];
+    
+    self.unselectedImageBtn.selected = model.isSelected;
+    if (model.isSelected) {
+        [self.unselectedImageBtn setTitle:[NSString stringWithFormat:@"%@",@(model.selectedIndex)] forState:UIControlStateNormal];
     }
 }
 
 - (void)coverBtnOnClick:(UIButton *)btn {
-    // TODO model.selected or not selected
-    btn.selected = !btn.selected;
-    self.model.isSelected = btn.isSelected;
-    self.unselectedImageBtn.selected = btn.isSelected;
     if (!self.model.isSelected) {
         self.model.selectedIndex = 0;
     }

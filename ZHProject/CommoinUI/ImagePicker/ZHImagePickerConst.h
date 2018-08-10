@@ -10,7 +10,12 @@
 #define ZHImagePickerConst_h
 
 
-#define kImagePickerNavTitleFont            @(15)
+#define kImagePickerNavTitleFont            [UIFont systemFontOfSize:15]
+#define kImagePickerNavRightViewTextFont    [UIFont systemFontOfSize:15]
+#define kImagePickerNavBgColor              [[UIColor blackColor] colorWithAlphaComponent:0.6]
+#define kImagePickerNavTextColor            [UIColor whiteColor]
 
+// 靠近边缘的view 距离两边得 padding
+#define kImagePickerSideViewPadding         (12)
 
 #endif /* ZHImagePickerConst_h */

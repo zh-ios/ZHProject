@@ -21,25 +21,41 @@
     return _fetcher;
 }
 
-- (PHImageRequestID)requestImageForAsset:(PHAsset *)asset targetSize:(CGSize)targetSize completion:(ImageFetchedBlock)completed {
-    // TODO 添加超长和超宽图片的处理
+
+- (PHImageRequestID *)getImageForAssetModel:(PHAsset *)asset imageSize:(CGSize)size completion:(ImageFetchedBlock)completed {
+    CGSize imageSize = CGSizeZero;
+    // 缩略图
+    if (size.width < [UIScreen mainScreen].bounds.size.width) {
+        // item 的高度
+        imageSize = CGSizeMake(80 * [UIScreen mainScreen].scale, 80 * [UIScreen mainScreen].scale);
+    }
+    
+    CGFloat scale = asset.pixelWidth / (asset.pixelHeight*1.0);
+    CGFloat pixW = size.width*1.5;
+    // 超宽图片
+    if (scale > 1.8) {
+        pixW = pixW * scale;
+    }
+    // 超高图片
+    if (scale < 0.2) {
+        pixW = pixW * 0.5;
+    }
+    CGFloat pixH = pixW / scale;
+    imageSize = CGSizeMake(pixW, pixH);
+    
     PHImageRequestOptions *option = [[PHImageRequestOptions alloc] init];
     option.resizeMode = PHImageRequestOptionsResizeModeFast;
-    
-    PHImageRequestID imageRequestId = [[PHImageManager defaultManager] requestImageForAsset:asset targetSize:targetSize contentMode:PHImageContentModeAspectFill options:option resultHandler:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
-        
-        // 是否是缩略图
-        BOOL isDegraded = [info objectForKey:PHImageResultIsDegradedKey];
-        
-        if (completed) {
-            completed(result, info);
+    PHImageRequestID *imageID = [[PHImageManager defaultManager] requestImageForAsset:asset targetSize:imageSize contentMode:PHImageContentModeAspectFill options:option resultHandler:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
+        BOOL downloaded = !([[info objectForKey:PHImageCancelledKey] boolValue])&&![info objectForKey:PHImageErrorKey];
+//        BOOL isDegraded = [[info objectForKey:PHImageResultIsDegradedKey] boolValue];
+        if (downloaded && result) {
+            result = [self p_fixOrientation:result];
+            if (completed) {
+                completed(result, info);
+            }
         }
     }];
-    return imageRequestId;
-}
-
-- (void)getImageForAssetModel:(ZHAssetModel *)asset imageSize:(CGSize)size completion:(ImageFetchedBlock)completed {
-    
+    return imageID;
 }
 
 
@@ -70,8 +86,7 @@
                                                 PHAssetMediaTypeVideo];
     // option.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"modificationDate" ascending:self.sortAscendingByModificationDate]];
     option.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"creationDate" ascending:YES]];
-    
-    
+
     
     // 我的照片流 1.6.10重新加入..
     PHFetchResult *myPhotoStreamAlbum = [PHAssetCollection fetchAssetCollectionsWithType:PHAssetCollectionTypeAlbum subtype:PHAssetCollectionSubtypeAlbumMyPhotoStream options:nil];
@@ -91,14 +106,9 @@
             if (fetchResult.count > 1) {
                 ZHAlbumModel *model = [ZHAlbumModel modelWithResult:fetchResult name:collection.localizedTitle];
                 [albumsArr addObject:model];
-                
-                [self getPosterImageForAlbumModel:model completion:^(UIImage *image, NSDictionary *info) {
-                    
-                }];
             }
         }
     }
-    
     if (completed) {
         completed(albumsArr);
     }
@@ -108,7 +118,7 @@
 - (void)getPosterImageForAlbumModel:(ZHAlbumModel *)album completion:(ImageFetchedBlock)completed {
     // TODO 根据排序规则，选择是最后一个还是第一个
     PHAsset *lastAsset = [album.result lastObject];
-    [self requestImageForAsset:lastAsset targetSize:CGSizeMake(80, 80) completion:^(UIImage *image, NSDictionary *info) {
+    [self getImageForAssetModel:lastAsset imageSize:CGSizeMake(80*[UIScreen mainScreen].scale, 80*[UIScreen mainScreen].scale) completion:^(UIImage *image, NSDictionary *info) {
         if (completed) {
             completed(image, info);
         }
@@ -146,5 +156,83 @@
     }
     return type;
 }
+
+/// 修正图片转向
+- (UIImage *)p_fixOrientation:(UIImage *)aImage {
+    // No-op if the orientation is already correct
+    if (aImage.imageOrientation == UIImageOrientationUp)
+        return aImage;
+    
+    // We need to calculate the proper transformation to make the image upright.
+    // We do it in 2 steps: Rotate if Left/Right/Down, and then flip if Mirrored.
+    CGAffineTransform transform = CGAffineTransformIdentity;
+    
+    switch (aImage.imageOrientation) {
+        case UIImageOrientationDown:
+        case UIImageOrientationDownMirrored:
+            transform = CGAffineTransformTranslate(transform, aImage.size.width, aImage.size.height);
+            transform = CGAffineTransformRotate(transform, M_PI);
+            break;
+            
+        case UIImageOrientationLeft:
+        case UIImageOrientationLeftMirrored:
+            transform = CGAffineTransformTranslate(transform, aImage.size.width, 0);
+            transform = CGAffineTransformRotate(transform, M_PI_2);
+            break;
+            
+        case UIImageOrientationRight:
+        case UIImageOrientationRightMirrored:
+            transform = CGAffineTransformTranslate(transform, 0, aImage.size.height);
+            transform = CGAffineTransformRotate(transform, -M_PI_2);
+            break;
+        default:
+            break;
+    }
+    
+    switch (aImage.imageOrientation) {
+        case UIImageOrientationUpMirrored:
+        case UIImageOrientationDownMirrored:
+            transform = CGAffineTransformTranslate(transform, aImage.size.width, 0);
+            transform = CGAffineTransformScale(transform, -1, 1);
+            break;
+            
+        case UIImageOrientationLeftMirrored:
+        case UIImageOrientationRightMirrored:
+            transform = CGAffineTransformTranslate(transform, aImage.size.height, 0);
+            transform = CGAffineTransformScale(transform, -1, 1);
+            break;
+        default:
+            break;
+    }
+    
+    // Now we draw the underlying CGImage into a new context, applying the transform
+    // calculated above.
+    CGContextRef ctx = CGBitmapContextCreate(NULL, aImage.size.width, aImage.size.height,
+                                             CGImageGetBitsPerComponent(aImage.CGImage), 0,
+                                             CGImageGetColorSpace(aImage.CGImage),
+                                             CGImageGetBitmapInfo(aImage.CGImage));
+    CGContextConcatCTM(ctx, transform);
+    switch (aImage.imageOrientation) {
+        case UIImageOrientationLeft:
+        case UIImageOrientationLeftMirrored:
+        case UIImageOrientationRight:
+        case UIImageOrientationRightMirrored:
+            // Grr...
+            CGContextDrawImage(ctx, CGRectMake(0,0,aImage.size.height,aImage.size.width), aImage.CGImage);
+            break;
+            
+        default:
+            CGContextDrawImage(ctx, CGRectMake(0,0,aImage.size.width,aImage.size.height), aImage.CGImage);
+            break;
+    }
+    
+    // And now we just create a new UIImage from the drawing context
+    CGImageRef cgimg = CGBitmapContextCreateImage(ctx);
+    UIImage *img = [UIImage imageWithCGImage:cgimg];
+    CGContextRelease(ctx);
+    CGImageRelease(cgimg);
+    return img;
+}
+
 
 @end

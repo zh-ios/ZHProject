@@ -10,6 +10,5 @@
 #import "ZHAssetsModel.h"
 @interface ZHPhotoPickerController : UIViewController
 
-@property (nonatomic, strong) NSArray<ZHAssetModel *> *assets;
-
+@property (nonatomic, strong) ZHAlbumModel *album;
 @end

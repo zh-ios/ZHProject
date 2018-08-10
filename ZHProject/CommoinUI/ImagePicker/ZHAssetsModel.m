@@ -10,7 +10,17 @@
 
 @implementation ZHAssetModel
 
++ (instancetype)modelWithAsset:(PHAsset *)asset type:(ZHAssetMediaType)type videoDuration:(CGFloat)duration {
+    ZHAssetModel *model = [[ZHAssetModel alloc] init];
+    model.asset = asset;
+    model.duration = duration;
+    model.type = type;
+    return model;
+}
 
++ (instancetype)modelWithAsset:(PHAsset *)asset type:(ZHAssetMediaType)type {
+    return [self modelWithAsset:asset type:type videoDuration:0];
+}
 
 @end
 

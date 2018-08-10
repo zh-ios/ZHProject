@@ -16,11 +16,16 @@
 @end
 
 
-
-
 @interface ZHImagePickerController : UINavigationController
 
+// 最大选取数量
 @property (nonatomic, assign) NSUInteger maxSelectCount;
+// 已经选取的数量
+@property (nonatomic, assign) NSInteger  hadSelectedCount;
+
+@property (nonatomic, assign) BOOL allowPickVideo;
+
+@property (nonatomic, assign) BOOL allowPickImage;
 
 - (instancetype)initWithMaxSelectedCount:(NSUInteger)maxCount
                           selectedAssets:(NSArray<ZHAssetModel *> *)selectedAssets

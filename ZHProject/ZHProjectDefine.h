@@ -18,7 +18,7 @@
 #define kBottomSafeArea     (kIsIphoneX ? 35 : 0)
 
 // 顶部的安全距离,包括状态栏的高度
-#define kTopSafeArea        (kIsIphoneX ? 44 : 0)
+#define kTopSafeArea        (kIsIphoneX ? 44 : 20)
 // iphoneX 顶部多出的距离
 #define kTopInsetAreaOfIphoneX      (kIsIphoneX ? (kTopSafeArea-20) : 0) 
 

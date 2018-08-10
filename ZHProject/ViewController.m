@@ -40,31 +40,23 @@
 
 
 - (void)viewDidLoad {
-    [super viewDidLoad];
-
-    self.fetcher = [[ZHMediaFetcher alloc] init];
-    
-    [self.fetcher getAlbumsAllowPickVideo:YES pickImage:YES completion:^(NSArray<ZHAlbumModel *> *albums) {
-        
-    }];
-    
+    [super viewDidLoad];    
 
     UIButton *b = [[UIButton alloc] initWithFrame:CGRectMake(100, 100, 100, 100)];
-    b.backgroundColor = [UIColor redColor];
+    b.backgroundColor = [[UIColor redColor] colorWithAlphaComponent:0.1];
     [b addTarget:self action:@selector(b ) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:b];
 
-    ZHImagePickerController *picker = [[ZHImagePickerController alloc] initWithMaxSelectedCount:9 selectedAssets:nil delegate:nil];
     
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(4 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self presentViewController:picker animated:YES completion:nil];
-    });
+    
+   
     
 
 }
 
 - (void)b {
-    
+    ZHImagePickerController *picker = [[ZHImagePickerController alloc] initWithMaxSelectedCount:4 selectedAssets:nil delegate:nil];
+    [self presentViewController:picker animated:YES completion:nil];
 }
 
 - (void)c {

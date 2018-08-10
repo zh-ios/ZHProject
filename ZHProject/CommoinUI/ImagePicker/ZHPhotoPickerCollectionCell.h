@@ -11,6 +11,9 @@
 @interface ZHPhotoPickerCollectionCell : UICollectionViewCell
 
 
+@property (nonatomic, strong) UIView *cantSelectedCoverView;
+
+
 @property (nonatomic, strong) ZHAssetModel *model;
 
 

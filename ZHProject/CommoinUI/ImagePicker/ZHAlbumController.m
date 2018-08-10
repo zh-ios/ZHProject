@@ -8,10 +8,13 @@
 
 #import "ZHAlbumController.h"
 #import "ZHMediaFetcher.h"
-
+#import "ZHPhotoPickerController.h"
+#import "UIImage+ImagePicerBundle.h"
+#import "ZHImagePickerConst.h"
 @interface ZHAlbumCell ()
 @property (nonatomic, strong) UIImageView *posterImageView;
 @property (nonatomic, strong) UILabel *nameL;
+@property (nonatomic, strong) UILabel *countL;
 @end
 
 @implementation ZHAlbumCell
@@ -24,14 +27,31 @@
 }
 
 - (void)initSubviews {
-    UIImageView *posterImage = [[UIImageView alloc] initWithFrame:CGRectMake(15, 15, 45, 45)];
-    [self.contentView addSubview:posterImage];
     
-    UILabel *nameL = [[UILabel alloc] initWithFrame:CGRectMake(posterImage.right+10, 0, 200, 20)];
+    self.width = [UIScreen mainScreen].bounds.size.width;
+    
+    UIImageView *posterImage = [[UIImageView alloc] initWithFrame:CGRectMake(15, 15, 80, 80)];
+    posterImage.contentMode = UIViewContentModeScaleAspectFill;
+    [self.contentView addSubview:posterImage];
+    posterImage.clipsToBounds = YES;
+    
+    UILabel *nameL = [[UILabel alloc] initWithFrame:CGRectMake(posterImage.right+10, 31, 200, 21)];
     nameL.font = [UIFont boldSystemFontOfSize:15];
     [self.contentView addSubview:nameL];
+    
+    UILabel *countL = [[UILabel alloc] initWithFrame:CGRectMake(nameL.left, nameL.bottom+4, 200, 17)];
+    
+    countL.font = [UIFont systemFontOfSize:12];
+    countL.textColor = [UIColor colorWithRed:153/255.0 green:153/255.0 blue:153/255.0 alpha:1];
+    [self.contentView addSubview:countL];
+    
+    UIImageView *arrow = [[UIImageView alloc] initWithFrame:CGRectMake(self.width-40, (self.height-20)/2, 20, 20)];
+    [self.contentView addSubview:arrow];
+    arrow.image = [UIImage imageFromImagePickerBundleNamed:@"icon_arrow_right"];
+    
     self.posterImageView = posterImage;
     self.nameL = nameL;
+    self.countL = countL;
 }
 
 - (void)setAlbum:(ZHAlbumModel *)album {
@@ -41,6 +61,8 @@
         self.posterImageView.image = image;
     }];
     self.nameL.text = album.name;
+    
+    self.countL.text = [NSString stringWithFormat:@"（%@）张",@(album.count)];
 }
 
 @end
@@ -59,10 +81,16 @@
         _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, kNavbarHeight, self.view.width, self.view.height-kNavbarHeight) style:UITableViewStylePlain];
         _tableView.delegate = self;
         _tableView.dataSource = self;
+        _tableView.rowHeight = 104;
     }
     return _tableView;
 }
 
+
+- (void)setAlbums:(NSArray<ZHAlbumModel *> *)albums {
+    _albums = albums;
+    [self.tableView reloadData];
+}
 
 
 - (void)viewDidLoad {
@@ -72,19 +100,19 @@
     [super viewDidLoad];
     
     [self initCustomNav];
+    
+    [self.view addSubview:self.tableView];
 }
 
 - (void)initCustomNav {
     
-    self.navigationController.navigationBar.hidden = YES;
-    
     UIView *navView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, kNavbarHeight)];
-    navView.backgroundColor = [UIColor blackColor];
+    navView.backgroundColor = kImagePickerNavBgColor;
     [self.view addSubview:navView];
     
     UILabel *titleL = [[UILabel alloc] initWithFrame:CGRectMake(100, kTopSafeArea+10, self.view.width-100*2, 16)];
-    titleL.font = [UIFont systemFontOfSize:15];
-    titleL.textColor = [UIColor whiteColor];
+    titleL.font = kImagePickerNavTitleFont;
+    titleL.textColor = kImagePickerNavTextColor;
     titleL.text = @"照片";
     titleL.textAlignment = NSTextAlignmentCenter;
     [navView addSubview:titleL];
@@ -115,6 +143,10 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    ZHPhotoPickerController *photoPicker = [[ZHPhotoPickerController alloc] init];
+    ZHAlbumModel *album = self.albums[indexPath.row];
+    photoPicker.album = album;
+    [self.navigationController pushViewController:photoPicker animated:YES];
 }
 
 #pragma mark --- targetAction

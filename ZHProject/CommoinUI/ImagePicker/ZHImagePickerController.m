@@ -12,6 +12,7 @@
 @interface ZHImagePickerController ()
 
 @property (nonatomic, strong) ZHMediaFetcher *fetcher;
+@property (nonatomic, strong) ZHAlbumController *albumController;
 
 @end
 
@@ -20,11 +21,23 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // TODO init navigation
+    
+    self.navigationBar.hidden = YES;
+    
+    [self initData];
+    
+    self.fetcher = [ZHMediaFetcher shareFetcher];
+    
     [self.fetcher getAlbumsAllowPickVideo:YES pickImage:YES completion:^(NSArray<ZHAlbumModel *> *albums) {
+        self.albumController.albums = albums;
         
     }];
 }
 
+- (void)initData {
+    self.allowPickImage = YES;
+    self.allowPickVideo = YES;
+}
 
 - (instancetype)initWithMaxSelectedCount:(NSUInteger)maxCount
                           selectedAssets:(NSArray<ZHAssetModel *> *)selectedAssets
@@ -33,6 +46,7 @@
     self.maxSelectCount = maxCount;
     
     ZHAlbumController *album = [[ZHAlbumController alloc] init];
+    self.albumController = album;
     self = [super initWithRootViewController:album];
     
     return self;
