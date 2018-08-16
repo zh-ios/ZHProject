@@ -39,8 +39,7 @@
     nameL.font = [UIFont boldSystemFontOfSize:15];
     [self.contentView addSubview:nameL];
     
-    UILabel *countL = [[UILabel alloc] initWithFrame:CGRectMake(nameL.left, nameL.bottom+4, 200, 17)];
-    
+    UILabel *countL = [[UILabel alloc] initWithFrame:CGRectMake(nameL.left, 56, 200, 17)];
     countL.font = [UIFont systemFontOfSize:12];
     countL.textColor = [UIColor colorWithRed:153/255.0 green:153/255.0 blue:153/255.0 alpha:1];
     [self.contentView addSubview:countL];
@@ -146,6 +145,7 @@
     ZHPhotoPickerController *photoPicker = [[ZHPhotoPickerController alloc] init];
     ZHAlbumModel *album = self.albums[indexPath.row];
     photoPicker.album = album;
+
     [self.navigationController pushViewController:photoPicker animated:YES];
 }
 
@@ -153,6 +153,12 @@
 - (void)cancel:(UIButton *)btn {
     // TODO 点击取消回调
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)dealloc {
+#ifdef DEBUG
+    NSLog(@"---- 相册页面销毁了");
+#endif
 }
 
 @end

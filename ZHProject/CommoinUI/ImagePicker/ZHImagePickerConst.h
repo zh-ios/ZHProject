@@ -15,7 +15,10 @@
 #define kImagePickerNavBgColor              [[UIColor blackColor] colorWithAlphaComponent:0.6]
 #define kImagePickerNavTextColor            [UIColor whiteColor]
 
-// 靠近边缘的view 距离两边得 padding
+
+// 图片选择页面靠近边缘的view 距离两边得 padding
 #define kImagePickerSideViewPadding         (12)
+
+#define kPreviewCellMargin                  (10)
 
 #endif /* ZHImagePickerConst_h */

@@ -46,9 +46,9 @@
     PHImageRequestOptions *option = [[PHImageRequestOptions alloc] init];
     option.resizeMode = PHImageRequestOptionsResizeModeFast;
     PHImageRequestID *imageID = [[PHImageManager defaultManager] requestImageForAsset:asset targetSize:imageSize contentMode:PHImageContentModeAspectFill options:option resultHandler:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
-        BOOL downloaded = !([[info objectForKey:PHImageCancelledKey] boolValue])&&![info objectForKey:PHImageErrorKey];
+//        BOOL downloaded = !([[info objectForKey:PHImageCancelledKey] boolValue])&&![info objectForKey:PHImageErrorKey];
 //        BOOL isDegraded = [[info objectForKey:PHImageResultIsDegradedKey] boolValue];
-        if (downloaded && result) {
+        if (result) {
             result = [self p_fixOrientation:result];
             if (completed) {
                 completed(result, info);
@@ -58,12 +58,38 @@
     return imageID;
 }
 
+- (void)getOriginalImageDataForAssetModel:(PHAsset *)asset completion:(ImageDataFetchedBlock)completed {
+    PHImageRequestOptions *option = [[PHImageRequestOptions alloc] init];
+    if ([[[asset valueForKey:@"filename"] uppercaseString] hasSuffix:@"GIF"]) {
+        // if version isn't PHImageRequestOptionsVersionOriginal, the gif may cann't play
+        option.version = PHImageRequestOptionsVersionOriginal;
+    }
+    option.deliveryMode = PHImageRequestOptionsDeliveryModeHighQualityFormat;
+    [[PHImageManager defaultManager] requestImageDataForAsset:asset options:option resultHandler:^(NSData *imageData, NSString *dataUTI, UIImageOrientation orientation, NSDictionary *info) {
+        if (completed) {
+            completed(imageData, info);
+        }
+    }];
+}
+
+- (void)getOriginalImageForAssetModel:(PHAsset *)asset completion:(ImageFetchedBlock)completed {
+    PHImageRequestOptions *option = [[PHImageRequestOptions alloc]init];
+    // Size to pass when requesting the original image or the largest rendered image available (resizeMode will be ignored)
+//    extern CGSize const PHImageManagerMaximumSize PHOTOS_AVAILABLE_IOS_TVOS(8_0, 10_0);
+    [[PHImageManager defaultManager] requestImageForAsset:asset targetSize:PHImageManagerMaximumSize contentMode:PHImageContentModeAspectFit options:option resultHandler:^(UIImage *result, NSDictionary *info) {
+        result = [self p_fixOrientation:result];
+        if (completed) {
+            completed(result, info);
+        }
+    }];
+}
+
+
 
 
 
 - (void)getAssetsForResult:(PHFetchResult *)result allowPickVideo:(BOOL)pickVideo
             allowPickImage:(BOOL)pickImage completion:(AssetsFetchedBlock)completed {
-    
     NSMutableArray *assetsArray = @[].mutableCopy;
     [result enumerateObjectsUsingBlock:^(PHAsset *_Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         ZHAssetModel *model = [self p_getAssetModelForAsset:obj allowPickVideo:pickVideo allowPickImage:pickImage];

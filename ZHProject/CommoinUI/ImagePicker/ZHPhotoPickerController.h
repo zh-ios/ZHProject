@@ -11,4 +11,5 @@
 @interface ZHPhotoPickerController : UIViewController
 
 @property (nonatomic, strong) ZHAlbumModel *album;
+
 @end

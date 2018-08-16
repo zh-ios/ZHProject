@@ -16,6 +16,7 @@
  @param info info
  */
 typedef void (^ImageFetchedBlock)(UIImage *image, NSDictionary *info);
+typedef void (^ImageDataFetchedBlock)(NSData *imageData, NSDictionary *info);
 typedef void (^AlbumsFetchedBlock)(NSArray<ZHAlbumModel *> *albums);
 typedef void (^AssetsFetchedBlock)(NSArray<ZHAssetModel *> *assets);
 
@@ -48,6 +49,10 @@ typedef void (^AssetsFetchedBlock)(NSArray<ZHAssetModel *> *assets);
  */
 //For an asynchronous request, Photos may call your result handler block more than once. Photos first calls the block to provide a low-quality image suitable for displaying temporarily while it prepares a high-quality image. (If low-quality image data is immediately available, the first call may occur before the method returns.) When the high-quality image is ready, Photos calls your result handler again to provide it. If the image manager has already cached the requested image at full quality, Photos calls your result handler only once. The PHImageResultIsDegradedKey key in the result handler’s info parameter indicates when Photos is providing a temporary low-quality image.
 - (PHImageRequestID *)getImageForAssetModel:(PHAsset *)asset imageSize:(CGSize)size completion:(ImageFetchedBlock)completed;
+
+
+- (void)getOriginalImageDataForAssetModel:(PHAsset *)asset completion:(ImageDataFetchedBlock)completed;
+- (void)getOriginalImageForAssetModel:(PHAsset *)asset completion:(ImageFetchedBlock)completed;
 
 
 /**

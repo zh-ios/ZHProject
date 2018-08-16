@@ -11,6 +11,7 @@
 #import "ZHMediaFetcher.h"
 #import "ZHImagePickerController.h"
 #import "ZHImagePickerConst.h"
+#import "ZHPhotoPreviewController.h"
 @interface ZHPhotoPickerController ()<UICollectionViewDelegate,UICollectionViewDataSource>
 
 @property (nonatomic, strong) UICollectionView *collectionView;
@@ -28,8 +29,6 @@
 
 #define kCollectionViewColumnCount          (4)
 #define kCollectionViewItemMargin           (4)
-
-
 
 static NSString *collectionCellID = @"photopickercollectionviewcellID";
 
@@ -61,23 +60,32 @@ static NSString *collectionCellID = @"photopickercollectionviewcellID";
         _collectionView.delegate = self;
         _collectionView.dataSource = self;
         _collectionView.backgroundColor = [UIColor whiteColor];
-        [_collectionView registerClass:[ZHPhotoPickerCollectionCell class] forCellWithReuseIdentifier:collectionCellID];
+        [_collectionView registerClass:[ZHPhotoPickerCollectionCell class]
+            forCellWithReuseIdentifier:collectionCellID];
         [self.view addSubview:_collectionView];
     }
     return _collectionView;
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.collectionView reloadData];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     self.automaticallyAdjustsScrollViewInsets = NO;
+
     self.imagePickerVC = (ZHImagePickerController *)self.navigationController;
+    
     [[ZHMediaFetcher shareFetcher] getAssetsForResult:self.album.result allowPickVideo:self.imagePickerVC.allowPickVideo allowPickImage:self.imagePickerVC.allowPickImage completion:^(NSArray<ZHAssetModel *> *assets) {
         self.assets = assets;
         [self.collectionView reloadData];
     }];
-    [self.view addSubview:self.collectionView];
     
+    [self.view addSubview:self.collectionView];
+
     [self initCustomNav];
     [self initBottomBar];
 }
@@ -150,11 +158,14 @@ static NSString *collectionCellID = @"photopickercollectionviewcellID";
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     ZHPhotoPickerCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:collectionCellID forIndexPath:indexPath];
     ZHAssetModel *model = self.assets[indexPath.item];
+    if (model.isSelected) {
+        model.selectedIndex = [self.selectedAssets indexOfObject:model];
+    }
     cell.model = model;
     // 点击了右上角回调
     __weak typeof(self)weakSelf = self;
     cell.coverBtnOnClick = ^(ZHAssetModel * _Nonnull model) {
-        __strong typeof(weakSelf)strongSelf = self;
+        __strong typeof(weakSelf)strongSelf = weakSelf;
         [strongSelf cellCoverBtnOnClick:model indexPath:indexPath];
     };
     if (self.imagePickerVC.hadSelectedCount+self.selectedAssets.count>=self.imagePickerVC.maxSelectCount) {
@@ -166,9 +177,17 @@ static NSString *collectionCellID = @"photopickercollectionviewcellID";
     return cell;
 }
 
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    [collectionView deselectItemAtIndexPath:indexPath animated:YES];
+    ZHPhotoPreviewController *preview = [[ZHPhotoPreviewController alloc] init];
+    preview.selectedIndex = indexPath.item;
+    preview.assets = self.assets;
+    // 直接传引用，在预览页面数组改变这里的也会发生变化
+    preview.selectedAssets = self.selectedAssets;
+    [self.navigationController pushViewController:preview animated:YES];
+}
 
-
-- (void)cellCoverBtnOnClick:(ZHAssetModel *)model indexPath:(NSIndexPath *)indexPath{
+- (void)cellCoverBtnOnClick:(ZHAssetModel *)model indexPath:(NSIndexPath *)indexPath {
     if (!model.isSelected) { // 如果当前模型未选中，则点击后将处于选中状态，判断是否超过最大选择张数
         BOOL allowChoose = (self.selectedAssets.count+self.imagePickerVC.hadSelectedCount) < self.imagePickerVC.maxSelectCount;
         if (!allowChoose) {
@@ -188,7 +207,7 @@ static NSString *collectionCellID = @"photopickercollectionviewcellID";
     } else {
         [self.selectedAssets removeObject:model];
         [self.selectedAssets enumerateObjectsUsingBlock:^(ZHAssetModel *asset, NSUInteger idx, BOOL * _Nonnull stop) {
-            asset.selectedIndex = idx + 1;
+            asset.selectedIndex = idx;
         }];
     }
     // FIXME : 局部刷新即可
@@ -203,7 +222,7 @@ static NSString *collectionCellID = @"photopickercollectionviewcellID";
 - (void)refreshBottomBar {
     self.previewBtn.enabled = self.selectedAssets.count > 0;
     self.sendBtn.enabled = self.selectedAssets.count > 0;
-    NSString *sendBtnTitle = self.selectedAssets.count > 0 ? @"发送" : [NSString stringWithFormat:@"发送(%@)",@(self.selectedAssets.count)];
+    NSString *sendBtnTitle = self.selectedAssets.count > 0 ? [NSString stringWithFormat:@"发送(%@)",@(self.selectedAssets.count)] : @"发送";
     [self.sendBtn setTitle:sendBtnTitle forState:UIControlStateNormal];
 }
 
@@ -217,7 +236,12 @@ static NSString *collectionCellID = @"photopickercollectionviewcellID";
 }
 
 - (void)preview {
-    
+    ZHPhotoPreviewController *preview = [[ZHPhotoPreviewController alloc] init];
+    preview.selectedIndex = 0;
+    preview.assets = [self.selectedAssets copy] ;
+    // 直接传引用，在预览页面数组改变这里的也会发生变化
+    preview.selectedAssets = self.selectedAssets;
+    [self.navigationController pushViewController:preview animated:YES];
 }
 
 - (void)originalBtnOnClick:(UIButton *)btn {
@@ -227,6 +251,12 @@ static NSString *collectionCellID = @"photopickercollectionviewcellID";
 
 - (void)send {
     
+}
+
+- (void)dealloc {
+#ifdef DEBUG
+    NSLog(@"---- 图片选择页面销毁了");
+#endif
 }
 
 @end

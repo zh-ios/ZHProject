@@ -52,6 +52,10 @@
 		F952D1922114A81600FF88E0 /* ZHAlbumController.m in Sources */ = {isa = PBXBuildFile; fileRef = F952D1912114A81600FF88E0 /* ZHAlbumController.m */; };
 		F952D196211ADC5600FF88E0 /* ZHPhotoPickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = F952D195211ADC5600FF88E0 /* ZHPhotoPickerController.m */; };
 		F952D199211ADD6300FF88E0 /* ZHPhotoPickerCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F952D198211ADD6300FF88E0 /* ZHPhotoPickerCollectionCell.m */; };
+		F99F8C26212169F300917BC0 /* ZHPhotoPreviewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F99F8C25212169F300917BC0 /* ZHPhotoPreviewCell.m */; };
+		F99F8C2921216C6A00917BC0 /* ZHPhotoPreviewContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = F99F8C2821216C6A00917BC0 /* ZHPhotoPreviewContainerView.m */; };
+		F99F8C2F21219F0900917BC0 /* ZHPhotoPreviewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F99F8C2E21219F0900917BC0 /* ZHPhotoPreviewController.m */; };
+		F99F8C382124290900917BC0 /* ZHPhotoPreviewBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = F99F8C372124290800917BC0 /* ZHPhotoPreviewBottomView.m */; };
 		F9BC7CCC20DA439C008BE310 /* TestService.m in Sources */ = {isa = PBXBuildFile; fileRef = F9BC7CCB20DA439C008BE310 /* TestService.m */; };
 		F9EE5C2B211D621E0081E427 /* zhimagepicker.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F9EE5C2A211D621E0081E427 /* zhimagepicker.bundle */; };
 		F9EE5C2E211D62CF0081E427 /* UIImage+ImagePicerBundle.m in Sources */ = {isa = PBXBuildFile; fileRef = F9EE5C2D211D62CF0081E427 /* UIImage+ImagePicerBundle.m */; };
@@ -158,6 +162,14 @@
 		F952D195211ADC5600FF88E0 /* ZHPhotoPickerController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZHPhotoPickerController.m; sourceTree = "<group>"; };
 		F952D197211ADD6300FF88E0 /* ZHPhotoPickerCollectionCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZHPhotoPickerCollectionCell.h; sourceTree = "<group>"; };
 		F952D198211ADD6300FF88E0 /* ZHPhotoPickerCollectionCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZHPhotoPickerCollectionCell.m; sourceTree = "<group>"; };
+		F99F8C24212169F300917BC0 /* ZHPhotoPreviewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZHPhotoPreviewCell.h; sourceTree = "<group>"; };
+		F99F8C25212169F300917BC0 /* ZHPhotoPreviewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZHPhotoPreviewCell.m; sourceTree = "<group>"; };
+		F99F8C2721216C6A00917BC0 /* ZHPhotoPreviewContainerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZHPhotoPreviewContainerView.h; sourceTree = "<group>"; };
+		F99F8C2821216C6A00917BC0 /* ZHPhotoPreviewContainerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZHPhotoPreviewContainerView.m; sourceTree = "<group>"; };
+		F99F8C2D21219F0900917BC0 /* ZHPhotoPreviewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZHPhotoPreviewController.h; sourceTree = "<group>"; };
+		F99F8C2E21219F0900917BC0 /* ZHPhotoPreviewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZHPhotoPreviewController.m; sourceTree = "<group>"; };
+		F99F8C362124290800917BC0 /* ZHPhotoPreviewBottomView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZHPhotoPreviewBottomView.h; sourceTree = "<group>"; };
+		F99F8C372124290800917BC0 /* ZHPhotoPreviewBottomView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZHPhotoPreviewBottomView.m; sourceTree = "<group>"; };
 		F9BC7CCA20DA439C008BE310 /* TestService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestService.h; sourceTree = "<group>"; };
 		F9BC7CCB20DA439C008BE310 /* TestService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestService.m; sourceTree = "<group>"; };
 		F9C3A0C120BEB11C004AE87D /* ZHProject_PrefixHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZHProject_PrefixHeader.h; sourceTree = "<group>"; };
@@ -361,6 +373,14 @@
 				F952D195211ADC5600FF88E0 /* ZHPhotoPickerController.m */,
 				F952D197211ADD6300FF88E0 /* ZHPhotoPickerCollectionCell.h */,
 				F952D198211ADD6300FF88E0 /* ZHPhotoPickerCollectionCell.m */,
+				F99F8C24212169F300917BC0 /* ZHPhotoPreviewCell.h */,
+				F99F8C25212169F300917BC0 /* ZHPhotoPreviewCell.m */,
+				F99F8C362124290800917BC0 /* ZHPhotoPreviewBottomView.h */,
+				F99F8C372124290800917BC0 /* ZHPhotoPreviewBottomView.m */,
+				F99F8C2721216C6A00917BC0 /* ZHPhotoPreviewContainerView.h */,
+				F99F8C2821216C6A00917BC0 /* ZHPhotoPreviewContainerView.m */,
+				F99F8C2D21219F0900917BC0 /* ZHPhotoPreviewController.h */,
+				F99F8C2E21219F0900917BC0 /* ZHPhotoPreviewController.m */,
 				F9EE5C2C211D62CF0081E427 /* UIImage+ImagePicerBundle.h */,
 				F9EE5C2D211D62CF0081E427 /* UIImage+ImagePicerBundle.m */,
 			);
@@ -557,7 +577,10 @@
 				86E945B5204FDB8D0033BB7E /* ViewController.m in Sources */,
 				F952D196211ADC5600FF88E0 /* ZHPhotoPickerController.m in Sources */,
 				F93EFDB220F4A2F1004211FC /* XCArrowItem.m in Sources */,
+				F99F8C382124290900917BC0 /* ZHPhotoPreviewBottomView.m in Sources */,
+				F99F8C2921216C6A00917BC0 /* ZHPhotoPreviewContainerView.m in Sources */,
 				F94B89BB2114254700A4B63E /* JSONKeyMapper.m in Sources */,
+				F99F8C26212169F300917BC0 /* ZHPhotoPreviewCell.m in Sources */,
 				F952D18F2114A38500FF88E0 /* ZHImagePickerController.m in Sources */,
 				86E945CA204FDF300033BB7E /* PerformanceMonitor.m in Sources */,
 				86E945C0204FDB8D0033BB7E /* main.m in Sources */,
@@ -574,6 +597,7 @@
 				F94B89B62114254700A4B63E /* JSONModelError.m in Sources */,
 				F94B88FB210EE8DF00A4B63E /* UINavigationController+AnimateType.m in Sources */,
 				F93EFDBC20F4AE80004211FC /* ZHTableViewCell.m in Sources */,
+				F99F8C2F21219F0900917BC0 /* ZHPhotoPreviewController.m in Sources */,
 				F93EFD9D20F4A2CC004211FC /* XCBaseSettingController.m in Sources */,
 				F94B89B92114254700A4B63E /* JSONHTTPClient.m in Sources */,
 				F952D199211ADD6300FF88E0 /* ZHPhotoPickerCollectionCell.m in Sources */,

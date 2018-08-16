@@ -76,7 +76,7 @@
     
     self.unselectedImageBtn.selected = model.isSelected;
     if (model.isSelected) {
-        [self.unselectedImageBtn setTitle:[NSString stringWithFormat:@"%@",@(model.selectedIndex)] forState:UIControlStateNormal];
+        [self.unselectedImageBtn setTitle:[NSString stringWithFormat:@"%@",@(model.selectedIndex+1)] forState:UIControlStateNormal];
     }
 }
 
