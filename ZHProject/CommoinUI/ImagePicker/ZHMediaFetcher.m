@@ -106,7 +106,11 @@
 }
 
 
-- (void)getAlbumsAllowPickVideo:(BOOL)pickVideo pickImage:(BOOL)pickImage completion:(AlbumsFetchedBlock)completed {
+/**
+ 获取相册
+ @param isCameraRoll 是否是获取相机胶卷相册
+ */
+- (void)getAlbumsAllowPickVideo:(BOOL)pickVideo pickImage:(BOOL)pickImage completion:(AlbumsFetchedBlock)completed isCameraRoll:(BOOL)isCameraRoll {
     
     NSMutableArray *albumsArr = @[].mutableCopy;
     
@@ -117,8 +121,6 @@
     // option.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"modificationDate" ascending:self.sortAscendingByModificationDate]];
     option.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"creationDate" ascending:YES]];
 
-    
-    // 我的照片流 1.6.10重新加入..
     PHFetchResult *myPhotoStreamAlbum = [PHAssetCollection fetchAssetCollectionsWithType:PHAssetCollectionTypeAlbum subtype:PHAssetCollectionSubtypeAlbumMyPhotoStream options:nil];
     PHFetchResult *smartAlbums = [PHAssetCollection fetchAssetCollectionsWithType:PHAssetCollectionTypeSmartAlbum subtype:PHAssetCollectionSubtypeAlbumRegular options:nil];
     PHFetchResult *topLevelUserCollections = [PHCollectionList fetchTopLevelUserCollectionsWithOptions:nil];
@@ -131,16 +133,26 @@
             if (![collection isKindOfClass:[PHAssetCollection class]]) continue;
             // 过滤空相册
             if (collection.estimatedAssetCount <= 0) continue;
+            if (collection.assetCollectionSubtype == 1000000201) continue; //『最近删除』相册
             if (collection.assetCollectionSubtype == PHAssetCollectionSubtypeSmartAlbumAllHidden) continue;
 
             PHFetchResult *fetchResult = [PHAsset fetchAssetsInAssetCollection:collection options:option];
             if (fetchResult.count < 1) continue;
             if (fetchResult.count > 1) {
                 ZHAlbumModel *model = [ZHAlbumModel modelWithResult:fetchResult name:collection.localizedTitle];
-                if ([self p_isCameraRoll:collection]) {
-                    [albumsArr insertObject:model atIndex:0];
+                if (isCameraRoll) {
+                    if ([self p_isCameraRoll:collection]) {
+                        [albumsArr addObject:model];
+                        if (completed) completed(albumsArr);
+                        return;
+                    }
+                } else {
+                    if ([self p_isCameraRoll:collection]) {
+                        [albumsArr insertObject:model atIndex:0];
+                    } else {
+                        [albumsArr addObject:model];
+                    }
                 }
-                [albumsArr addObject:model];
             }
         }
     }
@@ -149,6 +161,18 @@
     }
 }
 
+- (void)getAlbumsAllowPickVideo:(BOOL)pickVideo pickImage:(BOOL)pickImage completion:(AlbumsFetchedBlock)completed {
+    [self getAlbumsAllowPickVideo:pickVideo pickImage:pickImage completion:completed isCameraRoll:NO];
+}
+
+- (void)getCameraRollAlbumPickVideo:(BOOL)pickVideo pickImage:(BOOL)pickImage completion:(AlbumsFetchedBlock)completed {
+    [self getAlbumsAllowPickVideo:pickVideo pickImage:pickImage completion:completed isCameraRoll:YES];
+}
+
+
+/**
+ 判断是否是相机胶卷
+ */
 - (BOOL)p_isCameraRoll:(PHAssetCollection *)collection {
     return collection.assetCollectionSubtype == PHAssetCollectionSubtypeSmartAlbumUserLibrary;
 }

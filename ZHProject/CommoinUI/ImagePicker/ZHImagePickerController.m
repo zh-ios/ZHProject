@@ -30,7 +30,7 @@
     
     [self initData];
     
-    [self requestAlbumAuth];
+//    [self requestAlbumAuth];
 }
 
 - (void)requestAlbumAuth {
@@ -67,18 +67,18 @@
     });
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    PHAuthorizationStatus status = [PHPhotoLibrary authorizationStatus];
-    if (status == PHAuthorizationStatusAuthorized) {
-        [self.fetcher getAlbumsAllowPickVideo:self.allowPickVideo pickImage:self.allowPickImage completion:^(NSArray<ZHAlbumModel *> *albums) {
-            dispatch_async(dispatch_get_main_queue(), ^{
-                self.albumController.albums = albums;
-                [[NSNotificationCenter defaultCenter] postNotificationName:@"PHPhotoLibraryOnGetAlbumData" object:nil];
-            });
-        }];
-    }
-}
+//- (void)viewWillAppear:(BOOL)animated {
+//    [super viewWillAppear:animated];
+//    PHAuthorizationStatus status = [PHPhotoLibrary authorizationStatus];
+//    if (status == PHAuthorizationStatusAuthorized) {
+//        [self.fetcher getAlbumsAllowPickVideo:self.allowPickVideo pickImage:self.allowPickImage completion:^(NSArray<ZHAlbumModel *> *albums) {
+//            dispatch_async(dispatch_get_main_queue(), ^{
+//                self.albumController.albums = albums;
+//                [[NSNotificationCenter defaultCenter] postNotificationName:@"PHPhotoLibraryOnGetAlbumData" object:nil];
+//            });
+//        }];
+//    }
+//}
 
 /**
  获取当前控制器

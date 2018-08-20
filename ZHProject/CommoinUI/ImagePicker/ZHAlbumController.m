@@ -104,6 +104,17 @@
     [self.view addSubview:self.tableView];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    ZHImagePickerController *imagePickerVC = (ZHImagePickerController *)self.navigationController;
+    [[ZHMediaFetcher shareFetcher] getAlbumsAllowPickVideo:imagePickerVC.allowPickVideo pickImage:imagePickerVC.allowPickImage completion:^(NSArray<ZHAlbumModel *> *albums) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            self.albums = albums;
+            [self.tableView reloadData];
+        });
+    }];
+}
+
 - (void)initCustomNav {
     
     UIView *navView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, kNavbarHeight)];

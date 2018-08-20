@@ -92,6 +92,18 @@ static NSString *collectionCellID = @"photopickercollectionviewcellID";
         }];
     }
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(authStatusChanged) name:@"PHPhotoLibraryOnGetAlbumData" object:nil];
+    if (!self.album) {
+        [[ZHMediaFetcher shareFetcher] getCameraRollAlbumPickVideo:self.imagePickerVC.allowPickVideo pickImage:self.imagePickerVC.allowPickImage completion:^(NSArray<ZHAlbumModel *> *albums) {
+            [[ZHMediaFetcher shareFetcher] getAssetsForResult:[[albums firstObject] result] allowPickVideo:self.imagePickerVC.allowPickVideo allowPickImage:self.imagePickerVC.allowPickImage completion:^(NSArray<ZHAssetModel *> *assets) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    self.assets = assets;
+                    [self.collectionView reloadData];
+                    if (assets.count > 0)
+                        [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:assets.count-1 inSection:0] atScrollPosition:UICollectionViewScrollPositionNone animated:NO];
+                });
+            }];
+        }];
+    }
 }
 
 - (void)authStatusChanged {

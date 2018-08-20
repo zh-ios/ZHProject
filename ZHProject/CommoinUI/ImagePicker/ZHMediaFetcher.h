@@ -62,6 +62,14 @@ typedef void (^AssetsFetchedBlock)(NSArray<ZHAssetModel *> *assets);
  @param pickImage 是否允许选择图片
  @param completed 完成回调
  */
-- (void)getAlbumsAllowPickVideo:(BOOL)pickVideo pickImage:(BOOL)pickImage completion:(AlbumsFetchedBlock)completed;
+- (void)getAlbumsAllowPickVideo:(BOOL)pickVideo pickImage:(BOOL)pickImage
+                     completion:(AlbumsFetchedBlock)completed;
 
+
+/**
+ 获取相机胶卷列表
+ */
+- (void)getCameraRollAlbumPickVideo:(BOOL)pickVideo
+                          pickImage:(BOOL)pickImage
+                         completion:(AlbumsFetchedBlock)completed;
 @end
