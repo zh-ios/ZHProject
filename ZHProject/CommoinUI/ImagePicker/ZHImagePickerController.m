@@ -62,7 +62,9 @@
         [self dismissViewControllerAnimated:YES completion:nil];
     }];
     [alert addAction:action];
-    [self presentViewController:alert animated:YES completion:nil];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [[self currentVC] presentViewController:alert animated:YES completion:nil];
+    });
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -75,6 +77,32 @@
                 [[NSNotificationCenter defaultCenter] postNotificationName:@"PHPhotoLibraryOnGetAlbumData" object:nil];
             });
         }];
+    }
+}
+
+/**
+ 获取当前控制器
+ */
+- (UIViewController *)currentVC {
+    UIWindow *window = [[UIApplication sharedApplication] keyWindow];
+    UIViewController *controller = window.rootViewController;
+    while (YES) {
+        if (controller.presentedViewController) {
+            controller = controller.presentedViewController;
+        } else {
+            if ([controller isKindOfClass:[UINavigationController class]]) {
+                controller = [controller.childViewControllers lastObject];
+            } else if ([controller isKindOfClass:[UITabBarController class]]) {
+                UITabBarController *tabBarController = (UITabBarController *)controller;
+                controller = tabBarController.selectedViewController;
+            } else {
+                if (controller.childViewControllers.count > 0) {
+                    controller = [controller.childViewControllers lastObject];
+                } else {
+                    return controller;
+                }
+            }
+        }
     }
 }
 

@@ -35,6 +35,8 @@ typedef NS_ENUM(NSInteger, ZHAssetMediaType) {
 
 @property (nonatomic, assign) CGFloat duration;
 
+@property (nonatomic, strong) UIImage *cachedImage;
+
 + (instancetype)modelWithAsset:(PHAsset *)asset type:(ZHAssetMediaType)type;
 
 /**

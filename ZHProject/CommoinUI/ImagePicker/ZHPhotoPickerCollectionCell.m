@@ -68,11 +68,18 @@
     } else {
         [self.unselectedImageBtn setTitle:@"" forState:UIControlStateNormal];
     }
-    [[ZHMediaFetcher shareFetcher] getImageForAssetModel:model.asset imageSize:CGSizeMake(self.bounds.size.width, self.bounds.size.height) completion:^(UIImage *image, NSDictionary *info) {
-        if (image) {
-           self.imageView.image = image;
-        }
-    }];
+    if (!model.cachedImage) {
+        [[ZHMediaFetcher shareFetcher] getImageForAssetModel:model.asset imageSize:CGSizeMake(self.bounds.size.width, self.bounds.size.height) completion:^(UIImage *image, NSDictionary *info) {
+            BOOL ret = [[info objectForKey:PHImageResultIsDegradedKey] boolValue];
+            if (image && !ret) {
+                self.imageView.image = image;
+                model.cachedImage = image;
+            }
+        }];
+    } else {
+        self.imageView.image = model.cachedImage;
+    }
+    
     
     self.unselectedImageBtn.selected = model.isSelected;
     if (model.isSelected) {
