@@ -105,6 +105,7 @@
     }
 }
 
+
 - (void)getAlbumsAllowPickVideo:(BOOL)pickVideo pickImage:(BOOL)pickImage completion:(AlbumsFetchedBlock)completed {
     
     NSMutableArray *albumsArr = @[].mutableCopy;

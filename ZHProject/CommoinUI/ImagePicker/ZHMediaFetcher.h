@@ -64,5 +64,4 @@ typedef void (^AssetsFetchedBlock)(NSArray<ZHAssetModel *> *assets);
  */
 - (void)getAlbumsAllowPickVideo:(BOOL)pickVideo pickImage:(BOOL)pickImage completion:(AlbumsFetchedBlock)completed;
 
-
 @end

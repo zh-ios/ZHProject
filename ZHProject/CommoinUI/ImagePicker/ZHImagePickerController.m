@@ -29,13 +29,53 @@
     self.fetcher = [ZHMediaFetcher shareFetcher];
     
     [self initData];
+    
+    [self requestAlbumAuth];
+}
+
+- (void)requestAlbumAuth {
+    
+    PHAuthorizationStatus status = [PHPhotoLibrary authorizationStatus];
+    if (status == PHAuthorizationStatusNotDetermined) {
+        [PHPhotoLibrary requestAuthorization:^(PHAuthorizationStatus status) {
+            if (status == PHAuthorizationStatusDenied) {
+                [self p_showUnAuthAlert];
+            }
+            if (status == PHAuthorizationStatusAuthorized) {
+                [self.fetcher getAlbumsAllowPickVideo:self.allowPickVideo pickImage:self.allowPickImage completion:^(NSArray<ZHAlbumModel *> *albums) {
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        self.albumController.albums = albums;
+                        [[NSNotificationCenter defaultCenter] postNotificationName:@"PHPhotoLibraryAuthStatusChanged" object:nil];
+                    });
+                }];
+            }
+        }];
+    }
+    if (status == PHAuthorizationStatusDenied) {
+        [self p_showUnAuthAlert];
+    }
+}
+
+- (void)p_showUnAuthAlert {
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"你未设置相册访问权限" message:nil preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *action = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }];
+    [alert addAction:action];
+    [self presentViewController:alert animated:YES completion:nil];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self.fetcher getAlbumsAllowPickVideo:self.allowPickVideo pickImage:self.allowPickImage completion:^(NSArray<ZHAlbumModel *> *albums) {
-        self.albumController.albums = albums;
-    }];
+    PHAuthorizationStatus status = [PHPhotoLibrary authorizationStatus];
+    if (status == PHAuthorizationStatusAuthorized) {
+        [self.fetcher getAlbumsAllowPickVideo:self.allowPickVideo pickImage:self.allowPickImage completion:^(NSArray<ZHAlbumModel *> *albums) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                self.albumController.albums = albums;
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"PHPhotoLibraryAuthStatusChanged" object:nil];
+            });
+        }];
+    }
 }
 
 - (void)initData {

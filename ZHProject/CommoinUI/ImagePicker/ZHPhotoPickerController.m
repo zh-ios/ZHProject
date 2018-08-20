@@ -12,6 +12,7 @@
 #import "ZHImagePickerController.h"
 #import "ZHImagePickerConst.h"
 #import "ZHPhotoPreviewController.h"
+#import "ZHAlbumController.h"
 @interface ZHPhotoPickerController ()<UICollectionViewDelegate,UICollectionViewDataSource>
 
 @property (nonatomic, strong) UICollectionView *collectionView;
@@ -76,18 +77,34 @@ static NSString *collectionCellID = @"photopickercollectionviewcellID";
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     self.automaticallyAdjustsScrollViewInsets = NO;
-
     self.imagePickerVC = (ZHImagePickerController *)self.navigationController;
-    
-    [[ZHMediaFetcher shareFetcher] getAssetsForResult:self.album.result allowPickVideo:self.imagePickerVC.allowPickVideo allowPickImage:self.imagePickerVC.allowPickImage completion:^(NSArray<ZHAssetModel *> *assets) {
-        self.assets = assets;
-        [self.collectionView reloadData];
-    }];
-    
-    [self.view addSubview:self.collectionView];
-
     [self initCustomNav];
     [self initBottomBar];
+    PHAuthorizationStatus status = [PHPhotoLibrary authorizationStatus];
+    if (status == PHAuthorizationStatusAuthorized) {
+        [self.view addSubview:self.collectionView];
+        [[ZHMediaFetcher shareFetcher] getAssetsForResult:self.album.result allowPickVideo:self.imagePickerVC.allowPickVideo allowPickImage:self.imagePickerVC.allowPickImage completion:^(NSArray<ZHAssetModel *> *assets) {
+            self.assets = assets;
+            [self.collectionView reloadData];
+        }];
+    }
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(authStatusChanged) name:@"PHPhotoLibraryAuthStatusChanged" object:nil];
+}
+
+- (void)authStatusChanged {
+    PHAuthorizationStatus status = [PHPhotoLibrary authorizationStatus];
+    if (status == PHAuthorizationStatusAuthorized) {
+        [self.view addSubview:self.collectionView];
+        ZHAlbumController *albumVC = (ZHAlbumController *)self.navigationController.viewControllers[self.navigationController.viewControllers.count-2];
+        ZHAlbumModel *album = [albumVC.albums firstObject];
+        [[ZHMediaFetcher shareFetcher] getAssetsForResult:album.result allowPickVideo:self.imagePickerVC.allowPickVideo allowPickImage:self.imagePickerVC.allowPickImage completion:^(NSArray<ZHAssetModel *> *assets) {
+            self.assets = assets;
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.collectionView reloadData];
+            });
+        }];
+    }
 }
 
 - (void)initCustomNav {
@@ -329,6 +346,7 @@ static NSString *collectionCellID = @"photopickercollectionviewcellID";
 - (void)dealloc {
 #ifdef DEBUG
     NSLog(@"---- 图片选择页面销毁了");
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 #endif
 }
 
