@@ -86,10 +86,12 @@ static NSString *collectionCellID = @"photopickercollectionviewcellID";
         [[ZHMediaFetcher shareFetcher] getAssetsForResult:self.album.result allowPickVideo:self.imagePickerVC.allowPickVideo allowPickImage:self.imagePickerVC.allowPickImage completion:^(NSArray<ZHAssetModel *> *assets) {
             self.assets = assets;
             [self.collectionView reloadData];
+            if (assets.count>0) {
+            [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForRow:assets.count inSection:0] atScrollPosition:UICollectionViewScrollPositionNone animated:NO];
+            }
         }];
     }
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(authStatusChanged) name:@"PHPhotoLibraryAuthStatusChanged" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(authStatusChanged) name:@"PHPhotoLibraryOnGetAlbumData" object:nil];
 }
 
 - (void)authStatusChanged {
@@ -102,6 +104,9 @@ static NSString *collectionCellID = @"photopickercollectionviewcellID";
             self.assets = assets;
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self.collectionView reloadData];
+                if (assets.count>0) {
+                    [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:assets.count-1 inSection:0] atScrollPosition:UICollectionViewScrollPositionBottom animated:NO];
+                }
             });
         }];
     }

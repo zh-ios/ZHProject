@@ -25,7 +25,7 @@
     // TODO init navigation
 
     self.navigationBar.hidden = YES;
-
+    self.interactivePopGestureRecognizer.enabled = NO;
     self.fetcher = [ZHMediaFetcher shareFetcher];
     
     [self initData];
@@ -45,7 +45,7 @@
                 [self.fetcher getAlbumsAllowPickVideo:self.allowPickVideo pickImage:self.allowPickImage completion:^(NSArray<ZHAlbumModel *> *albums) {
                     dispatch_async(dispatch_get_main_queue(), ^{
                         self.albumController.albums = albums;
-                        [[NSNotificationCenter defaultCenter] postNotificationName:@"PHPhotoLibraryAuthStatusChanged" object:nil];
+                        [[NSNotificationCenter defaultCenter] postNotificationName:@"PHPhotoLibraryOnGetAlbumData" object:nil];
                     });
                 }];
             }
@@ -72,7 +72,7 @@
         [self.fetcher getAlbumsAllowPickVideo:self.allowPickVideo pickImage:self.allowPickImage completion:^(NSArray<ZHAlbumModel *> *albums) {
             dispatch_async(dispatch_get_main_queue(), ^{
                 self.albumController.albums = albums;
-                [[NSNotificationCenter defaultCenter] postNotificationName:@"PHPhotoLibraryAuthStatusChanged" object:nil];
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"PHPhotoLibraryOnGetAlbumData" object:nil];
             });
         }];
     }

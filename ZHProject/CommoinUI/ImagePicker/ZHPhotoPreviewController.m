@@ -16,6 +16,8 @@
 @property (nonatomic, strong) UICollectionViewFlowLayout *layout;
 @property (nonatomic, strong) UIButton *selectedBtn;
 @property (nonatomic, strong) ZHPhotoPreviewBottomView *bottomBar;
+@property (nonatomic, strong) UIView *customNav;
+@property (nonatomic, assign) BOOL navAndBottomBarHiding;
 
 @end
 
@@ -68,6 +70,7 @@ static NSString *photoPreviewCellID = @"photoPreviewCellID";
     UIView *nav = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, kNavbarHeight)];
     nav.backgroundColor = kImagePickerNavBgColor;
     [self.view addSubview:nav];
+    self.customNav = nav;
 
     UIButton *backBtn = [[UIButton alloc] initWithFrame:CGRectMake(kImagePickerSideViewPadding, kTopSafeArea+10, 20, 20)];
     backBtn.backgroundColor = [UIColor orangeColor];
@@ -110,7 +113,23 @@ static NSString *photoPreviewCellID = @"photoPreviewCellID";
     ZHPhotoPreviewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:photoPreviewCellID forIndexPath:indexPath];
     ZHAssetModel *model = self.assets[indexPath.item];
     cell.model = model;
+    __weak  typeof(self)weakSelf = self;
+    cell.singleTapBlock = ^{
+        __strong typeof(weakSelf)strongSelf = weakSelf;
+        [strongSelf handleSingleTap];
+    };
     return cell;
+}
+
+- (void)handleSingleTap {
+    self.navAndBottomBarHiding = !self.navAndBottomBarHiding;
+    if (self.navAndBottomBarHiding) {
+        self.customNav.transform = CGAffineTransformMakeTranslation(0, -self.customNav.height);
+        self.bottomBar.transform = CGAffineTransformMakeTranslation(0, self.bottomBar.height);
+    } else {
+        self.customNav.transform = CGAffineTransformIdentity;
+        self.bottomBar.transform = CGAffineTransformIdentity;
+    }
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
