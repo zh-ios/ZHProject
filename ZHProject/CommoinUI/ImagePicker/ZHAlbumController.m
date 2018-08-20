@@ -11,6 +11,7 @@
 #import "ZHPhotoPickerController.h"
 #import "UIImage+ImagePicerBundle.h"
 #import "ZHImagePickerConst.h"
+#import "ZHImagePickerController.h"
 @interface ZHAlbumCell ()
 @property (nonatomic, strong) UIImageView *posterImageView;
 @property (nonatomic, strong) UILabel *nameL;
@@ -145,13 +146,15 @@
     ZHPhotoPickerController *photoPicker = [[ZHPhotoPickerController alloc] init];
     ZHAlbumModel *album = self.albums[indexPath.row];
     photoPicker.album = album;
-
     [self.navigationController pushViewController:photoPicker animated:YES];
 }
 
 #pragma mark --- targetAction
 - (void)cancel:(UIButton *)btn {
-    // TODO 点击取消回调
+    ZHImagePickerController *picker = (ZHImagePickerController *)self.navigationController;
+    if ([picker.pickerDelegate respondsToSelector:@selector(imagePickerControllerCancelBtnOnClick)]) {
+        [picker.pickerDelegate imagePickerControllerCancelBtnOnClick];
+    }
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 

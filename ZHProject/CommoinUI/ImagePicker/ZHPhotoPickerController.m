@@ -182,9 +182,19 @@ static NSString *collectionCellID = @"photopickercollectionviewcellID";
     ZHPhotoPreviewController *preview = [[ZHPhotoPreviewController alloc] init];
     preview.selectedIndex = indexPath.item;
     preview.assets = self.assets;
+    preview.isOriginalImage = self.isSlectedOriginalImage;
     // 直接传引用，在预览页面数组改变这里的也会发生变化
     preview.selectedAssets = self.selectedAssets;
     [self.navigationController pushViewController:preview animated:YES];
+    __weak typeof(self)weakSelf = self;
+    preview.sendBtnOnClick = ^{
+        __strong typeof(weakSelf)strongSelf = weakSelf;
+        [strongSelf send];
+    };
+    preview.originalBtnOnClick = ^(BOOL isOriginal) {
+        __strong typeof(weakSelf)strongSelf = weakSelf;
+        strongSelf.isSlectedOriginalImage = isOriginal;
+    };
 }
 
 - (void)cellCoverBtnOnClick:(ZHAssetModel *)model indexPath:(NSIndexPath *)indexPath {
@@ -231,17 +241,30 @@ static NSString *collectionCellID = @"photopickercollectionviewcellID";
 }
 
 - (void)cancel {
-    // FIXME: 回调
+    ZHImagePickerController *picker = (ZHImagePickerController *)self.navigationController;
+    if ([picker.pickerDelegate respondsToSelector:@selector(imagePickerControllerCancelBtnOnClick)]) {
+        [picker.pickerDelegate imagePickerControllerCancelBtnOnClick];
+    }
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)preview {
     ZHPhotoPreviewController *preview = [[ZHPhotoPreviewController alloc] init];
     preview.selectedIndex = 0;
-    preview.assets = [self.selectedAssets copy] ;
+    preview.assets = [self.selectedAssets copy];
+    preview.isOriginalImage = self.isSlectedOriginalImage;
     // 直接传引用，在预览页面数组改变这里的也会发生变化
     preview.selectedAssets = self.selectedAssets;
     [self.navigationController pushViewController:preview animated:YES];
+    __weak typeof(self)weakSelf = self;
+    preview.sendBtnOnClick = ^{
+        __strong typeof(weakSelf)strongSelf = weakSelf;
+        [strongSelf send];
+    };
+    preview.originalBtnOnClick = ^(BOOL isOriginal) {
+        __strong typeof(weakSelf)strongSelf = weakSelf;
+        strongSelf.isSlectedOriginalImage = isOriginal;
+    };
 }
 
 - (void)originalBtnOnClick:(UIButton *)btn {
@@ -250,7 +273,57 @@ static NSString *collectionCellID = @"photopickercollectionviewcellID";
 }
 
 - (void)send {
+    ZHImagePickerController *picker = (ZHImagePickerController *)self.navigationController;
+    NSMutableArray *imagesArr = @[].mutableCopy;
+
+    dispatch_group_t group = dispatch_group_create();
+    dispatch_queue_t queue = dispatch_queue_create("com.imagepicker.queue", DISPATCH_QUEUE_CONCURRENT);
     
+    NSMutableArray *infos = @[].mutableCopy;
+    BOOL responseImageSEL = [picker.pickerDelegate respondsToSelector:@selector(imagePickerController:didFinishPickingImages:imageInfos:)];
+    BOOL responseDataSEL = [picker.pickerDelegate respondsToSelector:@selector(imagePickerController:didFinishPickingImagesData:imageInfos:)];
+    if (self.isSlectedOriginalImage) {
+        for (int i = 0; i<self.selectedAssets.count; i++) {
+            ZHAssetModel *model = self.selectedAssets[i];
+            if (responseDataSEL) {
+                dispatch_group_enter(group);
+                [[ZHMediaFetcher shareFetcher] getOriginalImageDataForAssetModel:model.asset completion:^(NSData *imageData, NSDictionary *info) {
+                    dispatch_group_leave(group);
+                    [imagesArr addObject:imageData];
+                    [infos addObject:info];
+                }];
+            }
+        }
+        dispatch_group_notify(group, queue, ^{
+            if (responseDataSEL) {
+                [picker.pickerDelegate imagePickerController:picker didFinishPickingImagesData:imagesArr imageInfos:infos];
+            }
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self dismissViewControllerAnimated:YES completion:nil];
+            });
+        });
+    } else {
+        for (int i = 0; i<self.selectedAssets.count; i++) {
+            dispatch_group_enter(group);
+            ZHAssetModel *model = self.selectedAssets[i];
+            [[ZHMediaFetcher shareFetcher] getImageForAssetModel:model.asset imageSize:CGSizeMake(self.view.width, 0) completion:^(UIImage *image, NSDictionary *info) {
+                BOOL isDegraded = [[info objectForKey:PHImageResultIsDegradedKey] boolValue];
+                if (!isDegraded && image) {
+                    dispatch_group_leave(group);
+                    [imagesArr addObject:image];
+                    [infos addObject:info];
+                }
+            }];
+        }
+        dispatch_group_notify(group, queue, ^{
+            if (responseImageSEL) {
+                 [picker.pickerDelegate imagePickerController:picker didFinishPickingImages:imagesArr imageInfos:infos];
+            }
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self dismissViewControllerAnimated:YES completion:nil];
+            });
+        });
+    }
 }
 
 - (void)dealloc {

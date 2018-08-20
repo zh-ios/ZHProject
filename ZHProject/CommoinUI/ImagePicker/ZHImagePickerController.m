@@ -9,6 +9,7 @@
 #import "ZHImagePickerController.h"
 #import "ZHAlbumController.h"
 #import "ZHMediaFetcher.h"
+#import "ZHPhotoPickerController.h"
 @interface ZHImagePickerController ()
 
 @property (nonatomic, strong) ZHMediaFetcher *fetcher;
@@ -18,19 +19,22 @@
 
 @implementation ZHImagePickerController
 
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // TODO init navigation
-    
+
     self.navigationBar.hidden = YES;
-    
-    [self initData];
-    
+
     self.fetcher = [ZHMediaFetcher shareFetcher];
     
-    [self.fetcher getAlbumsAllowPickVideo:YES pickImage:YES completion:^(NSArray<ZHAlbumModel *> *albums) {
+    [self initData];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.fetcher getAlbumsAllowPickVideo:self.allowPickVideo pickImage:self.allowPickImage completion:^(NSArray<ZHAlbumModel *> *albums) {
         self.albumController.albums = albums;
-        
     }];
 }
 
@@ -49,14 +53,11 @@
     self.albumController = album;
     self = [super initWithRootViewController:album];
     
+    ZHPhotoPickerController *picker = [[ZHPhotoPickerController alloc] init];
+    [album.navigationController pushViewController:picker animated:YES];
+    
     return self;
 }
 
-
-- (instancetype)initWithAssetsList:(NSArray<ZHAssetModel *> *)assets
-                    selectedAssets:(NSMutableArray<ZHAssetModel *> *)selectedAssets
-                      currentIndex:(NSInteger)index {
-    return self;
-}
 
 @end

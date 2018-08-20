@@ -9,9 +9,32 @@
 #import <UIKit/UIKit.h>
 #import "ZHAssetsModel.h"
 
+@class ZHImagePickerController;
+
 @protocol ZHImagePickerControllerDelegate <NSObject>
+@required;
+/**
+ 选择非原图图片片回调
+ infos 图片信息
+ */
+- (void)imagePickerController:(ZHImagePickerController *)picker
+       didFinishPickingImages:(NSArray<UIImage *> *)images
+                   imageInfos:(NSArray *)infos;
+/**
+ 选择原图图片时回调，返回data类型数据
+ PHImageManager的requestImageDataForAsset方法,这个方法是把PhAsset转化为NSData对象,NSData对象可以转化为UIImage对象,
+ 这样的话可以解决内存暴涨的问题.
+ requestImageForAsset会对图片进行渲染,所以导致内存暴涨,
+ 而requestImageDataForAsset则是直接返回二进制数据,所以内存不会出现暴涨的现象.
+ infos 返回的图片信息
+ */
+- (void)imagePickerController:(ZHImagePickerController *)picker
+   didFinishPickingImagesData:(NSArray<NSData *> *)imagesData
+                   imageInfos:(NSArray *)infos;
 
 
+@optional;
+- (void)imagePickerControllerCancelBtnOnClick;
 
 @end
 
@@ -27,22 +50,11 @@
 
 @property (nonatomic, assign) BOOL allowPickImage;
 
+@property (nonatomic, weak) id<ZHImagePickerControllerDelegate> pickerDelegate;
+
+
 - (instancetype)initWithMaxSelectedCount:(NSUInteger)maxCount
                           selectedAssets:(NSArray<ZHAssetModel *> *)selectedAssets
                                 delegate:(id)delegate;
-
-
-
-
-/**
- 预览图片时使用此方法进行初始化
-
- @param assets 要预览的图片list
- @param selectedAssets 当前选中的list
- @param index 当前图片的index
- */
-- (instancetype)initWithAssetsList:(NSArray<ZHAssetModel *> *)assets
-                    selectedAssets:(NSMutableArray<ZHAssetModel *> *)selectedAssets
-                      currentIndex:(NSInteger)index;
 
 @end

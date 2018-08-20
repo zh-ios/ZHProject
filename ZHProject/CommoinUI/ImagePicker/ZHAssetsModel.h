@@ -29,7 +29,7 @@ typedef NS_ENUM(NSInteger, ZHAssetMediaType) {
  */
 @property (nonatomic, assign) NSInteger selectedIndex;
 
-@property (nonatomic, strong) id asset; // PHAsset 模型
+@property (nonatomic, strong) PHAsset *asset; // PHAsset 模型
 
 @property (nonatomic, assign) ZHAssetMediaType type;
 
@@ -52,8 +52,6 @@ typedef NS_ENUM(NSInteger, ZHAssetMediaType) {
 @property (nonatomic, assign) NSUInteger count;
 
 @property (nonatomic, strong) PHFetchResult *result; // phfetchResult
-
-@property (nonatomic, strong) NSArray *selectedModels;
 
 + (instancetype)modelWithResult:(id)result name:(NSString *)name;
 

@@ -16,7 +16,6 @@
 @property (nonatomic, strong) UICollectionViewFlowLayout *layout;
 @property (nonatomic, strong) UIButton *selectedBtn;
 @property (nonatomic, strong) ZHPhotoPreviewBottomView *bottomBar;
-@property (nonatomic, assign) BOOL isOriginalImage;
 
 @end
 
@@ -62,7 +61,7 @@ static NSString *photoPreviewCellID = @"photoPreviewCellID";
     [self initBottomBar];
     
     [self refreshNavBar];
-    [self.bottomBar refreshBottomView:self.selectedAssets];
+    [self.bottomBar refreshBottomView:self.selectedAssets isOriginal:self.isOriginalImage];
 }
 
 - (void)initCustomNav {
@@ -96,6 +95,9 @@ static NSString *photoPreviewCellID = @"photoPreviewCellID";
     bottomBar.originalBtnOnClick = ^(BOOL isOriginalImage) {
         __strong typeof(weakSelf)strongSelf = weakSelf;
         strongSelf.isOriginalImage = isOriginalImage;
+        if (strongSelf.originalBtnOnClick) {
+            strongSelf.originalBtnOnClick(isOriginalImage);
+        }
     };
 }
 
@@ -122,7 +124,7 @@ static NSString *photoPreviewCellID = @"photoPreviewCellID";
 
 #pragma mark --- targetAction
 - (void)back {
-    
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)selected:(UIButton *)btn {
@@ -134,7 +136,7 @@ static NSString *photoPreviewCellID = @"photoPreviewCellID";
         model.isSelected = YES;
         [self.selectedAssets addObject:model];
     }
-    [self.bottomBar refreshBottomView:self.selectedAssets];
+    [self.bottomBar refreshBottomView:self.selectedAssets isOriginal:self.isOriginalImage];
     [self refreshNavBar];
 }
 
@@ -146,7 +148,9 @@ static NSString *photoPreviewCellID = @"photoPreviewCellID";
 }
 
 - (void)done {
-    [self dismissViewControllerAnimated:YES completion:nil];
+    if (self.sendBtnOnClick) {
+        self.sendBtnOnClick();
+    }
 }
 
 - (void)dealloc {

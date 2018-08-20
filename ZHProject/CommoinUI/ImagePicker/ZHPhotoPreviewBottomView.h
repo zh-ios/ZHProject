@@ -15,7 +15,7 @@
 
 @property (nonatomic, copy) void (^doneBtnOnClick)(void);
 
-- (void)refreshBottomView:(NSArray<ZHAssetModel *> *)selecteAssets;
+- (void)refreshBottomView:(NSArray<ZHAssetModel *> *)selecteAssets isOriginal:(BOOL)isOriginal;
 
 @end
 

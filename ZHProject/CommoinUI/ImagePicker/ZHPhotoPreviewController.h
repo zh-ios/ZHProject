@@ -21,6 +21,13 @@
  */
 @property (nonatomic, strong) NSMutableArray *selectedAssets;
 
+@property (nonatomic, assign) BOOL isOriginalImage;
+
 @property (nonatomic, assign) NSInteger selectedIndex;
+
+// 上一个页面传的引用，这里不需要传值
+@property (nonatomic, copy) void (^sendBtnOnClick)(void);
+
+@property (nonatomic, copy) void (^originalBtnOnClick)(BOOL isOriginal);
 
 @end
