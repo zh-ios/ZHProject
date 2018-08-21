@@ -80,19 +80,42 @@ static NSString *collectionCellID = @"photopickercollectionviewcellID";
     self.imagePickerVC = (ZHImagePickerController *)self.navigationController;
     [self initCustomNav];
     [self initBottomBar];
+
+    [self checkAuthStatus];
+
+}
+
+- (void)checkAuthStatus {
     PHAuthorizationStatus status = [PHPhotoLibrary authorizationStatus];
+    if (status == PHAuthorizationStatusNotDetermined) {
+        [PHPhotoLibrary requestAuthorization:^(PHAuthorizationStatus status) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                if (status != PHAuthorizationStatusAuthorized) [self showUnAuthAlert];
+                if (status == PHAuthorizationStatusAuthorized) {
+                    [self getAlbumData];
+                }
+            });
+        }];
+    }
     if (status == PHAuthorizationStatusAuthorized) {
-        [self.view addSubview:self.collectionView];
+        [self getAlbumData];
+    }
+    if (status == PHAuthorizationStatusDenied) {
+        [self showUnAuthAlert];
+    }
+}
+
+- (void)getAlbumData {
+    [self.view addSubview:self.collectionView];
+    if (self.album) { // 从相册页面过来
         [[ZHMediaFetcher shareFetcher] getAssetsForResult:self.album.result allowPickVideo:self.imagePickerVC.allowPickVideo allowPickImage:self.imagePickerVC.allowPickImage completion:^(NSArray<ZHAssetModel *> *assets) {
             self.assets = assets;
             [self.collectionView reloadData];
             if (assets.count>0) {
-            [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForRow:assets.count inSection:0] atScrollPosition:UICollectionViewScrollPositionNone animated:NO];
+                [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForRow:assets.count-1 inSection:0] atScrollPosition:UICollectionViewScrollPositionNone animated:NO];
             }
         }];
-    }
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(authStatusChanged) name:@"PHPhotoLibraryOnGetAlbumData" object:nil];
-    if (!self.album) {
+    } else { // 直接进入照片选择页面
         [[ZHMediaFetcher shareFetcher] getCameraRollAlbumPickVideo:self.imagePickerVC.allowPickVideo pickImage:self.imagePickerVC.allowPickImage completion:^(NSArray<ZHAlbumModel *> *albums) {
             [[ZHMediaFetcher shareFetcher] getAssetsForResult:[[albums firstObject] result] allowPickVideo:self.imagePickerVC.allowPickVideo allowPickImage:self.imagePickerVC.allowPickImage completion:^(NSArray<ZHAssetModel *> *assets) {
                 dispatch_async(dispatch_get_main_queue(), ^{
@@ -104,6 +127,15 @@ static NSString *collectionCellID = @"photopickercollectionviewcellID";
             }];
         }];
     }
+}
+
+- (void)showUnAuthAlert {
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"你已禁止相册访问权限" message:nil preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *action = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }];
+    [alert addAction:action];
+    [self presentViewController:alert animated:YES completion:nil];
 }
 
 - (void)authStatusChanged {

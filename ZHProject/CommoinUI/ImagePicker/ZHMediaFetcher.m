@@ -126,6 +126,7 @@
     PHFetchResult *topLevelUserCollections = [PHCollectionList fetchTopLevelUserCollectionsWithOptions:nil];
     PHFetchResult *syncedAlbums = [PHAssetCollection fetchAssetCollectionsWithType:PHAssetCollectionTypeAlbum subtype:PHAssetCollectionSubtypeAlbumSyncedAlbum options:nil];
     PHFetchResult *sharedAlbums = [PHAssetCollection fetchAssetCollectionsWithType:PHAssetCollectionTypeAlbum subtype:PHAssetCollectionSubtypeAlbumCloudShared options:nil];
+
     NSArray *allAlbums = @[myPhotoStreamAlbum,smartAlbums,topLevelUserCollections,syncedAlbums,sharedAlbums];
     for (PHFetchResult *fetchResult in allAlbums) {
         for (PHAssetCollection *collection in fetchResult) {
@@ -133,12 +134,12 @@
             if (![collection isKindOfClass:[PHAssetCollection class]]) continue;
             // 过滤空相册
             if (collection.estimatedAssetCount <= 0) continue;
-            if (collection.assetCollectionSubtype == 1000000201) continue; //『最近删除』相册
+            if (collection.assetCollectionSubtype == 1000000201) continue; //最近删除相册
             if (collection.assetCollectionSubtype == PHAssetCollectionSubtypeSmartAlbumAllHidden) continue;
 
             PHFetchResult *fetchResult = [PHAsset fetchAssetsInAssetCollection:collection options:option];
             if (fetchResult.count < 1) continue;
-            if (fetchResult.count > 1) {
+            if (fetchResult.count >= 1) {
                 ZHAlbumModel *model = [ZHAlbumModel modelWithResult:fetchResult name:collection.localizedTitle];
                 if (isCameraRoll) {
                     if ([self p_isCameraRoll:collection]) {
