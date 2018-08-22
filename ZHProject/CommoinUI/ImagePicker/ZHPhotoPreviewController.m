@@ -58,6 +58,8 @@ static NSString *photoPreviewCellID = @"photoPreviewCellID";
         
     [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:self.selectedIndex inSection:0] atScrollPosition:UICollectionViewScrollPositionNone animated:NO];
     
+    self.automaticallyAdjustsScrollViewInsets =NO;
+    
     [self initCustomNav];
     
     [self initBottomBar];

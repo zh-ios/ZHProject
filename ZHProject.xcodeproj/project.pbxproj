@@ -51,12 +51,12 @@
 		F952D18F2114A38500FF88E0 /* ZHImagePickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = F952D18E2114A38500FF88E0 /* ZHImagePickerController.m */; };
 		F952D1922114A81600FF88E0 /* ZHAlbumController.m in Sources */ = {isa = PBXBuildFile; fileRef = F952D1912114A81600FF88E0 /* ZHAlbumController.m */; };
 		F952D196211ADC5600FF88E0 /* ZHPhotoPickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = F952D195211ADC5600FF88E0 /* ZHPhotoPickerController.m */; };
-		F952D199211ADD6300FF88E0 /* ZHPhotoPickerCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F952D198211ADD6300FF88E0 /* ZHPhotoPickerCollectionCell.m */; };
 		F99F8C26212169F300917BC0 /* ZHPhotoPreviewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F99F8C25212169F300917BC0 /* ZHPhotoPreviewCell.m */; };
 		F99F8C2921216C6A00917BC0 /* ZHPhotoPreviewContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = F99F8C2821216C6A00917BC0 /* ZHPhotoPreviewContainerView.m */; };
 		F99F8C2F21219F0900917BC0 /* ZHPhotoPreviewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F99F8C2E21219F0900917BC0 /* ZHPhotoPreviewController.m */; };
 		F99F8C382124290900917BC0 /* ZHPhotoPreviewBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = F99F8C372124290800917BC0 /* ZHPhotoPreviewBottomView.m */; };
 		F9BC7CCC20DA439C008BE310 /* TestService.m in Sources */ = {isa = PBXBuildFile; fileRef = F9BC7CCB20DA439C008BE310 /* TestService.m */; };
+		F9E12AD4212D048D00182AD8 /* ZHPhotoPickerCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F9E12AD2212D048A00182AD8 /* ZHPhotoPickerCollectionCell.m */; };
 		F9EE5C2B211D621E0081E427 /* zhimagepicker.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F9EE5C2A211D621E0081E427 /* zhimagepicker.bundle */; };
 		F9EE5C2E211D62CF0081E427 /* UIImage+ImagePicerBundle.m in Sources */ = {isa = PBXBuildFile; fileRef = F9EE5C2D211D62CF0081E427 /* UIImage+ImagePicerBundle.m */; };
 /* End PBXBuildFile section */
@@ -160,8 +160,6 @@
 		F952D193211AD76100FF88E0 /* ZHImagePickerConst.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZHImagePickerConst.h; sourceTree = "<group>"; };
 		F952D194211ADC5600FF88E0 /* ZHPhotoPickerController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZHPhotoPickerController.h; sourceTree = "<group>"; };
 		F952D195211ADC5600FF88E0 /* ZHPhotoPickerController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZHPhotoPickerController.m; sourceTree = "<group>"; };
-		F952D197211ADD6300FF88E0 /* ZHPhotoPickerCollectionCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZHPhotoPickerCollectionCell.h; sourceTree = "<group>"; };
-		F952D198211ADD6300FF88E0 /* ZHPhotoPickerCollectionCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZHPhotoPickerCollectionCell.m; sourceTree = "<group>"; };
 		F99F8C24212169F300917BC0 /* ZHPhotoPreviewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZHPhotoPreviewCell.h; sourceTree = "<group>"; };
 		F99F8C25212169F300917BC0 /* ZHPhotoPreviewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZHPhotoPreviewCell.m; sourceTree = "<group>"; };
 		F99F8C2721216C6A00917BC0 /* ZHPhotoPreviewContainerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZHPhotoPreviewContainerView.h; sourceTree = "<group>"; };
@@ -173,6 +171,8 @@
 		F9BC7CCA20DA439C008BE310 /* TestService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestService.h; sourceTree = "<group>"; };
 		F9BC7CCB20DA439C008BE310 /* TestService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestService.m; sourceTree = "<group>"; };
 		F9C3A0C120BEB11C004AE87D /* ZHProject_PrefixHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZHProject_PrefixHeader.h; sourceTree = "<group>"; };
+		F9E12AD2212D048A00182AD8 /* ZHPhotoPickerCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZHPhotoPickerCollectionCell.m; sourceTree = "<group>"; };
+		F9E12AD3212D048D00182AD8 /* ZHPhotoPickerCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZHPhotoPickerCollectionCell.h; sourceTree = "<group>"; };
 		F9EE5C2A211D621E0081E427 /* zhimagepicker.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = zhimagepicker.bundle; sourceTree = "<group>"; };
 		F9EE5C2C211D62CF0081E427 /* UIImage+ImagePicerBundle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImagePicerBundle.h"; sourceTree = "<group>"; };
 		F9EE5C2D211D62CF0081E427 /* UIImage+ImagePicerBundle.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImagePicerBundle.m"; sourceTree = "<group>"; };
@@ -371,8 +371,8 @@
 				F952D1912114A81600FF88E0 /* ZHAlbumController.m */,
 				F952D194211ADC5600FF88E0 /* ZHPhotoPickerController.h */,
 				F952D195211ADC5600FF88E0 /* ZHPhotoPickerController.m */,
-				F952D197211ADD6300FF88E0 /* ZHPhotoPickerCollectionCell.h */,
-				F952D198211ADD6300FF88E0 /* ZHPhotoPickerCollectionCell.m */,
+				F9E12AD3212D048D00182AD8 /* ZHPhotoPickerCollectionCell.h */,
+				F9E12AD2212D048A00182AD8 /* ZHPhotoPickerCollectionCell.m */,
 				F99F8C24212169F300917BC0 /* ZHPhotoPreviewCell.h */,
 				F99F8C25212169F300917BC0 /* ZHPhotoPreviewCell.m */,
 				F99F8C362124290800917BC0 /* ZHPhotoPreviewBottomView.h */,
@@ -600,11 +600,11 @@
 				F99F8C2F21219F0900917BC0 /* ZHPhotoPreviewController.m in Sources */,
 				F93EFD9D20F4A2CC004211FC /* XCBaseSettingController.m in Sources */,
 				F94B89B92114254700A4B63E /* JSONHTTPClient.m in Sources */,
-				F952D199211ADD6300FF88E0 /* ZHPhotoPickerCollectionCell.m in Sources */,
 				F9388CF02109AD7D00A30D62 /* ZHNavigationController.m in Sources */,
 				F93EFDA220F4A2DD004211FC /* XCCommonSettingCell.m in Sources */,
 				F94B89952113F1E100A4B63E /* SXAddScoreView.m in Sources */,
 				F93EFDB020F4A2F1004211FC /* XCSwitchItem.m in Sources */,
+				F9E12AD4212D048D00182AD8 /* ZHPhotoPickerCollectionCell.m in Sources */,
 				F93EFDAF20F4A2F1004211FC /* XCCellItem.m in Sources */,
 				F93EFDA320F4A2DD004211FC /* XCSettingCellContainerView.m in Sources */,
 				F94B89B32114254700A4B63E /* JSONModel.m in Sources */,
