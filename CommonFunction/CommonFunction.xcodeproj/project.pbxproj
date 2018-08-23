@@ -32,6 +32,31 @@
 		F9CB735A20C1328C00060EF9 /* NSString+stringUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = F9CB735820C1328C00060EF9 /* NSString+stringUtil.m */; };
 		F9CB735D20C1361E00060EF9 /* NSString+RegEx.h in Headers */ = {isa = PBXBuildFile; fileRef = F9CB735B20C1361E00060EF9 /* NSString+RegEx.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F9CB735E20C1361E00060EF9 /* NSString+RegEx.m in Sources */ = {isa = PBXBuildFile; fileRef = F9CB735C20C1361E00060EF9 /* NSString+RegEx.m */; };
+		F9E12B45212E970E00182AD8 /* UIImage+ImagePicerBundle.h in Headers */ = {isa = PBXBuildFile; fileRef = F9E12B2D212E970E00182AD8 /* UIImage+ImagePicerBundle.h */; };
+		F9E12B46212E970E00182AD8 /* UIImage+ImagePicerBundle.m in Sources */ = {isa = PBXBuildFile; fileRef = F9E12B2E212E970E00182AD8 /* UIImage+ImagePicerBundle.m */; };
+		F9E12B47212E970E00182AD8 /* ZHAlbumController.h in Headers */ = {isa = PBXBuildFile; fileRef = F9E12B2F212E970E00182AD8 /* ZHAlbumController.h */; };
+		F9E12B48212E970E00182AD8 /* ZHAlbumController.m in Sources */ = {isa = PBXBuildFile; fileRef = F9E12B30212E970E00182AD8 /* ZHAlbumController.m */; };
+		F9E12B49212E970E00182AD8 /* ZHAssetsModel.h in Headers */ = {isa = PBXBuildFile; fileRef = F9E12B31212E970E00182AD8 /* ZHAssetsModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F9E12B4A212E970E00182AD8 /* ZHAssetsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F9E12B32212E970E00182AD8 /* ZHAssetsModel.m */; };
+		F9E12B4B212E970E00182AD8 /* zhimagepicker.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F9E12B33212E970E00182AD8 /* zhimagepicker.bundle */; };
+		F9E12B4C212E970E00182AD8 /* ZHImagePickerConst.h in Headers */ = {isa = PBXBuildFile; fileRef = F9E12B34212E970E00182AD8 /* ZHImagePickerConst.h */; };
+		F9E12B4D212E970E00182AD8 /* ZHImagePickerController.h in Headers */ = {isa = PBXBuildFile; fileRef = F9E12B35212E970E00182AD8 /* ZHImagePickerController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F9E12B4E212E970E00182AD8 /* ZHImagePickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = F9E12B36212E970E00182AD8 /* ZHImagePickerController.m */; };
+		F9E12B4F212E970E00182AD8 /* ZHMediaFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = F9E12B37212E970E00182AD8 /* ZHMediaFetcher.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F9E12B50212E970E00182AD8 /* ZHMediaFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = F9E12B38212E970E00182AD8 /* ZHMediaFetcher.m */; };
+		F9E12B51212E970E00182AD8 /* ZHPhotoPickerCollectionCell.h in Headers */ = {isa = PBXBuildFile; fileRef = F9E12B39212E970E00182AD8 /* ZHPhotoPickerCollectionCell.h */; };
+		F9E12B52212E970E00182AD8 /* ZHPhotoPickerCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F9E12B3A212E970E00182AD8 /* ZHPhotoPickerCollectionCell.m */; };
+		F9E12B53212E970E00182AD8 /* ZHPhotoPickerController.h in Headers */ = {isa = PBXBuildFile; fileRef = F9E12B3B212E970E00182AD8 /* ZHPhotoPickerController.h */; };
+		F9E12B54212E970E00182AD8 /* ZHPhotoPickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = F9E12B3C212E970E00182AD8 /* ZHPhotoPickerController.m */; };
+		F9E12B55212E970E00182AD8 /* ZHPhotoPreviewBottomView.h in Headers */ = {isa = PBXBuildFile; fileRef = F9E12B3D212E970E00182AD8 /* ZHPhotoPreviewBottomView.h */; };
+		F9E12B56212E970E00182AD8 /* ZHPhotoPreviewBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = F9E12B3E212E970E00182AD8 /* ZHPhotoPreviewBottomView.m */; };
+		F9E12B57212E970E00182AD8 /* ZHPhotoPreviewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = F9E12B3F212E970E00182AD8 /* ZHPhotoPreviewCell.h */; };
+		F9E12B58212E970E00182AD8 /* ZHPhotoPreviewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F9E12B40212E970E00182AD8 /* ZHPhotoPreviewCell.m */; };
+		F9E12B59212E970E00182AD8 /* ZHPhotoPreviewContainerView.h in Headers */ = {isa = PBXBuildFile; fileRef = F9E12B41212E970E00182AD8 /* ZHPhotoPreviewContainerView.h */; };
+		F9E12B5A212E970E00182AD8 /* ZHPhotoPreviewContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = F9E12B42212E970E00182AD8 /* ZHPhotoPreviewContainerView.m */; };
+		F9E12B5B212E970E00182AD8 /* ZHPhotoPreviewController.h in Headers */ = {isa = PBXBuildFile; fileRef = F9E12B43212E970E00182AD8 /* ZHPhotoPreviewController.h */; };
+		F9E12B5C212E970E00182AD8 /* ZHPhotoPreviewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F9E12B44212E970E00182AD8 /* ZHPhotoPreviewController.m */; };
+		F9E12B5F212E988A00182AD8 /* CommonFunctionDefine.h in Headers */ = {isa = PBXBuildFile; fileRef = F9E12B5E212E988A00182AD8 /* CommonFunctionDefine.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F9EB691720B6564F00BA7E5B /* CommonFunction.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9EB690D20B6564F00BA7E5B /* CommonFunction.framework */; };
 		F9EB691C20B6564F00BA7E5B /* CommonFunctionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F9EB691B20B6564F00BA7E5B /* CommonFunctionTests.m */; };
 		F9EB691E20B6564F00BA7E5B /* CommonFunction.h in Headers */ = {isa = PBXBuildFile; fileRef = F9EB691020B6564F00BA7E5B /* CommonFunction.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -75,6 +100,32 @@
 		F9CB735820C1328C00060EF9 /* NSString+stringUtil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+stringUtil.m"; sourceTree = "<group>"; };
 		F9CB735B20C1361E00060EF9 /* NSString+RegEx.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+RegEx.h"; sourceTree = "<group>"; };
 		F9CB735C20C1361E00060EF9 /* NSString+RegEx.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+RegEx.m"; sourceTree = "<group>"; };
+		F9E12B2D212E970E00182AD8 /* UIImage+ImagePicerBundle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImagePicerBundle.h"; sourceTree = "<group>"; };
+		F9E12B2E212E970E00182AD8 /* UIImage+ImagePicerBundle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImagePicerBundle.m"; sourceTree = "<group>"; };
+		F9E12B2F212E970E00182AD8 /* ZHAlbumController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZHAlbumController.h; sourceTree = "<group>"; };
+		F9E12B30212E970E00182AD8 /* ZHAlbumController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZHAlbumController.m; sourceTree = "<group>"; };
+		F9E12B31212E970E00182AD8 /* ZHAssetsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZHAssetsModel.h; sourceTree = "<group>"; };
+		F9E12B32212E970E00182AD8 /* ZHAssetsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZHAssetsModel.m; sourceTree = "<group>"; };
+		F9E12B33212E970E00182AD8 /* zhimagepicker.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = zhimagepicker.bundle; sourceTree = "<group>"; };
+		F9E12B34212E970E00182AD8 /* ZHImagePickerConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZHImagePickerConst.h; sourceTree = "<group>"; };
+		F9E12B35212E970E00182AD8 /* ZHImagePickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZHImagePickerController.h; sourceTree = "<group>"; };
+		F9E12B36212E970E00182AD8 /* ZHImagePickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZHImagePickerController.m; sourceTree = "<group>"; };
+		F9E12B37212E970E00182AD8 /* ZHMediaFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZHMediaFetcher.h; sourceTree = "<group>"; };
+		F9E12B38212E970E00182AD8 /* ZHMediaFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZHMediaFetcher.m; sourceTree = "<group>"; };
+		F9E12B39212E970E00182AD8 /* ZHPhotoPickerCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZHPhotoPickerCollectionCell.h; sourceTree = "<group>"; };
+		F9E12B3A212E970E00182AD8 /* ZHPhotoPickerCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZHPhotoPickerCollectionCell.m; sourceTree = "<group>"; };
+		F9E12B3B212E970E00182AD8 /* ZHPhotoPickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZHPhotoPickerController.h; sourceTree = "<group>"; };
+		F9E12B3C212E970E00182AD8 /* ZHPhotoPickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZHPhotoPickerController.m; sourceTree = "<group>"; };
+		F9E12B3D212E970E00182AD8 /* ZHPhotoPreviewBottomView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZHPhotoPreviewBottomView.h; sourceTree = "<group>"; };
+		F9E12B3E212E970E00182AD8 /* ZHPhotoPreviewBottomView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZHPhotoPreviewBottomView.m; sourceTree = "<group>"; };
+		F9E12B3F212E970E00182AD8 /* ZHPhotoPreviewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZHPhotoPreviewCell.h; sourceTree = "<group>"; };
+		F9E12B40212E970E00182AD8 /* ZHPhotoPreviewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZHPhotoPreviewCell.m; sourceTree = "<group>"; };
+		F9E12B41212E970E00182AD8 /* ZHPhotoPreviewContainerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZHPhotoPreviewContainerView.h; sourceTree = "<group>"; };
+		F9E12B42212E970E00182AD8 /* ZHPhotoPreviewContainerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZHPhotoPreviewContainerView.m; sourceTree = "<group>"; };
+		F9E12B43212E970E00182AD8 /* ZHPhotoPreviewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZHPhotoPreviewController.h; sourceTree = "<group>"; };
+		F9E12B44212E970E00182AD8 /* ZHPhotoPreviewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZHPhotoPreviewController.m; sourceTree = "<group>"; };
+		F9E12B5D212E979900182AD8 /* CommonFunctionPrefixHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommonFunctionPrefixHeader.h; sourceTree = "<group>"; };
+		F9E12B5E212E988A00182AD8 /* CommonFunctionDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonFunctionDefine.h; sourceTree = "<group>"; };
 		F9EB690D20B6564F00BA7E5B /* CommonFunction.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CommonFunction.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9EB691020B6564F00BA7E5B /* CommonFunction.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommonFunction.h; sourceTree = "<group>"; };
 		F9EB691120B6564F00BA7E5B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -158,6 +209,37 @@
 			path = Category;
 			sourceTree = "<group>";
 		};
+		F9E12B2C212E970E00182AD8 /* ImagePicker */ = {
+			isa = PBXGroup;
+			children = (
+				F9E12B2D212E970E00182AD8 /* UIImage+ImagePicerBundle.h */,
+				F9E12B2E212E970E00182AD8 /* UIImage+ImagePicerBundle.m */,
+				F9E12B2F212E970E00182AD8 /* ZHAlbumController.h */,
+				F9E12B30212E970E00182AD8 /* ZHAlbumController.m */,
+				F9E12B31212E970E00182AD8 /* ZHAssetsModel.h */,
+				F9E12B32212E970E00182AD8 /* ZHAssetsModel.m */,
+				F9E12B33212E970E00182AD8 /* zhimagepicker.bundle */,
+				F9E12B34212E970E00182AD8 /* ZHImagePickerConst.h */,
+				F9E12B35212E970E00182AD8 /* ZHImagePickerController.h */,
+				F9E12B36212E970E00182AD8 /* ZHImagePickerController.m */,
+				F9E12B37212E970E00182AD8 /* ZHMediaFetcher.h */,
+				F9E12B38212E970E00182AD8 /* ZHMediaFetcher.m */,
+				F9E12B39212E970E00182AD8 /* ZHPhotoPickerCollectionCell.h */,
+				F9E12B3A212E970E00182AD8 /* ZHPhotoPickerCollectionCell.m */,
+				F9E12B3B212E970E00182AD8 /* ZHPhotoPickerController.h */,
+				F9E12B3C212E970E00182AD8 /* ZHPhotoPickerController.m */,
+				F9E12B3D212E970E00182AD8 /* ZHPhotoPreviewBottomView.h */,
+				F9E12B3E212E970E00182AD8 /* ZHPhotoPreviewBottomView.m */,
+				F9E12B3F212E970E00182AD8 /* ZHPhotoPreviewCell.h */,
+				F9E12B40212E970E00182AD8 /* ZHPhotoPreviewCell.m */,
+				F9E12B41212E970E00182AD8 /* ZHPhotoPreviewContainerView.h */,
+				F9E12B42212E970E00182AD8 /* ZHPhotoPreviewContainerView.m */,
+				F9E12B43212E970E00182AD8 /* ZHPhotoPreviewController.h */,
+				F9E12B44212E970E00182AD8 /* ZHPhotoPreviewController.m */,
+			);
+			path = ImagePicker;
+			sourceTree = "<group>";
+		};
 		F9EB690320B6564F00BA7E5B = {
 			isa = PBXGroup;
 			children = (
@@ -181,11 +263,14 @@
 		F9EB690F20B6564F00BA7E5B /* CommonFunction */ = {
 			isa = PBXGroup;
 			children = (
+				F9E12B2C212E970E00182AD8 /* ImagePicker */,
 				F912AE3E20CE7B5F00393ECA /* View */,
 				F9CB735620C1300C00060EF9 /* Category */,
 				F9CB735220C12DA000060EF9 /* ZHResettViewStacksTool.h */,
 				F9CB735320C12DA000060EF9 /* ZHResettViewStacksTool.m */,
 				F9EB691020B6564F00BA7E5B /* CommonFunction.h */,
+				F9E12B5D212E979900182AD8 /* CommonFunctionPrefixHeader.h */,
+				F9E12B5E212E988A00182AD8 /* CommonFunctionDefine.h */,
 				F9EB691120B6564F00BA7E5B /* Info.plist */,
 			);
 			path = CommonFunction;
@@ -207,18 +292,31 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F9E12B47212E970E00182AD8 /* ZHAlbumController.h in Headers */,
 				F9B14C3620D9E7C200FC79EB /* UIView+coordinate.h in Headers */,
 				F9C3A0BF20BEB078004AE87D /* NSDate+AHDateUtil.h in Headers */,
+				F9E12B4D212E970E00182AD8 /* ZHImagePickerController.h in Headers */,
+				F9E12B51212E970E00182AD8 /* ZHPhotoPickerCollectionCell.h in Headers */,
 				F9349F9420CA11140083246C /* UIView+ExtendHitArea.h in Headers */,
+				F9E12B4C212E970E00182AD8 /* ZHImagePickerConst.h in Headers */,
 				F9CB735420C12DA000060EF9 /* ZHResettViewStacksTool.h in Headers */,
 				F9EB691E20B6564F00BA7E5B /* CommonFunction.h in Headers */,
 				F9348E8420C4D9750083246C /* NSString+Encoding.h in Headers */,
+				F9E12B5B212E970E00182AD8 /* ZHPhotoPreviewController.h in Headers */,
+				F9E12B55212E970E00182AD8 /* ZHPhotoPreviewBottomView.h in Headers */,
+				F9E12B59212E970E00182AD8 /* ZHPhotoPreviewContainerView.h in Headers */,
 				F9CB735D20C1361E00060EF9 /* NSString+RegEx.h in Headers */,
+				F9E12B57212E970E00182AD8 /* ZHPhotoPreviewCell.h in Headers */,
 				F9349F6220C925CD0083246C /* UIColor+HexString.h in Headers */,
+				F9E12B45212E970E00182AD8 /* UIImage+ImagePicerBundle.h in Headers */,
 				F9A9DD8920DB8270009C3B84 /* UIImage+color.h in Headers */,
+				F9E12B5F212E988A00182AD8 /* CommonFunctionDefine.h in Headers */,
+				F9E12B49212E970E00182AD8 /* ZHAssetsModel.h in Headers */,
 				F9349F5E20C91E5D0083246C /* NSString+Encryption.h in Headers */,
 				F9B14C3320D9E7C200FC79EB /* UIView+mainThread.h in Headers */,
+				F9E12B53212E970E00182AD8 /* ZHPhotoPickerController.h in Headers */,
 				F9CB735920C1328C00060EF9 /* NSString+stringUtil.h in Headers */,
+				F9E12B4F212E970E00182AD8 /* ZHMediaFetcher.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -302,6 +400,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F9E12B4B212E970E00182AD8 /* zhimagepicker.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -341,16 +440,27 @@
 			buildActionMask = 2147483647;
 			files = (
 				F9348E8520C4D9750083246C /* NSString+Encoding.m in Sources */,
+				F9E12B4E212E970E00182AD8 /* ZHImagePickerController.m in Sources */,
+				F9E12B46212E970E00182AD8 /* UIImage+ImagePicerBundle.m in Sources */,
 				F9CB735A20C1328C00060EF9 /* NSString+stringUtil.m in Sources */,
+				F9E12B5A212E970E00182AD8 /* ZHPhotoPreviewContainerView.m in Sources */,
 				F9CB735E20C1361E00060EF9 /* NSString+RegEx.m in Sources */,
 				F9B14C3520D9E7C200FC79EB /* UIView+mainThread.m in Sources */,
+				F9E12B54212E970E00182AD8 /* ZHPhotoPickerController.m in Sources */,
 				F9349F9520CA11140083246C /* UIView+ExtendHitArea.m in Sources */,
+				F9E12B52212E970E00182AD8 /* ZHPhotoPickerCollectionCell.m in Sources */,
+				F9E12B58212E970E00182AD8 /* ZHPhotoPreviewCell.m in Sources */,
+				F9E12B5C212E970E00182AD8 /* ZHPhotoPreviewController.m in Sources */,
 				F9A9DD8A20DB8270009C3B84 /* UIImage+color.m in Sources */,
 				F9B14C3420D9E7C200FC79EB /* UIView+coordinate.m in Sources */,
 				F9C3A0BE20BEAFEC004AE87D /* NSDate+AHDateUtil.m in Sources */,
 				F9349F6320C925CD0083246C /* UIColor+HexString.m in Sources */,
 				F9349F5F20C91E5D0083246C /* NSString+Encryption.m in Sources */,
 				F9CB735520C12DA000060EF9 /* ZHResettViewStacksTool.m in Sources */,
+				F9E12B4A212E970E00182AD8 /* ZHAssetsModel.m in Sources */,
+				F9E12B50212E970E00182AD8 /* ZHMediaFetcher.m in Sources */,
+				F9E12B56212E970E00182AD8 /* ZHPhotoPreviewBottomView.m in Sources */,
+				F9E12B48212E970E00182AD8 /* ZHAlbumController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -500,6 +610,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "$(SRCROOT)/CommonFunction/CommonFunctionPrefixHeader.h";
 				INFOPLIST_FILE = CommonFunction/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -528,6 +639,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "$(SRCROOT)/CommonFunction/CommonFunctionPrefixHeader.h";
 				INFOPLIST_FILE = CommonFunction/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;

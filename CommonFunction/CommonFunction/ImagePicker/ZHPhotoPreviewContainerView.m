@@ -9,6 +9,7 @@
 #import "ZHPhotoPreviewContainerView.h"
 #import "ZHImagePickerConst.h"
 #import "ZHMediaFetcher.h"
+
 @interface ZHPhotoPreviewContainerView ()<UIScrollViewDelegate>
 
 @property (nonatomic, strong) UIScrollView *scrollView;
@@ -65,8 +66,10 @@
 
 - (void)setModel:(ZHAssetModel *)model {
     _model = model;
+    __weak typeof(self)weakSelf = self;
     [[ZHMediaFetcher shareFetcher] getImageForAssetModel:model.asset imageSize:CGSizeMake([UIScreen mainScreen].bounds.size.width, 0) completion:^(UIImage *image, NSDictionary *info) {
-        _imageView.image = image;
+        __strong typeof(weakSelf)strongSelf = weakSelf;
+        strongSelf.imageView.image = image;
     }];
 }
 

@@ -10,11 +10,9 @@
 #import "PerformanceMonitor.h"
 #import "TestService.h"
 #import "ZHTableViewCell.h"
-#import "ZHMediaFetcher.h"
+
 #import "SXAddScoreView.h"
 #import "SXScoreModel.h"
-
-#import "ZHImagePickerController.h"
 
 @interface ViewController ()<ZHBaseServiceDelegate,UITableViewDelegate,UITableViewDataSource,ZHImagePickerControllerDelegate>
 
@@ -31,7 +29,6 @@
 @property (nonatomic, strong) TestService *service;
 
 @property (nonatomic, strong) NSMutableArray *cellHeightArr;
-@property (nonatomic, strong) ZHMediaFetcher *fetcher;
 
 
 @end
@@ -47,11 +44,16 @@
     [b addTarget:self action:@selector(b ) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:b];
 
+    UIButton *bussines = [[UIButton alloc] initWithFrame:CGRectMake(100, 200, 100, 100)];
+    bussines.backgroundColor = [[UIColor orangeColor] colorWithAlphaComponent:0.1];
+    [bussines addTarget:self action:@selector(bussines ) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:bussines];
     
-    
-   
-    
+}
 
+- (void)bussines {
+    TestViewController *test = [[TestViewController alloc] init];
+    [self.navigationController pushViewController:test animated:YES];
 }
 
 - (void)b {

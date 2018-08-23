@@ -14,6 +14,7 @@
 		F9349F8A20C92FC10083246C /* TestViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = F9349F8820C92FC10083246C /* TestViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F9349F8B20C92FC10083246C /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F9349F8920C92FC10083246C /* TestViewController.m */; };
 		F99F8C352121B78F00917BC0 /* Network.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F99F8C342121B78F00917BC0 /* Network.framework */; };
+		F9E12B2B212E95FB00182AD8 /* CommonFunction.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9E12B2A212E95FB00182AD8 /* CommonFunction.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,7 @@
 		F9349F8820C92FC10083246C /* TestViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestViewController.h; sourceTree = "<group>"; };
 		F9349F8920C92FC10083246C /* TestViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestViewController.m; sourceTree = "<group>"; };
 		F99F8C342121B78F00917BC0 /* Network.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Network.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F9E12B2A212E95FB00182AD8 /* CommonFunction.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CommonFunction.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +49,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F9E12B2B212E95FB00182AD8 /* CommonFunction.framework in Frameworks */,
 				F99F8C352121B78F00917BC0 /* Network.framework in Frameworks */,
 				CCB5A30B28E22DAEBA69D84B /* Pods_BussinessFramework.framework in Frameworks */,
 			);
@@ -75,6 +78,7 @@
 		EDBC15328EC3CCEC6F6266EB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F9E12B2A212E95FB00182AD8 /* CommonFunction.framework */,
 				F99F8C342121B78F00917BC0 /* Network.framework */,
 				6F1638AD1E1914C85B2ACFA2 /* Pods_BussinessFramework.framework */,
 			);

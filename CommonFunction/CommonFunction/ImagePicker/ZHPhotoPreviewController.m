@@ -10,6 +10,7 @@
 #import "ZHPhotoPreviewCell.h"
 #import "ZHImagePickerConst.h"
 #import "ZHPhotoPreviewBottomView.h"
+#import "ZHMediaFetcher.h"
 @interface ZHPhotoPreviewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UIScrollViewDelegate>
 
 @property (nonatomic, strong) UICollectionView *collectionView;

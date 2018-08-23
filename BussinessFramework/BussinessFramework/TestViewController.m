@@ -18,12 +18,24 @@
 
 + (void)load {
     
+    NSLog(@"-----业务插件控制器load方法执行了，可以在这里注册scheme");
+    
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     
+    
+    UIButton *b = [[UIButton alloc] initWithFrame:CGRectMake(100, 100, 100, 100)];
+    b.backgroundColor = [[UIColor redColor] colorWithAlphaComponent:0.1];
+    [b addTarget:self action:@selector(b ) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:b];
+    
+    UIButton *bussines = [[UIButton alloc] initWithFrame:CGRectMake(100, 200, 100, 100)];
+    bussines.backgroundColor = [[UIColor orangeColor] colorWithAlphaComponent:0.1];
+    [bussines addTarget:self action:@selector(bussines ) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:bussines];
     
     NSString *md5Str =  [@"" MD5Str];
     NSString *str2 =  [@"," encoding];
@@ -44,6 +56,17 @@
 
 }
 
+- (void)bussines {
+    ZHImagePickerController *picker = [[ZHImagePickerController alloc] initWithMaxSelectedCount:9 selectedAssets:nil delegate:self];
+//    Terminating app due to uncaught exception 'NSInvalidArgumentException', reason: 'Pushing a navigation controller is not supported
+//    [self.navigationController pushViewController:picker animated:YES];
+    
+    [self.navigationController presentViewController:picker animated:YES completion:nil];
+}
+
+- (void)b {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 
 - (void)requestFinished:(NSString *)responseStr serviceObj:(id)service {
     

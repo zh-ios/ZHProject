@@ -26,3 +26,5 @@ FOUNDATION_EXPORT const unsigned char CommonFunctionVersionString[];
 #import "UIView+ExtendHitArea.h"
 #import "UIView+coordinate.h"
 #import "UIImage+color.h"
+#import "ZHImagePickerController.h"
+#import "CommonFunctionDefine.h"
