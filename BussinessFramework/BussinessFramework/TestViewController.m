@@ -16,12 +16,6 @@
 
 @implementation TestViewController
 
-+ (void)load {
-    
-    NSLog(@"-----业务插件控制器load方法执行了，可以在这里注册scheme");
-    
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];

@@ -17,5 +17,7 @@
 
 - (void)refreshBottomView:(NSArray<ZHAssetModel *> *)selecteAssets isOriginal:(BOOL)isOriginal;
 
+@property (nonatomic, assign) BOOL allowPickOriginalImage;
+
 @end
 

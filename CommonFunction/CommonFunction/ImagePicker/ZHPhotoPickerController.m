@@ -201,6 +201,7 @@ static NSString *collectionCellID = @"photopickercollectionviewcellID";
     [originalBtn setTitle:@"原图" forState:UIControlStateNormal];
     originalBtn.titleLabel.font = [UIFont systemFontOfSize:15];
     originalBtn.imageEdgeInsets = UIEdgeInsetsMake(0, -8, 0, 0);
+    originalBtn.hidden = !self.imagePickerVC.allowPickOriginalImage;
     [originalBtn addTarget:self action:@selector(originalBtnOnClick:) forControlEvents:UIControlEventTouchUpInside];
     [bottomView addSubview:originalBtn];
     
@@ -347,7 +348,7 @@ static NSString *collectionCellID = @"photopickercollectionviewcellID";
     
     NSMutableArray *infos = @[].mutableCopy;
     BOOL responseImageSEL = [picker.pickerDelegate respondsToSelector:@selector(imagePickerController:didFinishPickingImages:imageInfos:)];
-    BOOL responseDataSEL = [picker.pickerDelegate respondsToSelector:@selector(imagePickerController:didFinishPickingImagesData:imageInfos:)];
+    BOOL responseDataSEL = [picker.pickerDelegate respondsToSelector:@selector(imagePickerController:didFinishPickingOriginalImages:imageInfos:)];
     if (self.isSlectedOriginalImage) {
         for (int i = 0; i<self.selectedAssets.count; i++) {
             ZHAssetModel *model = self.selectedAssets[i];
@@ -362,7 +363,7 @@ static NSString *collectionCellID = @"photopickercollectionviewcellID";
         }
         dispatch_group_notify(group, queue, ^{
             if (responseDataSEL) {
-                [picker.pickerDelegate imagePickerController:picker didFinishPickingImagesData:imagesArr imageInfos:infos];
+                [picker.pickerDelegate imagePickerController:picker didFinishPickingOriginalImages:imagesArr imageInfos:infos];
             }
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self dismissViewControllerAnimated:YES completion:nil];

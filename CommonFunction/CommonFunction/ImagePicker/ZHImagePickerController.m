@@ -19,6 +19,13 @@
 
 @implementation ZHImagePickerController
 
+- (void)setAllowPickImage:(BOOL)allowPickImage {
+    _allowPickImage = allowPickImage;
+}
+
+- (void)setAllowPickVideo:(BOOL)allowPickVideo {
+    _allowPickVideo = allowPickVideo;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -33,6 +40,7 @@
 - (void)initData {
     self.allowPickImage = YES;
     self.allowPickVideo = YES;
+    self.allowPickOriginalImage = YES;
 }
 
 - (instancetype)initWithMaxSelectedCount:(NSUInteger)maxCount

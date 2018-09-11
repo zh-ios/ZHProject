@@ -11,6 +11,7 @@
 #import "ZHImagePickerConst.h"
 #import "ZHPhotoPreviewBottomView.h"
 #import "ZHMediaFetcher.h"
+#import "ZHImagePickerController.h"
 @interface ZHPhotoPreviewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UIScrollViewDelegate>
 
 @property (nonatomic, strong) UICollectionView *collectionView;
@@ -90,8 +91,10 @@ static NSString *photoPreviewCellID = @"photoPreviewCellID";
 }
 
 - (void)initBottomBar {
+    ZHImagePickerController *pickerVC = (UINavigationController *)self.navigationController;
     ZHPhotoPreviewBottomView *bottomBar = [[ZHPhotoPreviewBottomView alloc] initWithFrame:CGRectMake(0, self.view.height-kBottomSafeArea-49-73-0.5, self.view.width, 49+73+0.5+kBottomSafeArea)];
     self.bottomBar = bottomBar;
+    bottomBar.allowPickOriginalImage = pickerVC.allowPickOriginalImage;
     [self.view addSubview:bottomBar];
     __weak  typeof(self)weakSelf = self;
     bottomBar.doneBtnOnClick = ^{

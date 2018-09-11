@@ -221,14 +221,18 @@ static void runloopObserver(CFRunLoopObserverRef observer, CFRunLoopActivity act
 
 
 - (unsigned long)memoryUsage {
-    struct task_basic_info info;
-    mach_msg_type_number_t size = sizeof(info);
-    kern_return_t kr = task_info(mach_task_self(), TASK_BASIC_INFO, (task_info_t)&info, &size);
-    if (kr != KERN_SUCCESS) {
-        return -1;
+    mach_task_basic_info_data_t taskInfo;
+    unsigned infoCount = sizeof(taskInfo);
+    kern_return_t kernReturn = task_info(mach_task_self(),
+                                         MACH_TASK_BASIC_INFO,
+                                         (task_info_t)&taskInfo,
+                                         &infoCount);
+    
+    if (kernReturn != KERN_SUCCESS
+        ) {
+        return NSNotFound;
     }
-    unsigned long memorySize = info.resident_size >> 10;
-    return memorySize/1024.0;
+    return taskInfo.resident_size_max / 1024.0 / 1024.0;
 }
 
 - (float)cpu_usage {

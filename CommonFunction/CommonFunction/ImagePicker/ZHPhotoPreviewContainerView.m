@@ -10,6 +10,23 @@
 #import "ZHImagePickerConst.h"
 #import "ZHMediaFetcher.h"
 
+// 滚动的时候让view居中显示 。
+//if (lastView.tz_right+12<self.view.tz_width) {
+//    return;
+//}
+//CGFloat offsetx = bottomView.center.x - _bottomPreviewBar.frame.size.width * 0.5;
+//CGFloat offsetMax = _bottomPreviewBar.contentSize.width - _bottomPreviewBar.frame.size.width;
+//if (offsetx < 0) {
+//    offsetx = 0;
+//}else if (offsetx > offsetMax){
+//    offsetx = offsetMax;
+//}
+//
+//CGPoint offset = CGPointMake(offsetx, _bottomPreviewBar.contentOffset.y);
+////  NSLog(@"%@",NSStringFromCGPoint(offset));
+//[_bottomPreviewBar setContentOffset:offset animated:YES];
+
+
 @interface ZHPhotoPreviewContainerView ()<UIScrollViewDelegate>
 
 @property (nonatomic, strong) UIScrollView *scrollView;

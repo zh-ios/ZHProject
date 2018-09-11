@@ -13,8 +13,9 @@
 
 #import "SXAddScoreView.h"
 #import "SXScoreModel.h"
-
-@interface ViewController ()<ZHBaseServiceDelegate,UITableViewDelegate,UITableViewDataSource,ZHImagePickerControllerDelegate>
+#import "ZZScrollNavigationBar.h"
+#import "SettingController.h"
+@interface ViewController ()<ZHBaseServiceDelegate,UITableViewDelegate,UITableViewDataSource,ZHImagePickerControllerDelegate,UIScrollViewDelegate>
 
 @property(nonatomic, strong) UITableView *tableView;
 @property(nonatomic, strong) CADisplayLink *display;
@@ -30,25 +31,50 @@
 
 @property (nonatomic, strong) NSMutableArray *cellHeightArr;
 
+@property (nonatomic, strong) NSMutableArray *arr;
 
+@property (nonatomic, strong) ZZScrollNavigationBar *bar;
 @end
 
 @implementation ViewController
 
 
 - (void)viewDidLoad {
-    [super viewDidLoad];    
-
+    [super viewDidLoad];
+    
+#ifdef DEBUG
+    [[PerformanceMonitor sharedMonitor] startMonitor];
+#endif
+    
     UIButton *b = [[UIButton alloc] initWithFrame:CGRectMake(100, 100, 100, 100)];
     b.backgroundColor = [[UIColor redColor] colorWithAlphaComponent:0.1];
     [b addTarget:self action:@selector(b ) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:b];
-
+    
     UIButton *bussines = [[UIButton alloc] initWithFrame:CGRectMake(100, 200, 100, 100)];
     bussines.backgroundColor = [[UIColor orangeColor] colorWithAlphaComponent:0.1];
     [bussines addTarget:self action:@selector(bussines ) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:bussines];
     
+    ZZScrollNavigationBar *bar = [[ZZScrollNavigationBar alloc] initWithFrame:CGRectMake(0, 300, 200, 40)];
+    bar.titles = @[@"ssss",@"sdfaf",@"sadf"];
+    [self.view addSubview:bar];
+    [bar reloadData];
+    
+    UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 340, self.view.width, 100)];
+    scrollView.contentSize = CGSizeMake(self.view.width*bar.titles.count, 0);
+    [self.view addSubview:scrollView];
+    scrollView.delegate = self;
+    self.bar = bar;
+    
+    SettingController *setting = [[SettingController alloc] init];
+    [self.view addSubview:setting.view];
+    [self addChildViewController:setting];
+    
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    [self.bar targetScollViewDidScroll:scrollView];
 }
 
 - (void)bussines {
@@ -58,19 +84,14 @@
 
 - (void)b {
     ZHImagePickerController *picker = [[ZHImagePickerController alloc] initWithMaxSelectedCount:4 selectedAssets:nil delegate:nil];
-    picker.allowPickVideo = NO;
+    picker.allowPickVideo = YES;
     picker.allowPickImage = YES;
+    picker.allowPickOriginalImage = NO;
     [self presentViewController:picker animated:YES completion:nil];
     picker.pickerDelegate = self;
 }
 
-- (void)imagePickerController:(ZHImagePickerController *)picker didFinishPickingImagesData:(NSArray<NSData *> *)imagesData imageInfos:(NSArray *)infos {
 
-    for (int i = 0; i<imagesData.count; i++) {
-        UIImage *image = [UIImage imageWithData:imagesData[i]];
-        NSLog(@"----%@",image);
-    }
-}
 
 - (void)imagePickerController:(ZHImagePickerController *)picker didFinishPickingImages:(NSArray<UIImage *> *)images imageInfos:(NSArray *)infos {
     for (int i = 0; i<images.count; i++) {
@@ -81,6 +102,9 @@
     }
 }
 
+- (void)imagePickerController:(ZHImagePickerController *)picker didFinishPickingOriginalImages:(NSArray<NSData *> *)imagesData imageInfos:(NSArray *)infos {
+    
+}
 
 
 - (void)c {

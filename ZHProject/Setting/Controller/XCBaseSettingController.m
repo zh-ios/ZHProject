@@ -35,6 +35,12 @@ static NSString *const cellId = @"xccommonsetttingcellid";
     [super viewDidLoad];
 
     [self.view addSubview:self.tableView];
+    
+    if (@available(iOS 11.0, *)) {
+        self.tableView.estimatedRowHeight = 0;
+        self.tableView.estimatedSectionFooterHeight = 0;
+        self.tableView.estimatedSectionHeaderHeight = 0;
+    }
 }
 
 - (void)setTableFooterView:(UIView *)tableFooterView {

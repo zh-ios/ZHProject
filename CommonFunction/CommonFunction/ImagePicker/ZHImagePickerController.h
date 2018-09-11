@@ -29,7 +29,7 @@
  infos 返回的图片信息
  */
 - (void)imagePickerController:(ZHImagePickerController *)picker
-   didFinishPickingImagesData:(NSArray<NSData *> *)imagesData
+   didFinishPickingOriginalImages:(NSArray<NSData *> *)imagesData
                    imageInfos:(NSArray *)infos;
 
 
@@ -49,6 +49,8 @@
 @property (nonatomic, assign) BOOL allowPickVideo;
 
 @property (nonatomic, assign) BOOL allowPickImage;
+
+@property (nonatomic, assign) BOOL allowPickOriginalImage;
 
 @property (nonatomic, weak) id<ZHImagePickerControllerDelegate> pickerDelegate;
 
