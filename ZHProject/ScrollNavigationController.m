@@ -18,7 +18,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    
+
     ZZScrollNavigationBar *bar = [[ZZScrollNavigationBar alloc] initWithFrame:CGRectMake(0, kNavbarHeight, self.view.width-40, 43)];
     self.bar = bar;
     bar.titles = @[@"推荐",@"头条",@"新闻",@"资讯类节目",@"小游戏测试",@"单机",@"多人对战",@"约战"];

@@ -19,6 +19,7 @@
 		F919927821412371000EE827 /* ZZScrollNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = F919927721412371000EE827 /* ZZScrollNavigationBar.m */; };
 		F919927B21420B17000EE827 /* SettingController.m in Sources */ = {isa = PBXBuildFile; fileRef = F919927A21420B17000EE827 /* SettingController.m */; };
 		F91992892142867B000EE827 /* ScrollNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = F91992882142867B000EE827 /* ScrollNavigationController.m */; };
+		F927C47421476386008F77FF /* CycleScollController.m in Sources */ = {isa = PBXBuildFile; fileRef = F927C47321476386008F77FF /* CycleScollController.m */; };
 		F9388CF02109AD7D00A30D62 /* ZHNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = F9388CEF2109AD7D00A30D62 /* ZHNavigationController.m */; };
 		F9388CF32109AD9E00A30D62 /* ZHNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = F9388CF22109AD9E00A30D62 /* ZHNavigationBar.m */; };
 		F93EFD9D20F4A2CC004211FC /* XCBaseSettingController.m in Sources */ = {isa = PBXBuildFile; fileRef = F93EFD9B20F4A2CC004211FC /* XCBaseSettingController.m */; };
@@ -87,6 +88,8 @@
 		F919927A21420B17000EE827 /* SettingController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingController.m; sourceTree = "<group>"; };
 		F91992872142867B000EE827 /* ScrollNavigationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScrollNavigationController.h; sourceTree = "<group>"; };
 		F91992882142867B000EE827 /* ScrollNavigationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScrollNavigationController.m; sourceTree = "<group>"; };
+		F927C47221476386008F77FF /* CycleScollController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CycleScollController.h; sourceTree = "<group>"; };
+		F927C47321476386008F77FF /* CycleScollController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CycleScollController.m; sourceTree = "<group>"; };
 		F9348E8620C512B00083246C /* CommonFunction.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CommonFunction.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9348E8820C513C80083246C /* Pods_CommonFunction.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_CommonFunction.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9348E8A20C513E90083246C /* CommonFunction.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CommonFunction.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -236,6 +239,8 @@
 				F919927A21420B17000EE827 /* SettingController.m */,
 				F91992872142867B000EE827 /* ScrollNavigationController.h */,
 				F91992882142867B000EE827 /* ScrollNavigationController.m */,
+				F927C47221476386008F77FF /* CycleScollController.h */,
+				F927C47321476386008F77FF /* CycleScollController.m */,
 				F94B89932113F1E100A4B63E /* SXAddScoreView.h */,
 				F94B89942113F1E100A4B63E /* SXAddScoreView.m */,
 				F94B89902113F17000A4B63E /* SXScoreModel.h */,
@@ -544,6 +549,7 @@
 				F93EFD9D20F4A2CC004211FC /* XCBaseSettingController.m in Sources */,
 				F94B89B92114254700A4B63E /* JSONHTTPClient.m in Sources */,
 				F9388CF02109AD7D00A30D62 /* ZHNavigationController.m in Sources */,
+				F927C47421476386008F77FF /* CycleScollController.m in Sources */,
 				F93EFDA220F4A2DD004211FC /* XCCommonSettingCell.m in Sources */,
 				F94B89952113F1E100A4B63E /* SXAddScoreView.m in Sources */,
 				F93EFDB020F4A2F1004211FC /* XCSwitchItem.m in Sources */,

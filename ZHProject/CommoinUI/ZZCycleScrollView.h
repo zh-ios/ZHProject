@@ -93,7 +93,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  设置完属性之后再调用 reloadData
  */
-- (void)realoadData;
+- (void)reloadData;
 
 @end
 

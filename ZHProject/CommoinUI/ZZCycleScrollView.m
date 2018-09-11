@@ -33,9 +33,9 @@
 /** 页码指示器 */
 @property (nonatomic,strong) UIPageControl *pageControl;
 @property (nonatomic,strong) UIScrollView *mainScrollView;
-@property (nonatomic,strong) UIImageView *leftView;
-@property (nonatomic,strong) UIImageView *centerView;
-@property (nonatomic,strong) UIImageView *rightView;
+@property (nonatomic,strong) UIView *leftView;
+@property (nonatomic,strong) UIView *centerView;
+@property (nonatomic,strong) UIView *rightView;
 @property (nonatomic,assign) NSUInteger currentImageIndex;
 @property (nonatomic,assign) CGFloat imgWidth;//图片宽度
 @property (nonatomic,assign) CGFloat itemMargnPadding;//间距 2张图片间的间距  默认0
@@ -70,7 +70,7 @@
     self.data = [NSArray array];
 }
 
-- (void)realoadData {
+- (void)reloadData {
     
     if ([self.dataSource respondsToSelector:@selector(cycleScrollViewDataArr)]) {
         self.data = [self.dataSource cycleScrollViewDataArr];
@@ -125,7 +125,7 @@
             [self.mainScrollView addSubview:self.centerView];
             
             //图片视图；右边
-            self.rightView = [[UIImageView alloc] init];
+            self.rightView = [[cls alloc] init];
             [self.rightView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(rightTapGes)]];
             [self.mainScrollView addSubview:self.rightView];
             

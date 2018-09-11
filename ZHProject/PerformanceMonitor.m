@@ -68,7 +68,7 @@
 
 - (void)setupMonitoerView {
     CGFloat labelH = 15;
-    UIView *monitorView = [[UIView alloc] initWithFrame:CGRectMake(5, 100, 60, labelH*3)];
+    UIView *monitorView = [[UIView alloc] initWithFrame:CGRectMake(5, 20, 60, labelH*3)];
     self.originalPoint = monitorView.frame.origin;
     monitorView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.7];
     UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panMonitorView:)];
