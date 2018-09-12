@@ -10,9 +10,6 @@
 #import "PerformanceMonitor.h"
 #import "TestService.h"
 #import "ZHTableViewCell.h"
-
-#import "SXAddScoreView.h"
-#import "SXScoreModel.h"
 #import "ZZScrollNavigationBar.h"
 #import "SettingController.h"
 @interface ViewController ()<ZHBaseServiceDelegate,UITableViewDelegate,UITableViewDataSource,ZHImagePickerControllerDelegate,UIScrollViewDelegate>

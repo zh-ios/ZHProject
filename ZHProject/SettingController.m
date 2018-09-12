@@ -32,6 +32,13 @@
         [strongSelf.navigationController pushViewController:[[CycleScollController alloc] init] animated:YES];
     };
     
+    XCArrowItem *item3 = [XCArrowItem itemWithIcon:nil title:@"循环滚动视图" targetCls:nil];
+    item3.onClicked = ^(XCCellItem *item) {
+        __strong typeof(weakSelf)strongSelf = weakSelf;
+        [strongSelf.navigationController pushViewController:[[CycleScollController alloc] init] animated:YES];
+    };
+    
+    
     XCCellGroupItem *group = [XCCellGroupItem itemWithItems:@[item1,item2]];
     self.groupItems = @[group];
     

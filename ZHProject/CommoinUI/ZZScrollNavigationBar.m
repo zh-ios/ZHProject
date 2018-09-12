@@ -214,13 +214,10 @@ static NSString *ZZScrollNavigationBarCellID = @"ZZScrollNavigationBarCellID";
         offsetx = offsetMax;
     }
     CGPoint offset = CGPointMake(offsetx, self.collectionView.contentOffset.y);
-    CGFloat tranlationX = self.collectionView.contentOffset.x - offset.x;
-    NSLog(@"---->>>%.2f",tranlationX);
     [self.collectionView setContentOffset:offset animated:YES];
 }
 
 - (void)targetScollViewDidScroll:(UIScrollView *)scrollView {
-    // TODO 颜色渐变
     CGPoint point = [scrollView.panGestureRecognizer translationInView:scrollView];
     CGFloat targetScrollOffsetX = scrollView.contentOffset.x;
     if (targetScrollOffsetX < 0 || targetScrollOffsetX >= (self.titles.count-1)*scrollView.width) return;
