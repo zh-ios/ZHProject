@@ -23,10 +23,6 @@ target 'ZHProject' do
   project 'ZHProject.xocdeproj'
 end
 
-target 'Router' do
-      project 'Router/Router.xcodeproj'
-end
-
 target 'CommonFunction' do
 #    Specifies the Xcode project that contains the target that the Pods library should be linked with.
     project 'CommonFunction/CommonFunction.xcodeproj'

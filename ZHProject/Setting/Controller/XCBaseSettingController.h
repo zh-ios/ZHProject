@@ -11,8 +11,8 @@
 #import "XCSwitchItem.h"
 #import "XCLabelItem.h"
 #import "XCCellGroupItem.h"
-
-@interface XCBaseSettingController : UIViewController
+#import "ZHBaseController.h"
+@interface XCBaseSettingController : ZHBaseController
 
 // XCCellGroupItem 对象集合
 @property (nonatomic, strong) NSArray<XCCellGroupItem *> *groupItems;

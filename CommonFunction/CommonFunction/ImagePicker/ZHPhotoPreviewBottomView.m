@@ -56,7 +56,6 @@
     [originalBtn addTarget:self action:@selector(selectedOriginImage:) forControlEvents:UIControlEventTouchUpInside];
     [containerView addSubview:originalBtn];
     [originalBtn setExtendedHitArea:CGRectMake(0, 10, 0, 10)];
-    originalBtn.hidden = !self.allowPickOriginalImage;
     
     UIButton *sendBtn = [[UIButton alloc] initWithFrame:CGRectMake(self.width-64-kPreviewCellMargin, 10, 64, 26)];
     [sendBtn setExtendedHitArea:CGRectMake(0, 10, 0, 10)];
@@ -67,6 +66,11 @@
     [sendBtn addTarget:self action:@selector(done:) forControlEvents:UIControlEventTouchUpInside];
     self.sendBtn = sendBtn;
     [containerView addSubview:sendBtn];
+}
+
+- (void)setAllowPickOriginalImage:(BOOL)allowPickOriginalImage {
+    _allowPickOriginalImage = allowPickOriginalImage;
+    self.originalBtn.hidden = !self.allowPickOriginalImage;
 }
 
 - (void)selectedOriginImage:(UIButton *)btn {

@@ -9,11 +9,17 @@
 #import "SettingController.h"
 #import "ScrollNavigationController.h"
 #import "CycleScollController.h"
+#import "ImagePickerController.h"
+
 @interface SettingController ()
 
 @end
 
 @implementation SettingController
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -25,21 +31,22 @@
         __strong typeof(weakSelf)strongSelf = weakSelf;
         [strongSelf.navigationController pushViewController:[[ScrollNavigationController alloc] init] animated:YES];
     };
-    
-    XCArrowItem *item2 = [XCArrowItem itemWithIcon:nil title:@"循环滚动视图" targetCls:nil];
-    item2.onClicked = ^(XCCellItem *item) {
-        __strong typeof(weakSelf)strongSelf = weakSelf;
-        [strongSelf.navigationController pushViewController:[[CycleScollController alloc] init] animated:YES];
-    };
-    
+  
     XCArrowItem *item3 = [XCArrowItem itemWithIcon:nil title:@"循环滚动视图" targetCls:nil];
     item3.onClicked = ^(XCCellItem *item) {
         __strong typeof(weakSelf)strongSelf = weakSelf;
-        [strongSelf.navigationController pushViewController:[[CycleScollController alloc] init] animated:YES];
+        CycleScollController *cycle = [[CycleScollController alloc] init];
+        cycle.animationType = NaviAnimationType_Bottom2Top;
+        [strongSelf.navigationController pushViewController:cycle animated:YES];
     };
     
+    XCArrowItem *item4 = [XCArrowItem itemWithIcon:nil title:@"图片选择" targetCls:nil];
+    item4.onClicked = ^(XCCellItem *item) {
+        __strong typeof(weakSelf)strongSelf = weakSelf;
+        [strongSelf.navigationController pushViewController:[[ImagePickerController alloc] init] animated:YES];
+    };
     
-    XCCellGroupItem *group = [XCCellGroupItem itemWithItems:@[item1,item2]];
+    XCCellGroupItem *group = [XCCellGroupItem itemWithItems:@[item1,item3,item4]];
     self.groupItems = @[group];
     
     UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, 80)];
@@ -48,7 +55,6 @@
     [self reloadData];
     
 }
-
 
 
 

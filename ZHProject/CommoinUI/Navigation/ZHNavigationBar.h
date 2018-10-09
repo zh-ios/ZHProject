@@ -10,4 +10,6 @@
 
 @interface ZHNavigationBar : UIView
 
+@property (nonatomic, copy) void (^backOnClick)();
+
 @end

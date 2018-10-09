@@ -9,7 +9,7 @@
 #import "CycleScollController.h"
 
 #import "ZZCycleScrollView.h"
-
+#import "SettingController.h"
 
 @interface ZZCycleScrollViewContainerView : UIView
 
@@ -53,15 +53,20 @@
 @end
 
 
-@interface CycleScollController ()<ZZCycleScrollViewDelegate,ZZCycleScrollViewDataSource>
+@interface CycleScollController ()<ZZCycleScrollViewDelegate,ZZCycleScrollViewDataSource,UINavigationControllerDelegate>
 
 @end
 
 @implementation CycleScollController
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.view.backgroundColor = [UIColor whiteColor];
     
     ZZCycleScrollView *scrollView = [[ZZCycleScrollView alloc] initWithFrame:CGRectMake(0, kNavbarHeight, self.view.width, 180) imageSpacing:10 imageWidth:self.view.width-40];
     scrollView.initAlpha = 0.5;
@@ -71,9 +76,10 @@
     scrollView.delegate = self;
     scrollView.dataSource = self;
     
+    
+    
     [scrollView reloadData];
 }
-
 
 - (NSArray *)cycleScrollViewDataArr {
     return @[@{@"color":kRandomColor,@"text":@"这是第一个view"},@{@"color":kRandomColor,@"text":@"这是第2个view"},@{@"color":kRandomColor,@"text":@"这是第3个view"},@{@"color":kRandomColor,@"text":@"这是第4个view"},@{@"color":kRandomColor,@"text":@"这是第5个view"}];
@@ -110,6 +116,8 @@
  */
 - (void)cycleScrollView:(ZZCycleScrollView *)cycleView didSelectedViewAtIndex:(NSInteger)index {
     NSLog(@"----------->%@",@(index));
+    
+    [self.navigationController pushViewController:[[SettingController alloc] init] animated:YES];
 }
 
 

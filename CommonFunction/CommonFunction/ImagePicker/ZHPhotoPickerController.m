@@ -362,10 +362,18 @@ static NSString *collectionCellID = @"photopickercollectionviewcellID";
             }
         }
         dispatch_group_notify(group, queue, ^{
-            if (responseDataSEL) {
-                [picker.pickerDelegate imagePickerController:picker didFinishPickingOriginalImages:imagesArr imageInfos:infos];
-            }
             dispatch_async(dispatch_get_main_queue(), ^{
+                // 对图片进行排序
+                [imagesArr sortUsingComparator:^NSComparisonResult(NSDictionary  *obj1, NSDictionary  *obj2) {
+                    return [[obj1.allKeys firstObject] integerValue] > [[obj2.allKeys firstObject] integerValue];
+                }];
+                // 取出图片
+                for (int i = 0; i<imagesArr.count; i++) {
+                    [imagesArr replaceObjectAtIndex:i withObject:[[imagesArr[i] allValues] firstObject]];
+                }
+                if (responseDataSEL) {
+                    [picker.pickerDelegate imagePickerController:picker didFinishPickingOriginalImages:imagesArr imageInfos:infos];
+                }
                 [self dismissViewControllerAnimated:YES completion:nil];
             });
         });
@@ -377,16 +385,24 @@ static NSString *collectionCellID = @"photopickercollectionviewcellID";
                 BOOL isDegraded = [[info objectForKey:PHImageResultIsDegradedKey] boolValue];
                 if (!isDegraded && image) {
                     dispatch_group_leave(group);
-                    [imagesArr addObject:image];
+                    [imagesArr addObject:@{[NSString stringWithFormat:@"%@",@(model.selectedIndex)] : image}];
                     [infos addObject:info];
                 }
             }];
         }
         dispatch_group_notify(group, queue, ^{
-            if (responseImageSEL) {
-                 [picker.pickerDelegate imagePickerController:picker didFinishPickingImages:imagesArr imageInfos:infos];
-            }
             dispatch_async(dispatch_get_main_queue(), ^{
+                if (responseImageSEL) {
+                    // 对图片进行排序
+                    [imagesArr sortUsingComparator:^NSComparisonResult(NSDictionary  *obj1, NSDictionary  *obj2) {
+                        return [[obj1.allKeys firstObject] integerValue] > [[obj2.allKeys firstObject] integerValue];
+                    }];
+                    // 取出图片
+                    for (int i = 0; i<imagesArr.count; i++) {
+                        [imagesArr replaceObjectAtIndex:i withObject:[[imagesArr[i] allValues] firstObject]];
+                    }
+                    [picker.pickerDelegate imagePickerController:picker didFinishPickingImages:imagesArr imageInfos:infos];
+                }
                 [self dismissViewControllerAnimated:YES completion:nil];
             });
         });

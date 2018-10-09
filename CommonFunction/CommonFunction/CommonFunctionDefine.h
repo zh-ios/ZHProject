@@ -22,4 +22,6 @@
 // iphoneX 顶部多出的距离
 #define kTopInsetAreaOfIphoneX      (kIsIphoneX ? (kTopSafeArea-20) : 0) 
 
+#define kRandomColor            [UIColor colorWithRed:arc4random_uniform(125)/255.0 green:arc4random_uniform(125)/255.0 blue:arc4random_uniform(125)/255.0 alpha:0.7]
+
 #endif /* ZHProjectDefine_h */

@@ -35,6 +35,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    
+    self.customNavView.backgroundColor = [UIColor whiteColor];
+    
     ZZScrollNavigationBar *bar = [[ZZScrollNavigationBar alloc] initWithFrame:CGRectMake(0, kNavbarHeight, self.view.width-40, 43)];
     self.bar = bar;
     bar.titles = @[@"推荐",@"头条",@"新闻",@"资讯类节目",@"小游戏测试",@"单机",@"多人对战",@"约战"];
@@ -81,8 +84,7 @@
 - (void)enqueueViewController:(ZHReuseableController *)controller {
     [self.reuseableControllers addObject:controller];
 }
-- (ZHReuseableController *)dequeueViewController
-{
+- (ZHReuseableController *)dequeueViewController {
     static int numberOfInstance = 0;
     ZHReuseableController *vc = [self.reuseableControllers firstObject];
     if (vc) {

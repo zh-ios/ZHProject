@@ -35,10 +35,13 @@
 
 @implementation ViewController
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
 #ifdef DEBUG
     [[PerformanceMonitor sharedMonitor] startMonitor];
 #endif
@@ -126,5 +129,6 @@
 - (void)requestFailed:(NSError *)error serviceObj:(id)service handle:(NSInteger)handle {
     
 }
+
 
 @end

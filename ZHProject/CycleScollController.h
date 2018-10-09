@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ZHBaseController.h"
 
-@interface CycleScollController : UIViewController
+@interface CycleScollController : ZHBaseController
 
 @end

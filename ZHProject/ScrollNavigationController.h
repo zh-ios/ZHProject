@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface ScrollNavigationController : UIViewController
+#import "ZHBaseController.h"
+@interface ScrollNavigationController : ZHBaseController
 
 @end

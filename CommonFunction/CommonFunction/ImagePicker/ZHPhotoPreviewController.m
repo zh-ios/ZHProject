@@ -91,7 +91,7 @@ static NSString *photoPreviewCellID = @"photoPreviewCellID";
 }
 
 - (void)initBottomBar {
-    ZHImagePickerController *pickerVC = (UINavigationController *)self.navigationController;
+    ZHImagePickerController *pickerVC = (ZHImagePickerController *)self.navigationController;
     ZHPhotoPreviewBottomView *bottomBar = [[ZHPhotoPreviewBottomView alloc] initWithFrame:CGRectMake(0, self.view.height-kBottomSafeArea-49-73-0.5, self.view.width, 49+73+0.5+kBottomSafeArea)];
     self.bottomBar = bottomBar;
     bottomBar.allowPickOriginalImage = pickerVC.allowPickOriginalImage;

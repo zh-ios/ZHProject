@@ -48,11 +48,10 @@
                                 delegate:(id)delegate {
     
     self.maxSelectCount = maxCount;
-    
+    self.pickerDelegate = delegate;
     ZHAlbumController *album = [[ZHAlbumController alloc] init];
     self.albumController = album;
     self = [super initWithRootViewController:album];
-    
     ZHPhotoPickerController *picker = [[ZHPhotoPickerController alloc] init];
     [album.navigationController pushViewController:picker animated:YES];
     

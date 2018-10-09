@@ -10,12 +10,25 @@
 
 @implementation ZHNavigationBar
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
+
+- (instancetype)initWithFrame:(CGRect)frame {
+    if (self = [super initWithFrame:frame]) {
+        [self initSubviews];
+    }
+    return self;
 }
-*/
+
+- (void)initSubviews {
+    UIButton *b = [[UIButton alloc] initWithFrame:CGRectMake(20, kTopSafeArea+10, 80, 30)];
+    b.backgroundColor = [UIColor orangeColor];
+    [self addSubview:b];
+    [b addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
+}
+
+- (void)back {
+    if (self.backOnClick) {
+        self.backOnClick();
+    }
+}
 
 @end
