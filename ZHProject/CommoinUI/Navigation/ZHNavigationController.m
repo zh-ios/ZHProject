@@ -22,18 +22,9 @@
     self.navigationBarHidden = YES;
     self.interactivePopGestureRecognizer.delegate = self;
     self.interactivePopGestureRecognizer.enabled = YES;
-
-    
-    self.customNavgationBar = [[ZHNavigationBar alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, kNavbarHeight)];
-    
-    self.customNavgationBar.backgroundColor = [UIColor blackColor];
-    __weak typeof(self)weakSelf = self;
-    self.customNavgationBar.backOnClick = ^{
-        __strong typeof(weakSelf)strongSelf = weakSelf;
-        [strongSelf popViewControllerAnimated:YES];
-    };
-    [self.view addSubview:self.customNavgationBar];
 }
+
+
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
@@ -43,7 +34,7 @@
 
 - (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated {
     [super pushViewController:viewController animated:animated];
-//    if (self.viewControllers.count>1) {
+//    if (self.viewControllers.count>1) { // not worked
 //        viewController.hidesBottomBarWhenPushed = YES;
 //    }
 }

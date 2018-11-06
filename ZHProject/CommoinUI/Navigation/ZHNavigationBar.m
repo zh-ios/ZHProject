@@ -13,22 +13,42 @@
 
 - (instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
+        
+        self.backgroundColor = [UIColor whiteColor];
+        
         [self initSubviews];
     }
     return self;
 }
 
 - (void)initSubviews {
-    UIButton *b = [[UIButton alloc] initWithFrame:CGRectMake(20, kTopSafeArea+10, 80, 30)];
-    b.backgroundColor = [UIColor orangeColor];
-    [self addSubview:b];
-    [b addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
+    UIButton *backBtn = [[UIButton alloc] initWithFrame:CGRectMake(20, kTopSafeArea+10, 80, 30)];
+    backBtn.backgroundColor = [UIColor orangeColor];
+    [self addSubview:backBtn];
+    self.backBtn = backBtn;
+    backBtn.adjustsImageWhenHighlighted = NO;
+    backBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
+    backBtn.titleEdgeInsets = UIEdgeInsetsMake(0, 15, 0, 0);
+    [backBtn addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
+    
+    UILabel *titleL = [[UILabel alloc] initWithFrame:CGRectMake(100, self.frame.size.height-20, self.frame.size.width-100*2, 20)];
+    titleL.font = [UIFont systemFontOfSize:20];
+    self.titleL = titleL;
+    [self addSubview:titleL];
 }
 
 - (void)back {
     if (self.backOnClick) {
         self.backOnClick();
     }
+}
+
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    [self.titleL sizeToFit];
+    self.titleL.centerX = self.centerX;
+    
+    self.titleL.y = kTopSafeArea + 20;
 }
 
 @end

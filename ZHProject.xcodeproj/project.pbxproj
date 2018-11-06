@@ -42,6 +42,8 @@
 		F9A73DDF215CCC7C003AEE9B /* ZHBaseController.m in Sources */ = {isa = PBXBuildFile; fileRef = F9A73DDE215CCC7C003AEE9B /* ZHBaseController.m */; };
 		F9A73DE2215CCD95003AEE9B /* ZHNavigationAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = F9A73DE1215CCD95003AEE9B /* ZHNavigationAnimation.m */; };
 		F9BC7CCC20DA439C008BE310 /* TestService.m in Sources */ = {isa = PBXBuildFile; fileRef = F9BC7CCB20DA439C008BE310 /* TestService.m */; };
+		F9BF685C21742BE70029C274 /* AppDelegate+Service.m in Sources */ = {isa = PBXBuildFile; fileRef = F9BF685B21742BE70029C274 /* AppDelegate+Service.m */; };
+		F9BF685F21742C6A0029C274 /* ZHTabbarController.m in Sources */ = {isa = PBXBuildFile; fileRef = F9BF685E21742C6A0029C274 /* ZHTabbarController.m */; };
 		F9DF9143215386500024DF06 /* ImagePickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = F9DF9142215386500024DF06 /* ImagePickerController.m */; };
 /* End PBXBuildFile section */
 
@@ -127,6 +129,10 @@
 		F9A73DE3215CD235003AEE9B /* ZHNavigationDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZHNavigationDefine.h; sourceTree = "<group>"; };
 		F9BC7CCA20DA439C008BE310 /* TestService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestService.h; sourceTree = "<group>"; };
 		F9BC7CCB20DA439C008BE310 /* TestService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestService.m; sourceTree = "<group>"; };
+		F9BF685A21742BE70029C274 /* AppDelegate+Service.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+Service.h"; sourceTree = "<group>"; };
+		F9BF685B21742BE70029C274 /* AppDelegate+Service.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+Service.m"; sourceTree = "<group>"; };
+		F9BF685D21742C6A0029C274 /* ZHTabbarController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZHTabbarController.h; sourceTree = "<group>"; };
+		F9BF685E21742C6A0029C274 /* ZHTabbarController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZHTabbarController.m; sourceTree = "<group>"; };
 		F9C3A0C120BEB11C004AE87D /* ZHProject_PrefixHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZHProject_PrefixHeader.h; sourceTree = "<group>"; };
 		F9DF9141215386500024DF06 /* ImagePickerController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImagePickerController.h; sourceTree = "<group>"; };
 		F9DF9142215386500024DF06 /* ImagePickerController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImagePickerController.m; sourceTree = "<group>"; };
@@ -210,6 +216,8 @@
 				86E945C7204FDF300033BB7E /* PerformanceMonitor.m */,
 				86E945B0204FDB8D0033BB7E /* AppDelegate.h */,
 				86E945B1204FDB8D0033BB7E /* AppDelegate.m */,
+				F9BF685A21742BE70029C274 /* AppDelegate+Service.h */,
+				F9BF685B21742BE70029C274 /* AppDelegate+Service.m */,
 				86E945B3204FDB8D0033BB7E /* ViewController.h */,
 				86E945B4204FDB8D0033BB7E /* ViewController.m */,
 				F919927921420B17000EE827 /* SettingController.h */,
@@ -316,6 +324,8 @@
 				F91992742141235A000EE827 /* ZZCycleScrollView.m */,
 				F919927621412370000EE827 /* ZZScrollNavigationBar.h */,
 				F919927721412371000EE827 /* ZZScrollNavigationBar.m */,
+				F9BF685D21742C6A0029C274 /* ZHTabbarController.h */,
+				F9BF685E21742C6A0029C274 /* ZHTabbarController.m */,
 			);
 			path = CommoinUI;
 			sourceTree = "<group>";
@@ -449,10 +459,12 @@
 				F93EFDB220F4A2F1004211FC /* XCArrowItem.m in Sources */,
 				F9DF9143215386500024DF06 /* ImagePickerController.m in Sources */,
 				86E945CA204FDF300033BB7E /* PerformanceMonitor.m in Sources */,
+				F9BF685F21742C6A0029C274 /* ZHTabbarController.m in Sources */,
 				86E945C0204FDB8D0033BB7E /* main.m in Sources */,
 				F93EFDB920F4A55E004211FC /* XCTextField.m in Sources */,
 				F9A73DDA215C849B003AEE9B /* Platform.m in Sources */,
 				86E945B2204FDB8D0033BB7E /* AppDelegate.m in Sources */,
+				F9BF685C21742BE70029C274 /* AppDelegate+Service.m in Sources */,
 				F93EFDAE20F4A2F1004211FC /* XCLabelItem.m in Sources */,
 				F91992892142867B000EE827 /* ScrollNavigationController.m in Sources */,
 				F919927B21420B17000EE827 /* SettingController.m in Sources */,

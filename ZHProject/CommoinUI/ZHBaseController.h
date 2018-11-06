@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "ZHNavigationDefine.h"
+#import "ZHNavigationBar.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -19,7 +20,12 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property (nonatomic, assign) NaviAnimationType animationType;
 
-@property (nonatomic, strong) UIView *customNavView;
+@property (nonatomic, strong) ZHNavigationBar *customNavView;
+
+/**
+  是否允许左滑返回手势
+ */
+@property (nonatomic, assign) BOOL panGestureEnabled;
 
 @end
 

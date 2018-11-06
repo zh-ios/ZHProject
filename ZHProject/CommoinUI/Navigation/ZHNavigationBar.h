@@ -9,7 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface ZHNavigationBar : UIView
-
-@property (nonatomic, copy) void (^backOnClick)();
+@property (nonatomic, strong) UIButton *backBtn;
+@property (nonatomic, copy) void (^backOnClick)(void);
+@property (nonatomic, strong) UILabel *titleL;
 
 @end

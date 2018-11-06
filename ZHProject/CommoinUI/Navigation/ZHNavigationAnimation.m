@@ -12,9 +12,11 @@
 #import "ZHBaseController.h"
 @interface ZHNavigationAnimation ()
 
+@property (nonatomic, strong) UIView *coverView;
+
 @end
 
-#define kNavigationAnimationInterval        (1)
+#define kNavigationAnimationInterval        (0.4)
 
 @implementation ZHNavigationAnimation
 
@@ -23,13 +25,15 @@
     ZHBaseController *fromVC = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
     UIView *toView = [transitionContext viewForKey:UITransitionContextToViewKey];
     UIView *fromView = [transitionContext viewForKey:UITransitionContextFromViewKey];
-    
+        
     if (self.isPush) {
         if (self.animationType == NaviAnimationType_Right2Left) {
             [transitionContext.containerView addSubview:toView];
+            
             toView.x += [UIScreen mainScreen].bounds.size.width;
             [UIView animateWithDuration:kNavigationAnimationInterval animations:^{
                 toView.x = 0;
+                fromView.x -= fromView.width*0.5;
             } completion:^(BOOL completed) {
                 [transitionContext completeTransition:YES];
             }];
@@ -63,6 +67,7 @@
             [transitionContext.containerView insertSubview:toView atIndex:0];
             [UIView animateWithDuration:kNavigationAnimationInterval animations:^{
                 fromView.x = [UIScreen mainScreen].bounds.size.width;
+                toView.x += toView.width*0.5;
             } completion:^(BOOL completed) {
                 [transitionContext completeTransition:YES];
             }];

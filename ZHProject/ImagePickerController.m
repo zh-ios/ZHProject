@@ -7,17 +7,22 @@
 //
 
 #import "ImagePickerController.h"
-
+#import "ViewController.h"
 @interface ImagePickerController ()<ZHImagePickerControllerDelegate>
 
 @end
 
 @implementation ImagePickerController
 
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.title = @"图片选择";
+    
     self.view.backgroundColor = [UIColor whiteColor];
+    
+    self.panGestureEnabled = NO;
 
     UIButton *selectBtn = [[UIButton alloc] initWithFrame:CGRectMake(100, 100, 100, 40)];
     [selectBtn setTitle:@"选择图片" forState:UIControlStateNormal];
@@ -26,15 +31,16 @@
     [selectBtn addTarget:self action:@selector(go2ImagePickerVC) forControlEvents:UIControlEventTouchUpInside];
  
     UIButton *back = [[UIButton alloc] initWithFrame:CGRectMake(20, kNavbarHeight+20, 50, 50)];
-    [back setTitle:@"返回" forState:UIControlStateNormal];
+    [back setTitle:@"跳转到下一个页面" forState:UIControlStateNormal];
     back.backgroundColor = [UIColor orangeColor];
     [self.view addSubview:back];
-    [back addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
+    [back addTarget:self action:@selector(go) forControlEvents:UIControlEventTouchUpInside];
 }
 
-- (void)back {
-    [self dismissViewControllerAnimated:YES completion:nil];
+- (void)go {
+    [self.navigationController pushViewController:[[ViewController  alloc] init] animated:YES];
 }
+
 
 - (void)go2ImagePickerVC {
     ZHImagePickerController *picker = [[ZHImagePickerController alloc] initWithMaxSelectedCount:9 selectedAssets:nil delegate:self];

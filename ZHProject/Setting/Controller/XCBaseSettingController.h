@@ -12,7 +12,7 @@
 #import "XCLabelItem.h"
 #import "XCCellGroupItem.h"
 #import "ZHBaseController.h"
-@interface XCBaseSettingController : ZHBaseController
+@interface XCBaseSettingController : UIViewController
 
 // XCCellGroupItem 对象集合
 @property (nonatomic, strong) NSArray<XCCellGroupItem *> *groupItems;

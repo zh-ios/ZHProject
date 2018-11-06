@@ -76,7 +76,7 @@
     scrollView.delegate = self;
     scrollView.dataSource = self;
     
-    
+    self.title = @"循环滚动";
     
     [scrollView reloadData];
 }

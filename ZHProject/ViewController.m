@@ -12,6 +12,7 @@
 #import "ZHTableViewCell.h"
 #import "ZZScrollNavigationBar.h"
 #import "SettingController.h"
+
 @interface ViewController ()<ZHBaseServiceDelegate,UITableViewDelegate,UITableViewDataSource,ZHImagePickerControllerDelegate,UIScrollViewDelegate>
 
 @property(nonatomic, strong) UITableView *tableView;
@@ -31,6 +32,7 @@
 @property (nonatomic, strong) NSMutableArray *arr;
 
 @property (nonatomic, strong) ZZScrollNavigationBar *bar;
+
 @end
 
 @implementation ViewController
@@ -42,32 +44,19 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.title = @"sssssss";
+    
 #ifdef DEBUG
     [[PerformanceMonitor sharedMonitor] startMonitor];
 #endif
     
-    UIButton *b = [[UIButton alloc] initWithFrame:CGRectMake(100, 100, 100, 100)];
-    b.backgroundColor = [[UIColor redColor] colorWithAlphaComponent:0.1];
-    [b addTarget:self action:@selector(b ) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:b];
-    
-    UIButton *bussines = [[UIButton alloc] initWithFrame:CGRectMake(100, 200, 100, 100)];
-    bussines.backgroundColor = [[UIColor orangeColor] colorWithAlphaComponent:0.1];
-    [bussines addTarget:self action:@selector(bussines ) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:bussines];
-    
-    ZZScrollNavigationBar *bar = [[ZZScrollNavigationBar alloc] initWithFrame:CGRectMake(0, 300, 200, 40)];
-    bar.titles = @[@"ssss",@"sdfaf",@"sadf"];
-    [self.view addSubview:bar];
-    [bar reloadData];
-    
-    UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 340, self.view.width, 100)];
-    scrollView.contentSize = CGSizeMake(self.view.width*bar.titles.count, 0);
-    [self.view addSubview:scrollView];
-    scrollView.delegate = self;
-    self.bar = bar;
+    self.view.backgroundColor = [UIColor orangeColor];
+
     
     SettingController *setting = [[SettingController alloc] init];
+    
+    
     [self.view addSubview:setting.view];
     [self addChildViewController:setting];
     

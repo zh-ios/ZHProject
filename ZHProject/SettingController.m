@@ -24,6 +24,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.title = @"哈哈护手霜";
+    
     XCArrowItem *item1 = [XCArrowItem itemWithIcon:nil title:@"滚动bar" targetCls:nil];
     
     __weak typeof(self)weakSelf = self;
@@ -37,13 +39,18 @@
         __strong typeof(weakSelf)strongSelf = weakSelf;
         CycleScollController *cycle = [[CycleScollController alloc] init];
         cycle.animationType = NaviAnimationType_Bottom2Top;
+        cycle.hidesBottomBarWhenPushed = YES;
+        cycle.title = @"循环滚动视图";
         [strongSelf.navigationController pushViewController:cycle animated:YES];
     };
     
     XCArrowItem *item4 = [XCArrowItem itemWithIcon:nil title:@"图片选择" targetCls:nil];
     item4.onClicked = ^(XCCellItem *item) {
         __strong typeof(weakSelf)strongSelf = weakSelf;
-        [strongSelf.navigationController pushViewController:[[ImagePickerController alloc] init] animated:YES];
+        ImagePickerController *picker = [[ImagePickerController alloc] init];
+        picker.hidesBottomBarWhenPushed = YES;
+        picker.title = @"图片选择";
+        [strongSelf.navigationController pushViewController:picker animated:YES];
     };
     
     XCCellGroupItem *group = [XCCellGroupItem itemWithItems:@[item1,item3,item4]];

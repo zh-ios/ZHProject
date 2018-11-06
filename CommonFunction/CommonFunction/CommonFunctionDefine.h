@@ -10,7 +10,7 @@
 #define ZHProjectDefine_h
 
 
-#define kIsIphoneX ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1125, 2436), [[UIScreen mainScreen] currentMode].size) : NO)
+#define kIsIphoneX ([UIScreen instancesRespondToSelector:@selector(currentMode)] ?  CGSizeEqualToSize(CGSizeMake(1125, 2436), [[UIScreen mainScreen] currentMode].size)||CGSizeEqualToSize(CGSizeMake(1242, 2688), [[UIScreen mainScreen] currentMode].size)||CGSizeEqualToSize(CGSizeMake(828, 1792), [[UIScreen mainScreen] currentMode].size) : NO)
 
 #define kNavbarHeight (kIsIphoneX ? 88 : 64)
 #define kTabbarHeight (kIsIphoneX ? 83 : 49)
@@ -19,6 +19,9 @@
 
 // 顶部的安全距离,包括状态栏的高度
 #define kTopSafeArea        (kIsIphoneX ? 44 : 20)
+
+#define kStatusBarHeight    ([[UIApplication sharedApplication] statusBarFrame].size.heigh)
+
 // iphoneX 顶部多出的距离
 #define kTopInsetAreaOfIphoneX      (kIsIphoneX ? (kTopSafeArea-20) : 0) 
 
