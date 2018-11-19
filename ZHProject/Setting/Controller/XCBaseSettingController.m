@@ -122,7 +122,7 @@ static NSString *const cellId = @"xccommonsetttingcellid";
         }
     }
     // 如果实现了block，自己去实现跳转逻辑 。
-    if ([item isKindOfClass:[XCArrowItem class]]&&item.onClicked) {
+    if (([item isKindOfClass:[XCArrowItem class]]||[item isKindOfClass:[XCLabelItem class]])&&item.onClicked) {
         item.onClicked(item);
     }
 }

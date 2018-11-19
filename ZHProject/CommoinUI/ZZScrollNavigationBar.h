@@ -13,6 +13,8 @@
 @property (nonatomic, copy) NSString *title;
 @property (nonatomic, assign) BOOL btnSelected;
 @property (nonatomic, strong) UIButton *titleBtn;
+@property (nonatomic, strong) UIColor *selectedTextColor;
+@property (nonatomic, strong) UIColor *normalTextColor;
 
 @end
 @class ZZScrollNavigationBar;
@@ -33,6 +35,14 @@
 @property (nonatomic, copy) UIColor *normalTextColor;
 @property (nonatomic, copy) UIColor *selectedTextColor;
 
+@property (nonatomic, assign) BOOL showBottomLineView;
+
+/**
+ 当标题较少时，平分屏幕的宽，进行填充
+ */
+@property (nonatomic, assign) BOOL useFlexibleWidth;
+
+
 - (void)reloadData;
 
 /**
@@ -41,5 +51,7 @@
 - (void)targetScollViewDidScroll:(UIScrollView *)scrollView;
 
 - (void)targetScrollViewDidEndDecelerating:(UIScrollView *)scrollView;
+
+
 
 @end

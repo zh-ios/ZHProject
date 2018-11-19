@@ -184,10 +184,10 @@
         } else {
             self.accessoryL.textColor = [UIColor lightGrayColor];
         }
-        if (self.item.onClicked) { // 如果实现了block 说明有点击事件，需要添加一个手势
-            UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(accessoryLOnClick)];
-            [self.accessoryL addGestureRecognizer:tap];
-        }
+//        if (self.item.onClicked) { // 如果实现了block 说明有点击事件，需要添加一个手势
+//            UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(accessoryLOnClick)];
+//            [self.accessoryL addGestureRecognizer:tap];
+//        }
     }
 }
 
@@ -211,11 +211,11 @@
     }
 }
 
-- (void)accessoryLOnClick {
-    if (self.item.onClicked) {
-        XCLabelItem *item = (XCLabelItem *)self.item;
-        self.item.onClicked(item);
-    }
-}
+//- (void)accessoryLOnClick {
+//    if (self.item.onClicked) {
+//        XCLabelItem *item = (XCLabelItem *)self.item;
+//        self.item.onClicked(item);
+//    }
+//}
 
 @end

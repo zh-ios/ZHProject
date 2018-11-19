@@ -28,11 +28,19 @@
     return self;
 }
 
+- (void)setSelectedTextColor:(UIColor *)selectedTextColor {
+    _selectedTextColor = selectedTextColor;
+    [_titleBtn setTitleColor:self.selectedTextColor forState:UIControlStateSelected];
+}
+
+- (void)setNormalTextColor:(UIColor *)normalTextColor {
+    _normalTextColor = normalTextColor;
+    [_titleBtn setTitleColor:self.normalTextColor forState:UIControlStateNormal];
+}
+
 - (void)initSubviews {
     _titleBtn = [[UIButton alloc] init];
-    [_titleBtn setTitleColor:[UIColor colorWithRed:1 green:(0) blue:(0) alpha:1] forState:UIControlStateSelected];
-    [_titleBtn setTitleColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:1] forState:UIControlStateNormal];
-    _titleBtn.titleLabel.font = [UIFont boldSystemFontOfSize:17];
+    _titleBtn.titleLabel.font = [UIFont boldSystemFontOfSize:16];
     [self.contentView addSubview:_titleBtn];
     _titleBtn.adjustsImageWhenHighlighted = NO;
     _titleBtn.userInteractionEnabled = NO;
@@ -69,9 +77,9 @@ static NSString *ZZScrollNavigationBarCellID = @"ZZScrollNavigationBarCellID";
         _layout = [[UICollectionViewFlowLayout alloc] init];
         _layout.minimumLineSpacing = 0;
         _layout.minimumInteritemSpacing = 0;
-        _layout.itemSize = CGSizeMake(50, 20);
         _layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
     }
+    
     return _layout;
 }
 
@@ -92,7 +100,6 @@ static NSString *ZZScrollNavigationBarCellID = @"ZZScrollNavigationBarCellID";
 - (UIView *)lineView {
     if (!_lineView) {
         _lineView = [[UIView alloc] init];
-        _lineView.backgroundColor = self.selectedTextColor;
         _lineView.layer.cornerRadius = 2;
         _lineView.layer.masksToBounds = YES;
         _lineView.frame = CGRectMake(0, self.height-4, self.originalW, 4);
@@ -127,10 +134,23 @@ static NSString *ZZScrollNavigationBarCellID = @"ZZScrollNavigationBarCellID";
         [self initSubviews];
         self.selectedIndex = 0;
         self.originalW = 18.0f;
-        self.selectedTextColor = [UIColor colorWithHexString:@"ff0000"];
-        self.normalTextColor = [UIColor colorWithHexString:@"000000"];
+        self.showBottomLineView = YES;
+        self.useFlexibleWidth = NO;
+        self.selectedTextColor = [UIColor blueColor];
+        self.normalTextColor = [UIColor orangeColor];
+        self.lineView.backgroundColor = self.selectedTextColor;
     }
     return self;
+}
+
+- (void)setSelectedTextColor:(UIColor *)selectedTextColor {
+    _selectedTextColor = selectedTextColor;
+    self.lineView.backgroundColor = selectedTextColor;
+}
+
+- (void)setShowBottomLineView:(BOOL)showBottomLineView {
+    _showBottomLineView = showBottomLineView;
+    self.lineView.hidden = !showBottomLineView;
 }
 
 - (void)layoutSubviews {
@@ -164,11 +184,16 @@ static NSString *ZZScrollNavigationBarCellID = @"ZZScrollNavigationBarCellID";
     } else {
         cell.btnSelected = NO;
     }
+    cell.selectedTextColor = self.selectedTextColor;
+    cell.normalTextColor = self.normalTextColor;
     return cell;
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     CGSize size = [self.itemSizeArr[indexPath.item] CGSizeValue];
+    if (self.useFlexibleWidth) {
+        size.width = self.width/self.itemSizeArr.count;
+    }
     return CGSizeMake(size.width, self.height);
 }
 
@@ -245,7 +270,7 @@ static NSString *ZZScrollNavigationBarCellID = @"ZZScrollNavigationBarCellID";
     UIColor *rightCellColor = [self getColorWithColor:self.normalTextColor andCoe:rate andMarginArray:rMarginArr];
     leftCell.titleBtn.titleLabel.textColor = leftCellColor;
     rightCell.titleBtn.titleLabel.textColor = rightCellColor;
-
+    
 
     self.lineView.width = self.originalW * (rate > 0.5?(1-rate)*zoom+1:rate*zoom+1);
     // 使用 缩放圆角会被拉伸！！

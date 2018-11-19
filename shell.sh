@@ -7,10 +7,10 @@ project_path_pre=~/Desktop/IPAFiles
 #project_path_pre=../${project_path} //当前工程上一级目录
 
 #工程名 将XXX替换成自己的工程名
-project_name=XXX
+project_name=FMProject
 
 #scheme名 将XXX替换成自己的sheme名
-scheme_name=XXX
+scheme_name=FMProject
 
 #打包模式 Debug/Release
 development_mode=Release
@@ -121,9 +121,9 @@ echo '///-------------'
 
 #上传到蒲公英
 #将XXX替换成自己蒲公英上的User Key
-uKey="XXXXXXXXXXXXXXX"
+uKey="cbc21addd54f448f6d061a259394aed2"
 #将XXX替换成自己蒲公英上的API Key
-apiKey="XXXXXXXXXXXXXXXXXXX"
+apiKey="3f19453b9afc55b935d550784ab7900b"
 #执行上传至蒲公英的命令
 echo "+++++上传到蒲公英平台+++++"
 curl -F "file=@${exportIpaPath}/${scheme_name}.ipa" -F "uKey=${uKey}" -F "_api_key=${apiKey}" http://www.pgyer.com/apiv1/app/upload
