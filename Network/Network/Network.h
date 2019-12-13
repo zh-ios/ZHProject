@@ -19,7 +19,6 @@ FOUNDATION_EXPORT const unsigned char NetworkVersionString[];
 
 #import "ZHBaseService.h"
 #import "ZHBatchRequest.h"
-#import "ZHTamperConfig.h"
 #import "ZHTamperGuard.h"
 //#import "ZHBaseServiceDelegate.h"
 #import "ZHDNSHttpManager.h"

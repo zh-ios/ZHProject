@@ -107,7 +107,6 @@
     self.display = displaylink;
     [displaylink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSRunLoopCommonModes];
     
-    
     self.semmphore = dispatch_semaphore_create(0);
     self.timeoutCount = 0;
     
@@ -196,26 +195,29 @@ static void runloopObserver(CFRunLoopObserverRef observer, CFRunLoopActivity act
     定时器回调
  */
 - (void)handleDisplayLink:(CADisplayLink *)link {
-    if (self.lastInterval == 0) {
-        self.lastInterval = link.timestamp;
+    static NSTimeInterval lastTime = 0;
+    static int frameCount = 0;
+    if (lastTime == 0) {
+        lastTime = link.timestamp;
         return;
     }
-   
-    self.count++;
-    NSTimeInterval interval = link.timestamp;
-    // 每隔一秒记录一次
-    NSTimeInterval delta = interval - self.lastInterval;
-    if (delta < 1) {
-        return;
-    }
-    self.lastInterval = link.timestamp;
-    self.fps = self.count / delta;
-    self.fpsL.text = [NSString stringWithFormat:@"fps:%@",@(self.fps)];
-    self.count = 0;
-    if (self.fps>=50) {
-        self.fpsL.textColor = [UIColor greenColor];
-    } else {
-        self.fpsL.textColor = [UIColor redColor];
+    //累计帧数
+    frameCount++;
+    //累计时间
+    NSTimeInterval passTime = link.timestamp - lastTime;
+    //1秒左右获取一次帧数
+    if (passTime > .5) {
+        //帧数 = 总帧数/时间
+        int fps = floor(frameCount/passTime);
+        //重置
+        lastTime = link.timestamp;
+        frameCount = 0;
+        self.fpsL.text = [NSString stringWithFormat:@"fps:%@",@(fps)];
+        if (fps>=50) {
+            self.fpsL.textColor = [UIColor greenColor];
+        } else {
+            self.fpsL.textColor = [UIColor redColor];
+        }
     }
 }
 

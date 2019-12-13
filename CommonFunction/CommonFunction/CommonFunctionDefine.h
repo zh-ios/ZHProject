@@ -16,7 +16,6 @@
 #define kTabbarHeight (kIsIphoneX ? 83 : 49)
 // 底部的安全距离
 #define kBottomSafeArea     (kIsIphoneX ? 35 : 0)
-
 // 顶部的安全距离,包括状态栏的高度
 #define kTopSafeArea        (kIsIphoneX ? 44 : 20)
 
@@ -28,3 +27,4 @@
 #define kRandomColor            [UIColor colorWithRed:arc4random_uniform(125)/255.0 green:arc4random_uniform(125)/255.0 blue:arc4random_uniform(125)/255.0 alpha:0.7]
 
 #endif /* ZHProjectDefine_h */
+

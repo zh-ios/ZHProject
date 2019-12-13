@@ -11,8 +11,6 @@
 		F912AF2D20CF70DB00393ECA /* Network.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F912AF2320CF70DB00393ECA /* Network.framework */; };
 		F912AF3220CF70DB00393ECA /* NetworkTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F912AF3120CF70DB00393ECA /* NetworkTests.m */; };
 		F912AF3420CF70DB00393ECA /* Network.h in Headers */ = {isa = PBXBuildFile; fileRef = F912AF2620CF70DB00393ECA /* Network.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		F912B03420CF721F00393ECA /* ZHTamperConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = F912AFE220CF721E00393ECA /* ZHTamperConfig.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		F912B03520CF721F00393ECA /* ZHTamperConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = F912AFE320CF721E00393ECA /* ZHTamperConfig.m */; };
 		F912B03620CF721F00393ECA /* ZHTamperGuard.h in Headers */ = {isa = PBXBuildFile; fileRef = F912AFE420CF721E00393ECA /* ZHTamperGuard.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F912B03720CF721F00393ECA /* ZHTamperGuard.m in Sources */ = {isa = PBXBuildFile; fileRef = F912AFE520CF721E00393ECA /* ZHTamperGuard.m */; };
 		F912B03820CF721F00393ECA /* MD5Tools.h in Headers */ = {isa = PBXBuildFile; fileRef = F912AFE720CF721E00393ECA /* MD5Tools.h */; };
@@ -105,8 +103,6 @@
 		F912AF2C20CF70DB00393ECA /* NetworkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NetworkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F912AF3120CF70DB00393ECA /* NetworkTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NetworkTests.m; sourceTree = "<group>"; };
 		F912AF3320CF70DB00393ECA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F912AFE220CF721E00393ECA /* ZHTamperConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZHTamperConfig.h; sourceTree = "<group>"; };
-		F912AFE320CF721E00393ECA /* ZHTamperConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZHTamperConfig.m; sourceTree = "<group>"; };
 		F912AFE420CF721E00393ECA /* ZHTamperGuard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZHTamperGuard.h; sourceTree = "<group>"; };
 		F912AFE520CF721E00393ECA /* ZHTamperGuard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZHTamperGuard.m; sourceTree = "<group>"; };
 		F912AFE720CF721E00393ECA /* MD5Tools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MD5Tools.h; sourceTree = "<group>"; };
@@ -272,8 +268,6 @@
 		F912AFE120CF721E00393ECA /* Tamper */ = {
 			isa = PBXGroup;
 			children = (
-				F912AFE220CF721E00393ECA /* ZHTamperConfig.h */,
-				F912AFE320CF721E00393ECA /* ZHTamperConfig.m */,
 				F912AFE420CF721E00393ECA /* ZHTamperGuard.h */,
 				F912AFE520CF721E00393ECA /* ZHTamperGuard.m */,
 			);
@@ -428,7 +422,6 @@
 				F912B06F20CF721F00393ECA /* ZHBatchRequestManager.h in Headers */,
 				F912B03B20CF721F00393ECA /* AFHTTPSessionManager.h in Headers */,
 				F912B04C20CF721F00393ECA /* AFImageDownloader.h in Headers */,
-				F912B03420CF721F00393ECA /* ZHTamperConfig.h in Headers */,
 				F912B03A20CF721F00393ECA /* AFCompatibilityMacros.h in Headers */,
 				F912B06620CF721F00393ECA /* ZHDNSResolveItem.h in Headers */,
 				F912B07A20CF721F00393ECA /* ZHRequestDelegate.h in Headers */,
@@ -577,7 +570,6 @@
 				F912B06920CF721F00393ECA /* ZHNetworkConfig.m in Sources */,
 				F912B07920CF721F00393ECA /* ZHRequest.m in Sources */,
 				F912B06520CF721F00393ECA /* ZHDNSIpService.m in Sources */,
-				F912B03520CF721F00393ECA /* ZHTamperConfig.m in Sources */,
 				F912B03F20CF721F00393ECA /* AFNetworkReachabilityManager.m in Sources */,
 				F912B05B20CF721F00393ECA /* UIRefreshControl+AFNetworking.m in Sources */,
 				F912B05F20CF721F00393ECA /* ZHDNSDes.m in Sources */,

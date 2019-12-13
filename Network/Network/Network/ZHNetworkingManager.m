@@ -8,7 +8,7 @@
 
 #import "ZHNetworkingManager.h"
 #import "ZHDNSHttpManager.h"
-#import "ZHTamperConfig.h"
+
 @interface ZHNetworkingManager()
 
 @end
@@ -39,17 +39,12 @@
 }
 
 - (void)addDomainsAndRefresh:(NSArray *)domains {
-    if ([[ZHTamperConfig sharedConfig] enableHttpDns]) {
-        [[ZHDNSHttpManager sharedManager] addDomainAndRefresh:domains];
-    }
+    [[ZHDNSHttpManager sharedManager] addDomainAndRefresh:domains];
 }
 
 - (NSString *)getIpUrlStrWithReallyUrlStr:(NSString *)reallyUrlStr requestUrlStr:(NSString *)urlStr {
-    if ([ZHTamperConfig sharedConfig].enableHttpDns) {
-        return  [[ZHDNSHttpManager sharedManager] getIpUrlStrWithReallyUrlStr:reallyUrlStr requestUrlStr:urlStr];
-    } else {
-        return reallyUrlStr;
-    }
+    return reallyUrlStr;
+//    return  [[ZHDNSHttpManager sharedManager] getIpUrlStrWithReallyUrlStr:reallyUrlStr requestUrlStr:urlStr];
 }
 
 - (void)setIpInvalidate:(NSString *)reallyUrlStr requestUrlStr:(NSString *)urlStr {

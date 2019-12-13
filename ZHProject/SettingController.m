@@ -10,8 +10,10 @@
 #import "ScrollNavigationController.h"
 #import "CycleScollController.h"
 #import "ImagePickerController.h"
-
+#import "ZHPopDownMenu.h"
 @interface SettingController ()
+
+@property (nonatomic, strong) ZHPopDownMenu *m ;
 
 @end
 
@@ -21,10 +23,25 @@
     [super viewWillAppear:animated];
 }
 
+- (void)b:(UIButton *)b {
+    ZHPopDownMenu *m = [[ZHPopDownMenu alloc] init];
+//    self.m = m;
+//    [m showMenuUnderView:b titles:@[@"sssss",@"aaaaa",@"ssss",@"cccc"] images:nil];
+    
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     self.title = @"哈哈护手霜";
+    
+    
+    UIButton *b = [[UIButton alloc] initWithFrame:CGRectMake(100, 100, 100, 100)];
+    
+    [self.view addSubview:b];
+    b.backgroundColor = [ UIColor redColor];
+    [b addTarget:self action:@selector(b:) forControlEvents:UIControlEventTouchUpInside];
+    
     
     XCArrowItem *item1 = [XCArrowItem itemWithIcon:nil title:@"滚动bar" targetCls:nil];
     
@@ -60,6 +77,8 @@
     headerView.backgroundColor = [[UIColor orangeColor] colorWithAlphaComponent:0.1];
     group.headerView = headerView;
     [self reloadData];
+    
+    
     
 }
 

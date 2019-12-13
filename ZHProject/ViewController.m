@@ -12,6 +12,7 @@
 #import "ZHTableViewCell.h"
 #import "ZZScrollNavigationBar.h"
 #import "SettingController.h"
+#import "ZHTagListView.h"
 
 @interface ViewController ()<ZHBaseServiceDelegate,UITableViewDelegate,UITableViewDataSource,ZHImagePickerControllerDelegate,UIScrollViewDelegate>
 

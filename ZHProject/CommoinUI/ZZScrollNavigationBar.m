@@ -251,7 +251,7 @@ static NSString *ZZScrollNavigationBarCellID = @"ZZScrollNavigationBarCellID";
     
     ZZScrollNavigationBarCell *leftCell = (ZZScrollNavigationBarCell *)[self.collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForItem:index inSection:0]];
     ZZScrollNavigationBarCell *rightCell = (ZZScrollNavigationBarCell *)[self.collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForItem:index+1 inSection:0]];
-    // lineView 跟cell 不在一个父视图，所以需要做一次转换 。nnd
+    // lineView 跟cell 不在一个父视图，所以需要做一次转换 。
     // collection的将其中的子视图的坐标转换到当前view上
     CGPoint lCenter = [self.collectionView convertPoint:leftCell.center toView:self];
     CGPoint rCenter = [self.collectionView convertPoint:rightCell.center toView:self];
@@ -268,6 +268,7 @@ static NSString *ZZScrollNavigationBarCellID = @"ZZScrollNavigationBarCellID";
     NSArray *rMarginArr = [self transColorBeginColor:self.normalTextColor andEndColor:self.selectedTextColor];
     UIColor *leftCellColor = [self getColorWithColor:self.selectedTextColor andCoe:rate andMarginArray:lMarginArr];
     UIColor *rightCellColor = [self getColorWithColor:self.normalTextColor andCoe:rate andMarginArray:rMarginArr];
+
     leftCell.titleBtn.titleLabel.textColor = leftCellColor;
     rightCell.titleBtn.titleLabel.textColor = rightCellColor;
     
@@ -277,18 +278,11 @@ static NSString *ZZScrollNavigationBarCellID = @"ZZScrollNavigationBarCellID";
 //  self.lineView.transform = CGAffineTransformMakeScale(rate > 0.5?(1-rate)*zoom+1:rate*zoom+1, 1);
 }
 
+
+
 - (NSArray *)getRGBDictionaryByColor:(UIColor *)originColor {
     CGFloat r=0,g=0,b=0,a=0;
-    if ([self respondsToSelector:@selector(getRed:green:blue:alpha:)]) {
-        [originColor getRed:&r green:&g blue:&b alpha:&a];
-    }
-    else {
-        const CGFloat *components = CGColorGetComponents(originColor.CGColor);
-        r = components[0];
-        g = components[1];
-        b = components[2];
-        a = components[3];
-    }
+    [originColor getRed:&r green:&g blue:&b alpha:&a];
     return @[@(r),@(g),@(b)];
 }
 
@@ -296,7 +290,9 @@ static NSString *ZZScrollNavigationBarCellID = @"ZZScrollNavigationBarCellID";
     NSArray<NSNumber *> *beginColorArr = [self getRGBDictionaryByColor:beginColor];
     NSArray<NSNumber *> *endColorArr = [self getRGBDictionaryByColor:endColor];
 
-    return @[@([endColorArr[0] doubleValue] - [beginColorArr[0] doubleValue]),@([endColorArr[1] doubleValue] - [beginColorArr[1] doubleValue]),@([endColorArr[2] doubleValue] - [beginColorArr[2] doubleValue])];
+    return @[@([endColorArr[0] doubleValue] - [beginColorArr[0] doubleValue]),
+             @([endColorArr[1] doubleValue] - [beginColorArr[1] doubleValue]),
+             @([endColorArr[2] doubleValue] - [beginColorArr[2] doubleValue])];
     
 }
 
@@ -306,7 +302,6 @@ static NSString *ZZScrollNavigationBarCellID = @"ZZScrollNavigationBarCellID";
     double green = [beginColorArr[1] doubleValue]+ coe * [marginArray[1] doubleValue];
     double blue = [beginColorArr[2] doubleValue] + coe * [marginArray[2] doubleValue];
     return [UIColor colorWithRed:red green:green blue:blue alpha:1];
-    
 }
 
 

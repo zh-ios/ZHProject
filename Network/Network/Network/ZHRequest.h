@@ -47,7 +47,6 @@ typedef NS_ENUM(NSInteger, ZHRequest_ResponseSerilalizerType) {
     ZHRequest_ResponseSerilalizerType_HTTP,
     // NSXMLParse Type
     ZHRequest_ResponseSerilalizerType_XML
-    
 };
 
 typedef void (^ConstructingFormDataBlock)(id<AFMultipartFormData> formData);
@@ -118,6 +117,8 @@ typedef void (^DownloadProcessBlock)(NSProgress *process);
  @abstract 默认JSON
  */
 @property(nonatomic, assign) ZHRequest_ResponseSerilalizerType responseSerilalizerType;
+
+
 
 /*!
  @property
